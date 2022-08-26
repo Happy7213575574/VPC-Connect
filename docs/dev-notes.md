@@ -120,16 +120,18 @@ Sensitive information will not be passed to the system log (viewable through adb
 
 The following packages are used across the solution:
 
-* [Firebase Push Notification plugin](https://github.com/CrossGeeks/FirebasePushNotificationPlugin), CrossGeeks
-* RestSharp (a RESTful HTTPS library)
-* sqlite-net-pcl (SQLite database)
-* Xamarin.Forms (shared UI library)
-* Xamarin.Essentials (shared device tools)
-* CsvHelper (CSV library)
-* Newtonsoft.Json (JSON library)
-* Xam.Plugins.Logging (logging support)
-* Xamarin.Firebase.Core
-* Xamarin.Firebase.Analytics
-* Xamarin.Firebase.Crashlytics
-* Xamarin.Firebase.iOS.Analytics
-* Xamarin.Firebase.iOS.Crashlytics
+| Package | Organisation | License | Usage notes |
+|-|-|-|-|
+| [Firebase Push Notification plugin](https://github.com/CrossGeeks/FirebasePushNotificationPlugin) | [CrossGeeks](https://github.com/CrossGeeks) | [MIT](https://github.com/CrossGeeks/FirebasePushNotificationPlugin/blob/master/LICENSE) | Push notification support |
+| [RestSharp](https://restsharp.dev/) | [RestSharp community](https://github.com/restsharp) | [Apache 2.0](https://github.com/restsharp/RestSharp/blob/dev/LICENSE.txt) | A RESTful HTTPS library |
+| [sqlite-net-pcl](https://github.com/praeclarum/sqlite-net) | [Frank Krueger](https://github.com/praeclarum) | [MIT](https://github.com/praeclarum/sqlite-net/blob/master/LICENSE.txt) | SQLite database |
+| [Xamarin.Forms](https://github.com/xamarin/Xamarin.Forms) | [Microsoft - Xamarin](https://github.com/xamarin) | [MIT](https://github.com/xamarin/Xamarin.Forms/blob/5.0.0/LICENSE) | Shared UI library |
+| [Xamarin.Essentials](https://github.com/xamarin/Essentials) | [Microsoft - Xamarin](https://github.com/xamarin) | [MIT](https://github.com/xamarin/Essentials/blob/main/LICENSE-CODE) | Shared device tools |
+| [CsvHelper](https://joshclose.github.io/CsvHelper/) | [Josh Close](https://joshclose.github.io/CsvHelper/) | [MS-PL and Apache 2.0](https://github.com/JoshClose/CsvHelper/blob/master/LICENSE.txt) | CSV library |
+| [Newtonsoft.Json](https://www.newtonsoft.com/json) | [Newtonsoft](https://www.newtonsoft.com/json) | [MIT](https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md) | JSON library |
+| [Xam.Plugins.Logging](https://github.com/nikolajskov/LoggingPlugin) | [Nikolaj Skov](https://github.com/nikolajskov) | [MIT](https://github.com/nikolajskov/LoggingPlugin/blob/master/LICENSE) | Logging support |
+| [Xamarin.Firebase.Core](https://github.com/xamarin/GooglePlayServicesComponents/) | [.NET Foundation](https://dotnetfoundation.org/projects) | [MIT](https://github.com/xamarin/GooglePlayServicesComponents/blob/main/LICENSE.md) | Firebase support (Android) |
+| [Xamarin.Firebase.Analytics](https://github.com/xamarin/GooglePlayServicesComponents) | [.NET Foundation](https://dotnetfoundation.org/projects) | [MIT](https://github.com/xamarin/GooglePlayServicesComponents/blob/main/LICENSE.md) | Analytics support (Android) |
+| [Xamarin.Firebase.Crashlytics](https://github.com/xamarin/GooglePlayServicesComponents) | [.NET Foundation](https://dotnetfoundation.org/projects) | [MIT](https://github.com/xamarin/GooglePlayServicesComponents/blob/main/LICENSE.md) | Crashlytics support (Android) |
+| [Xamarin.Firebase.iOS.Analytics](https://github.com/xamarin/GoogleApisForiOSComponents) | [.NET Foundation](https://dotnetfoundation.org/projects) | [MIT](https://github.com/xamarin/GooglePlayServicesComponents/blob/main/LICENSE.md) | Analytics support (iOS) |
+| [Xamarin.Firebase.iOS.Crashlytics](https://github.com/xamarin/GoogleApisForiOSComponents) | [.NET Foundation](https://dotnetfoundation.org/projects) | [MIT](https://github.com/xamarin/GooglePlayServicesComponents/blob/main/LICENSE.md) | Crashlytics support (iOS) |

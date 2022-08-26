@@ -9,6 +9,11 @@ Users may use it to:
 * Access key information quickly and easily.
 * View news and updates.
 
+## App store listings
+
+* [VPC Connect](https://apps.apple.com/us/app/vpc-connect/id1515015468) (Apple App Store)
+* [VPC Connect](https://play.google.com/store/apps/details?id=org.vpc.connect) (Google Play Store)
+
 For more information:
 
 * [VPC Connect developer documentation](https://policerewired.github.io/vpc-connect/) from this repository
