@@ -79,15 +79,11 @@ namespace PortalApi.Tests
 
             Assert.IsTrue(regResult.IsSuccess);
 
-            Thread.Sleep(3);
-
             var deregResult = await api.SubmitPortalDeregistrationAsync(
-                userToken.UserToken,
+                pushToken.ToString(),
                 deviceId);
 
             Assert.IsTrue(deregResult.IsSuccess);
         }
-
-
     }
 }
