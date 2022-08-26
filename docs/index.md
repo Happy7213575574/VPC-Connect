@@ -9,6 +9,11 @@ Users may use it to:
 * Access key information quickly and easily.
 * View news and updates.
 
+For more information:
+
+* [VPC Connect developer documentation](https://policerewired.github.io/vpc-connect/) from this repository
+* [VPC Connect project page](https://www.policerewired.org/home/projects/vpc-connect) at Police Rewired
+
 ## Documentation
 
 * [Analytics](analytics.md)

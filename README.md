@@ -13,4 +13,7 @@ Users may use it to:
 
 VPC Connect is built using .NET Core 3.1, and Xamarin. It uses Firebase Cloud Messaging (FCM) and Apple Push Notifications (APN) to deliver push notifications to Android and iOS devices.
 
-For more information about the project, see: https://www.policerewired.org/home/projects/vpc-connect
+For more information:
+
+* [VPC Connect developer documentation](https://policerewired.github.io/vpc-connect/) from this repository
+* [VPC Connect project page](https://www.policerewired.org/home/projects/vpc-connect) at Police Rewired
