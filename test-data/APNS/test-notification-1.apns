@@ -1,0 +1,9 @@
+{
+   "Simulator Target Bundle": "org.vpc.connect",
+   "aps" : {
+      "alert" : {
+         "title" : "Title 1",
+         "body" : "Test notification body 1 - with a small amount of text.",
+      }
+   }
+}

@@ -1,0 +1,75 @@
+﻿<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="ConnectApp.Pages.Templates.NotificationCell"
+          xmlns:local="clr-namespace:ConnectApp.Extensions">
+    <ViewCell.View>
+        <SwipeView>
+            <SwipeView.LeftItems>
+                <SwipeItems Mode="Reveal">
+                    <SwipeItem
+                        BackgroundColor="DarkGray"
+                        IconImageSource="{local:ImageResource ConnectApp.Images.archive-icon-white.png}"
+                        Text="Archive"
+                        Invoked="SwipeItem_Clicked"
+                        CommandParameter="{Binding Record}"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Archive button"
+                        />
+                </SwipeItems>
+            </SwipeView.LeftItems>
+
+            <StackLayout
+                BackgroundColor="White"
+                Orientation="Horizontal"
+                Padding="5">
+                <StackLayout Orientation="Vertical">
+                    <Image x:Name="icon"
+                        Aspect="AspectFit"
+                        HeightRequest="50"
+                        Source="{local:ImageResource ConnectApp.Images.notification-icon-1.png}"
+                        />
+                    <Label
+                        Text="{Binding DisplayDate}"
+                        FontSize="10"
+                        WidthRequest="70"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                        />
+                </StackLayout>
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Orientation="Vertical"
+                    Padding="5">
+                    <Label
+                        Text="{Binding DisplayText}"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        />
+                    <Label
+                        Text="{Binding DisplayContent}"
+                        FontSize="14"
+                        />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Padding="0,5,0,0">
+                    <Frame
+                        HasShadow="False"
+                        BackgroundColor="#ffffff"
+                        BorderColor="#aaaaaa"
+                        Padding="2">
+                    <Label
+                        Text="{Binding DisplayMessageCount}"
+                        FontAttributes="Bold"
+                        FontSize="10"
+                        BackgroundColor="White"
+                        TextColor="#aaaaaa"
+                        VerticalOptions="Start"
+                        VerticalTextAlignment="Start"
+                        />
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+
+        </SwipeView>
+    </ViewCell.View>
+</ViewCell>

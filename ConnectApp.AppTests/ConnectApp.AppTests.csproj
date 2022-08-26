@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.UITest.3.2.7\build\Xamarin.UITest.props" Condition="Exists('..\packages\Xamarin.UITest.3.2.7\build\Xamarin.UITest.props')" />
+  <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9E22048-1D59-4585-9126-CE87715BC2F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ConnectApp.AppTests</RootNamespace>
+    <AssemblyName>ConnectApp.AppTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.UITest">
+      <HintPath>..\packages\Xamarin.UITest.3.2.7\lib\net45\Xamarin.UITest.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInitializer.cs" />
+    <Compile Include="AbstractAppTests.cs" />
+    <Compile Include="BasicAppTests.cs" />
+    <Compile Include="UI\AuthorisationTests.cs" />
+    <Compile Include="UI\NotificationDisplayTests.cs" />
+    <Compile Include="UI\IdentifierTests.cs" />
+    <Compile Include="Helper\AppHelper.cs" />
+    <Compile Include="Helper\AccountHelper.cs" />
+    <Compile Include="AppTestsFixture.cs" />
+    <Compile Include="UI\AndroidNavigationTests.cs" />
+    <Compile Include="UI\UniversalNavigationTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConnectApp.Android\ConnectApp.Android.csproj">
+      <Project>{C003E19E-7A0C-4491-957B-178DDE761389}</Project>
+      <Name>ConnectApp.Android</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ConnectApp.iOS\ConnectApp.iOS.csproj">
+      <Project>{5E59978B-1C59-462A-BD6E-45576E8FF1BA}</Project>
+      <Name>ConnectApp.iOS</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ConnectApp\ConnectApp.csproj">
+      <Project>{7E58FF1E-4DE4-4063-9B66-43859D57EB06}</Project>
+      <Name>ConnectApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\" />
+    <Folder Include="Helper\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

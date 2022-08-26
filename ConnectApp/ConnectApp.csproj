@@ -1,0 +1,121 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <Description>Real-time notifications from the Volunteer Police Cadets Portal.</Description>
+    <Configurations>Debug-TestPortal;Release-TestPortal;Debug-LivePortal;Release-LivePortal</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-TestPortal|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG;TESTPORTAL;DEBUG_TESTPORTAL;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <IntermediateOutputPath>obj\Debug\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-TestPortal|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;RELEASE;TESTPORTAL;RELEASE_TESTPORTAL;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-LivePortal|AnyCPU' ">
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>TRACE;DEBUG;DEBUG_LIVEPORTAL;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <IntermediateOutputPath>obj\Debug\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-LivePortal|AnyCPU' ">
+    <IntermediateOutputPath>obj\Release\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0\netstandard2.0</IntermediateOutputPath>
+    <DebugType></DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;RELEASE;RELEASE_LIVEPORTAL;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
+    <PackageReference Include="Xam.Plugins.Logging" Version="1.1.1" />
+    <PackageReference Include="CsvHelper" Version="27.2.1" />
+    <PackageReference Include="Nito.AsyncEx.Coordination" Version="5.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="DTO\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Communication\" />
+    <Folder Include="Devices\" />
+    <Folder Include="Images\" />
+    <Folder Include="Text\" />
+    <Folder Include="Pages\Templates\" />
+    <Folder Include="Pages\HTML\" />
+    <Folder Include="Pages\Lists\" />
+    <Folder Include="Pages\Models\" />
+    <Folder Include="AppLog\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Analytics\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Images\VPCLogo.png" />
+    <None Remove="Images\vpc-logo.png" />
+    <None Remove="Images\vpc-portal-logo.png" />
+    <None Remove="Images\vpc-portal-shield.png" />
+    <None Remove="Images\hamburger.png" />
+    <None Remove="Images\hamburger-white.png" />
+    <None Remove="Images\notification-icon-2.png" />
+    <None Remove="Images\notification-icon-1.png" />
+    <None Remove="Pages\HTML\FeedPage.html" />
+    <None Remove="Pages\HTML\FeedPage %28copy%29.html" />
+    <None Remove="Pages\HTML\FeedPage %28another copy%29.html" />
+    <None Remove="Images\archive-icon-white.png" />
+    <None Remove="Images\icon-about.png" />
+    <None Remove="Images\icon-calendar.png" />
+    <None Remove="Images\icon-conversations.png" />
+    <None Remove="Images\icon-diary.png" />
+    <None Remove="Images\icon-message-boards.png" />
+    <None Remove="Images\icon-news.png" />
+    <None Remove="Images\icon-resources.png" />
+    <None Remove="Images\icon-safeguarding.png" />
+    <None Remove="Images\icon-summary.png" />
+    <None Remove="Nito.AsyncEx.Coordination" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\vpc-shield.png" />
+    <EmbeddedResource Include="Images\vpc-logo.png" />
+    <EmbeddedResource Include="Images\vpc-logo-white.png" />
+    <EmbeddedResource Include="Images\vpc-shield-white.png" />
+    <EmbeddedResource Include="Images\hamburger.png" />
+    <EmbeddedResource Include="Images\hamburger-white.png" />
+    <EmbeddedResource Include="Images\notification-icon-2.png" />
+    <EmbeddedResource Include="Images\notification-icon-1.png" />
+    <EmbeddedResource Include="Pages\HTML\MiniFeedPage.html" />
+    <EmbeddedResource Include="Pages\HTML\AllFeedPage.html" />
+    <EmbeddedResource Include="Pages\HTML\NationalFeedPage.html" />
+    <EmbeddedResource Include="Images\archive-icon-white.png" />
+    <EmbeddedResource Include="Images\icon-about.png" />
+    <EmbeddedResource Include="Images\icon-calendar.png" />
+    <EmbeddedResource Include="Images\icon-conversations.png" />
+    <EmbeddedResource Include="Images\icon-diary.png" />
+    <EmbeddedResource Include="Images\icon-message-boards.png" />
+    <EmbeddedResource Include="Images\icon-news.png" />
+    <EmbeddedResource Include="Images\icon-resources.png" />
+    <EmbeddedResource Include="Images\icon-safeguarding.png" />
+    <EmbeddedResource Include="Images\icon-summary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Pages\Templates\NotificationCell %28copy%29.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Templates\ArchivedNotificationCell.xaml.cs">
+      <DependentUpon>NotificationCell %28copy%29.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

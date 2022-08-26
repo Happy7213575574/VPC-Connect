@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ConnectApp.Extensions"
+    x:Class="ConnectApp.Pages.MainMasterPage"
+    Title="&#x2630;"
+    AutomationId="MenuX"
+    AutomationProperties.IsInAccessibleTree="true"
+    AutomationProperties.Name="MenuX">
+    <StackLayout>
+        <ListView x:Name="MenuItemsListView" SeparatorVisibility="None" HasUnevenRows="true" ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <ContentView BackgroundColor="#03A9F4" HeightRequest="100" Padding="15">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+                        <Label
+                            FontSize="12"
+                            TextColor="White"
+                            Text="{Binding DisplayVersion}"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="End"
+                            />
+                        <Label
+                            FontSize="12"
+                            TextColor="White"
+                            Text="{Binding DisplayEnvironment}"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="End"
+                            />
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Orientation="Horizontal">
+                            <Image
+                                Source="{local:ImageResource ConnectApp.Images.vpc-shield-white.png}"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                Aspect="AspectFill"
+                                />
+                            <Label
+                                TextColor="White"
+                                Text="VPC Connect"
+                                FontSize="18"
+                                HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                />
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <Label VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding Title}" FontSize="16" AutomationId="{Binding AutomationId}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

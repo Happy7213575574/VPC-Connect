@@ -1,0 +1,10 @@
+{
+   "Simulator Target Bundle": "org.vpc.connect",
+   "aps" : {
+      "content-available" : 1,
+      "alert" : {
+         "title" : "Title 2",
+         "body" : "Test notification body 2 - with a small amount of text. This is remote notification that should be processed even when the app is backgrounded.",
+      }
+   }
+}

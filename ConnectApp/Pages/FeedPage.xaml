@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ConnectApp.Extensions"
+    Title="News feed"
+    x:Class="ConnectApp.Pages.FeedPage">
+    <ContentPage.Content>
+
+        <WebView
+            Source="{local:WebResource ConnectApp.Pages.HTML.FeedPage.html}"
+            Navigating="WebView_NavigatingAsync"
+            />
+
+    </ContentPage.Content>
+</ContentPage>

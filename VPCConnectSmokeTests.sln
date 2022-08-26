@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalApi.Tests", "PortalApi.Tests\PortalApi.Tests.csproj", "{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectApp", "ConnectApp\ConnectApp.csproj", "{C3DAC047-49AF-418A-8383-5091EFE45BF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Any CPU = Release|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Debug-TestPortal|Any CPU = Debug-TestPortal|Any CPU
+		Release-TestPortal|Any CPU = Release-TestPortal|Any CPU
+		Debug-LivePortal|Any CPU = Debug-LivePortal|Any CPU
+		Release-LivePortal|Any CPU = Release-LivePortal|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Debug-TestPortal|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Debug-TestPortal|Any CPU.Build.0 = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Release-TestPortal|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Release-TestPortal|Any CPU.Build.0 = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Debug-LivePortal|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Debug-LivePortal|Any CPU.Build.0 = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Release-LivePortal|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EA9D9B-4BC5-4DB0-9DE0-259F07DC3247}.Release-LivePortal|Any CPU.Build.0 = Release|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Release|Any CPU.ActiveCfg = Release-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Release|Any CPU.Build.0 = Release-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Debug|Any CPU.ActiveCfg = Debug-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Debug|Any CPU.Build.0 = Debug-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Debug-TestPortal|Any CPU.ActiveCfg = Debug-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Debug-TestPortal|Any CPU.Build.0 = Debug-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Release-TestPortal|Any CPU.ActiveCfg = Release-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Release-TestPortal|Any CPU.Build.0 = Release-TestPortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Debug-LivePortal|Any CPU.ActiveCfg = Debug-LivePortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Debug-LivePortal|Any CPU.Build.0 = Debug-LivePortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Release-LivePortal|Any CPU.ActiveCfg = Release-LivePortal|Any CPU
+		{C3DAC047-49AF-418A-8383-5091EFE45BF9}.Release-LivePortal|Any CPU.Build.0 = Release-LivePortal|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F42A57E-D213-400A-BE1C-AD90967D3125}
+	EndGlobalSection
+EndGlobal
