@@ -79,15 +79,13 @@ namespace PortalApi.Tests
 
             Assert.IsTrue(regResult.IsSuccess);
 
-            Thread.Sleep(3);
-
+            // NB. providing the push token here does not seem fully correct.
+            // TODO: raise this with portal team - it would make sense to require the user token.
             var deregResult = await api.SubmitPortalDeregistrationAsync(
-                userToken.UserToken,
+                pushToken.ToString(),
                 deviceId);
 
             Assert.IsTrue(deregResult.IsSuccess);
         }
-
-
     }
 }
