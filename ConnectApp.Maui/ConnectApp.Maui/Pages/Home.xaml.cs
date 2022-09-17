@@ -1,15 +1,19 @@
-﻿namespace ConnectApp.Maui.Pages;
+﻿using Plugin.Firebase.CloudMessaging;
+
+namespace ConnectApp.Maui.Pages;
 
 public partial class Home : ContentPage
 {
-	int count = 0;
+	int count;
+	bool enabled;
 
 	public Home()
 	{
 		InitializeComponent();
-	}
+		count = Preferences.Get("count", 0); // init from persisted
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void OnCounterClicked(object sender, EventArgs e)
 	{
 		count++;
 
@@ -18,8 +22,14 @@ public partial class Home : ContentPage
 		else
 			CounterBtn.Text = $"Clicked {count} times";
 
+		Preferences.Set("count", count); // persist across user sessions
+
 		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+
+        await CrossFirebaseCloudMessaging.Current.CheckIfValidAsync();
+        var token = await CrossFirebaseCloudMessaging.Current.GetTokenAsync();
+        await DisplayAlert("FCM token", token, "OK");
+    }
 }
 
 

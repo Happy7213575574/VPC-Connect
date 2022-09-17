@@ -1,10 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<TargetFrameworks>net6.0-android;net6.0-ios</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>ConnectApp.Maui</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -23,16 +20,29 @@
 		<ApplicationVersion>1</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
 	  <EnableCodeSigning>false</EnableCodeSigning>
 	</PropertyGroup>
+
+	<!-- push notifications Android -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+		<GoogleServicesJson Include="google-services.json" />
+	</ItemGroup>
+
+	<!-- push notifications iOS-->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
+		<BundleResource Include="GoogleService-Info.plist" />
+	</ItemGroup>
+
+	<!-- push notifications Android -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.7.10" ExcludeAssets="build;buildTransitive" />
+	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.7.10" ExcludeAssets="build;buildTransitive" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -50,10 +60,22 @@
 
 	<ItemGroup>
 	  <None Remove="Pages\" />
+	  <None Remove="Data\" />
+	  <None Remove="sqlite-net" />
+	  <None Remove="sqlite-net-pcl" />
+	  <None Remove="Data\Entities\" />
+	  <None Remove="Plugin.Firebase" />
+	  <None Remove="GoogleService-Info.plist" />
+	  <None Remove="Services\" />
 	</ItemGroup>
+
 	<ItemGroup>
 	  <Folder Include="Pages\" />
+	  <Folder Include="Data\" />
+	  <Folder Include="Data\Entities\" />
+	  <Folder Include="Services\" />
 	</ItemGroup>
+
 	<ItemGroup>
 	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\MainPage.xaml">
 	    <SubType>Designer</SubType>
@@ -61,5 +83,13 @@
 	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Home.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="Plugin.Firebase" Version="1.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <GoogleServicesJson Include="GoogleService-Info.plist" />
 	</ItemGroup>
 </Project>
