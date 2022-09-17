@@ -3,13 +3,59 @@
     x:Class="ConnectApp.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ConnectApp.Maui"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:local="clr-namespace:ConnectApp.Maui">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Home">
+        <Tab>
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:Pages.Home}"
+                Route="home" />
+        </Tab>
+    </FlyoutItem>
 
+    <FlyoutItem Title="Connection">
+        <Tab>
+            <ShellContent
+                Title="Connection"
+                ContentTemplate="{DataTemplate local:Pages.Home}"
+                Route="connection" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Notifications">
+        <Tab>
+            <ShellContent
+                Title="Notifications"
+                ContentTemplate="{DataTemplate local:Pages.Home}"
+                Route="notifications" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="News feeds">
+        <Tab>
+            <ShellContent
+                Title="News feeds"
+                ContentTemplate="{DataTemplate local:Pages.Home}"
+                Route="newsfeeds" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Safeguarding">
+        <Tab>
+            <ShellContent
+                Title="Safeguarding"
+                ContentTemplate="{DataTemplate local:Pages.Home}"
+                Route="safeguarding" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Archive">
+        <Tab>
+            <ShellContent
+                Title="Archive"
+                ContentTemplate="{DataTemplate local:Pages.Home}"
+                Route="archive" />
+        </Tab>
+    </FlyoutItem>
 </Shell>
-
