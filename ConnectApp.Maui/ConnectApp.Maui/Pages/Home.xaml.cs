@@ -31,5 +31,3 @@ public partial class Home : ContentPage
         await DisplayAlert("FCM token", token, "OK");
     }
 }
-
-

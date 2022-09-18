@@ -3,6 +3,7 @@ using Plugin.Firebase.Auth;
 using Plugin.Firebase.Shared;
 using Plugin.Firebase.CloudMessaging;
 using ConnectApp.Maui.Services;
+using Firebase;
 #if IOS
 using Plugin.Firebase.iOS;
 #else

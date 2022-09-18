@@ -1,4 +1,6 @@
-﻿namespace ConnectApp.Maui;
+﻿using Firebase;
+
+namespace ConnectApp.Maui;
 
 public partial class App : Application
 {
@@ -7,6 +9,7 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
-	}
+
+    }
 }
 

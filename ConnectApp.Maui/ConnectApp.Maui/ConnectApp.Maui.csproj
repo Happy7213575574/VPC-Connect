@@ -9,10 +9,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>ConnectApp.Maui</ApplicationTitle>
+		<ApplicationTitle>VPC Connect</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.connectapp.maui</ApplicationId>
+		<ApplicationId>org.vpc.connect</ApplicationId>
 		<ApplicationIdGuid>7f249401-4029-45fa-9eaa-c1863d825dce</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -25,9 +25,13 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
 	  <EnableCodeSigning>false</EnableCodeSigning>
+	  <CodesignKey>iPhone Developer</CodesignKey>
 	</PropertyGroup>
 
 	<!-- push notifications Android -->
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <WarningLevel>4</WarningLevel>
+	</PropertyGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
 		<GoogleServicesJson Include="google-services.json" />
 	</ItemGroup>

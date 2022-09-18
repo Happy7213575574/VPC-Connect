@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Firebase;
 using Plugin.Firebase.CloudMessaging;
 
 namespace ConnectApp.Maui;
