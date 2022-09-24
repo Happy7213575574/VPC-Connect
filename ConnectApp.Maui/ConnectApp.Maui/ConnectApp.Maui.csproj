@@ -82,7 +82,6 @@
 	  <None Remove="Microsoft.Extensions.Logging.Debug" />
 	  <None Remove="Microsoft.Extensions.Logging.Console" />
 	  <None Remove="Text\" />
-	  <None Remove="Pages\HTML\" />
 	  <None Remove="Pages\Lists\" />
 	  <None Remove="Pages\Models\" />
 	  <None Remove="Pages\Templates\" />
@@ -110,6 +109,9 @@
 	  <None Remove="Resources\Images\vpc-shield.png" />
 	  <None Remove="SQLitePCLRaw.core" />
 	  <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
+	  <None Remove="Resources\Raw\AllFeedPage.html" />
+	  <None Remove="Resources\Raw\MiniFeedPage.html" />
+	  <None Remove="Resources\Raw\NationalFeedPage.html" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -122,7 +124,6 @@
 	  <Folder Include="Api\DTO\" />
 	  <Folder Include="Devices\" />
 	  <Folder Include="Text\" />
-	  <Folder Include="Pages\HTML\" />
 	  <Folder Include="Pages\Lists\" />
 	  <Folder Include="Pages\Models\" />
 	  <Folder Include="Pages\Templates\" />
@@ -171,5 +172,10 @@
 	  <PackageReference Include="CsvHelper" Version="28.0.1" />
 	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiAsset Remove="Resources\Raw\AllFeedPage.html" />
+	  <MauiAsset Remove="Resources\Raw\MiniFeedPage.html" />
+	  <MauiAsset Remove="Resources\Raw\NationalFeedPage.html" />
 	</ItemGroup>
 </Project>

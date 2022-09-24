@@ -1,7 +1,7 @@
 ﻿namespace ConnectApp.Maui.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TwitterFeedsPage : TabbedPage
+    public partial class TwitterFeedsPage : ContentPage
     {
         public TwitterFeedsPage()
         {
