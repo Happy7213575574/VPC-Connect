@@ -177,12 +177,11 @@ public partial class App : Application
         VersionTracking.Track();
 
         // when there's a new token, we need to run our cycle of checks
-
         CrossFirebaseCloudMessaging.Current.TokenChanged += async (source, args) =>
         {
-            Log.Info("Token Refresh", false);
+            Log.Info("Token changed", false);
             Log.Verbose("Token: " + args.Token ?? "(null)", true);
-            Analytics?.SendEvent("PushEvent", "Event", "TokenRefresh");
+            Analytics?.SendEvent("PushEvent", "Event", "TokenChanged");
 
             // Debug here to catch token refresh events
             if (string.IsNullOrWhiteSpace(Config.PushToken) || !Config.PushToken.Equals(args.Token))
@@ -211,6 +210,10 @@ public partial class App : Application
             var notification = StoreReceivedNotification(args.Notification.Data);
             OnNotificationReceived?.Invoke(notification);
         };
+
+
+        Log.Debug("Initiating firebase cloud messaging check...", false);
+        CrossFirebaseCloudMessaging.Current.CheckIfValidAsync().SafeFireAndForget(true);
 
         // initialise the UI
         main = new AppShell();
@@ -278,6 +281,7 @@ public partial class App : Application
     private PushConfiguration InitConfiguration()
     {
         var config = Db.GetPushConfiguration();
+        Log.Verbose(config == null ? "No push config found." : "Retrieved a push config record.", false);
         return config ?? new PushConfiguration();
     }
 

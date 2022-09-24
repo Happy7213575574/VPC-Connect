@@ -17,16 +17,23 @@
 
                 <!-- header and content portion -->
                 <ScrollView VerticalOptions="FillAndExpand" AutomationId="HomeScrollView">
-                    <StackLayout>
+                    <StackLayout VerticalOptions="Start" Padding="0,10,0,0" Orientation="Vertical">
 
-                        <!-- header -->
-                        <StackLayout VerticalOptions="Start" Padding="10,40,10,0">
-                            <ImageButton
+                        <Grid ColumnDefinitions="*,*,*,*,*,*,*">
+                            <Image
                                 Source="vpc_logo.png"
                                 BackgroundColor="Transparent"
                                 Aspect="AspectFit"
+                                HorizontalOptions="Center"
                                 AutomationId="ImageBtn: MainLogo"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="5"
                                 />
+                        </Grid>
+
+                        <!-- header -->
+                        <StackLayout VerticalOptions="Start" Padding="10,0,10,0">
                             <Label FontSize="20" TextColor="#003A69" FontAttributes="Bold" Text="VPC Connect" HorizontalTextAlignment="Center" />
                             <Label FontSize="14" TextColor="#37ACD9" FontAttributes="Bold" Text="cadet communications centre" HorizontalTextAlignment="Center" />
                             <!--<Label FontSize="12" TextColor="#AAAAAA" Text="{Binding DisplayVersion}" HorizontalTextAlignment="Center" />-->

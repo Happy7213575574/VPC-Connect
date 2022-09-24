@@ -32,7 +32,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="News feeds">
+    <FlyoutItem Title="News feeds" Icon="icon_news.png">
         <Tab>
             <ShellContent
                 Title="News feeds"
@@ -68,4 +68,17 @@
         </Tab>
     </FlyoutItem>
 
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.2*,0.8*">
+                <Image Source="{Binding FlyoutIcon}"
+                       Margin="5"
+                       HeightRequest="45" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontAttributes="Bold"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 </Shell>
