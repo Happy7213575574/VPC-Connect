@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<p:BaseAppContentPage x:TypeArguments="p:Models.HomePageModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ConnectApp.Maui.Pages.HomePage"
+    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
+    xmlns:templates="clr-namespace:ConnectApp.Maui.Pages.Templates"
+    xmlns:local="clr-namespace:ConnectApp.Maui.Extensions;assembly=ConnectApp.Maui"
+    Title="VPC Connect">
+    <p:BaseAppContentPage.Content>
+
+        <AbsoluteLayout>
+            <StackLayout
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.5,0.5,1.0,1.0"
+                VerticalOptions="FillAndExpand">
+
+                <!-- header and content portion -->
+                <ScrollView VerticalOptions="FillAndExpand" AutomationId="HomeScrollView">
+                    <StackLayout>
+
+                        <!-- header -->
+                        <StackLayout VerticalOptions="Start" Padding="10,40,10,0">
+                            <ImageButton
+                                Source="vpc_logo.png"
+                                BackgroundColor="Transparent"
+                                Aspect="AspectFit"
+                                AutomationId="ImageBtn: MainLogo"
+                                />
+                            <Label FontSize="20" TextColor="#003A69" FontAttributes="Bold" Text="VPC Connect" HorizontalTextAlignment="Center" />
+                            <Label FontSize="14" TextColor="#37ACD9" FontAttributes="Bold" Text="cadet communications centre" HorizontalTextAlignment="Center" />
+                            <!--<Label FontSize="12" TextColor="#AAAAAA" Text="{Binding DisplayVersion}" HorizontalTextAlignment="Center" />-->
+                        </StackLayout>
+
+                        <!-- content -->
+                        <ContentView Padding="15,10">
+                            <StackLayout Orientation="Vertical">
+
+                                <!-- notification registration success -->
+                                <Frame
+                                    HasShadow="False"
+                                    BackgroundColor="#ffffff"
+                                    BorderColor="#44aa44"
+                                    Padding="5"
+                                    IsVisible="{Binding ShowRegistrationSuccess}">
+                                    <Label
+                                        TextColor="#44aa44"
+                                        FontSize="16"
+                                        FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"
+                                        Text="Registered for notifications." />
+                                </Frame>
+
+                                <!-- notification registration instruction -->
+                                <Frame
+                                    HasShadow="False"
+                                    BackgroundColor="#ffffff"
+                                    BorderColor="#003A69"
+                                    IsVisible="{Binding ShowRegistrationInstruction}"
+                                    Padding="10">
+                                    <StackLayout>
+                                        <Label
+                                            TextColor="#003A69"
+                                            FontSize="16"
+                                            FontAttributes="Bold"
+                                            Text="Please register this app to receive notifications."
+                                            />
+                                        <Label
+                                            TextColor="#003A69"
+                                            FontSize="14"
+                                            Text="You will need the username and password you use to sign in to the Volunteer Cadets portal."
+                                            />
+                                        <Button
+                                            BackgroundColor="#003A69"
+                                            TextColor="#ffffff"
+                                            HorizontalOptions="Fill"
+                                            Clicked="Register_Clicked"
+                                            Margin="0,5,0,0"
+                                            Text="Register"
+                                            AutomationId="Register"
+                                            AutomationProperties.IsInAccessibleTree="true"
+                                            AutomationProperties.Name="Register"
+                                            />
+                                    </StackLayout>
+                                </Frame>
+
+                                <!-- grid items 1, 2 -->
+                                <Grid
+                                    Margin="0,5,0,0"
+                                    ColumnSpacing="12">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Row="0" Grid.Column="0"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_news.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="News link"
+                                                       Text="News"
+                                                       FontSize="16" FontAttributes="Bold" />
+                                            </StackLayout>
+                                            <Label Text="Catch up on the latest news from the National VPC, your local cadet group, or the Mini Police." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="page:TwitterFeedsPage"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+
+                                    <Frame Grid.Row="0" Grid.Column="1"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_safeguarding.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="Safeguarding link"
+                                                       Text="Safeguarding"
+                                                       FontSize="16" FontAttributes="Bold" />
+                                            </StackLayout>
+                                            <Label Text="Read our safeguarding statement, or contact the National Safeguarding Manager directly." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="page:SafeguardingPage"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </Grid>
+
+                                <!-- recent notifications -->
+                                <Frame
+                                    IsVisible="{Binding RecentNotificationsVisible}"
+                                    BorderColor="#003A69"
+                                    HasShadow="False"
+                                    Padding="10"
+                                    Margin="0,5,0,0">
+                                    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
+                                                Text="Recent notifications"
+                                                FontSize="14"
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="Start"
+                                                />
+                                            <Label
+                                                AutomationProperties.IsInAccessibleTree="true"
+                                                AutomationProperties.Name="All notifications link"
+                                                AutomationProperties.HelpText="Click for all notifications"
+                                                Text="See all..."
+                                                TextColor="#37ACD9"
+                                                FontSize="14"
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="EndAndExpand"
+                                                HorizontalTextAlignment="End">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="SeeAll_Tapped" />
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <ListView
+                                            AutomationId="RecentNotificationsList"
+                                            ItemsSource="{Binding RecentNotifications}"
+                                            HasUnevenRows="True"
+                                            ItemTapped="ListView_ItemTapped"
+                                            VerticalOptions="Start"
+                                            HeightRequest="150">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <templates:NotificationCell />
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </StackLayout>
+                                </Frame>
+
+                                <!-- visit the portal -->
+                                <Frame Grid.Row="0" Grid.Column="0"
+                                       BorderColor="#3A693A"
+                                       Margin="0,5,0,0"
+                                       Padding="10"
+                                       HasShadow="False">
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image
+                                                WidthRequest="16"
+                                                HeightRequest="16"
+                                                Source="icon_summary.png"
+                                                />
+                                            <Label
+                                                AutomationProperties.IsInAccessibleTree="true"
+                                                AutomationProperties.Name="Summary link"
+                                                Text="Visit the portal" FontSize="16" FontAttributes="Bold"
+                                                />
+                                        </StackLayout>
+                                        <Label Text="See your personal summary on the portal." FontSize="14" />
+                                    </StackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="{Binding PortalSummaryUri}"
+                                            />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+
+                                <!-- grid items 3, 4 -->
+                                <Grid
+                                    Margin="0,5,0,0"
+                                    ColumnSpacing="12">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Row="0" Grid.Column="0"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_diary.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="Diary link"
+                                                       Text="Diary" FontSize="16" FontAttributes="Bold"
+                                                       />
+                                            </StackLayout>
+                                            <Label Text="See your diary on the portal." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="{Binding PortalDiaryUri}"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+
+                                    <Frame Grid.Row="0" Grid.Column="1"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_calendar.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="Calendar link"
+                                                       Text="Calendar" FontSize="16" FontAttributes="Bold" />
+                                            </StackLayout>
+                                            <Label Text="See your calendar on the portal." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="{Binding PortalCalendarUri}"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </Grid>
+
+                                <!-- grid items 5, 6 -->
+                                <Grid
+                                    Margin="0,5,0,0"
+                                    ColumnSpacing="12">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Row="0" Grid.Column="0"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_conversations.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="Conversations link"
+                                                       Text="Conversations" FontSize="16" FontAttributes="Bold"
+                                                       />
+                                            </StackLayout>
+                                            <Label Text="See your conversations on the portal." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="{Binding PortalConversationsUri}"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+
+                                    <Frame Grid.Row="0" Grid.Column="1"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_message_boards.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="Message boards link"
+                                                       Text="Message boards" FontSize="16" FontAttributes="Bold" />
+                                            </StackLayout>
+                                            <Label Text="See the message boards on the portal." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="{Binding PortalMessageBoardsUri}"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </Grid>
+
+                                <!-- grid items 7, 8 -->
+                                <Grid
+                                    Margin="0,5,0,0"
+                                    ColumnSpacing="12">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Row="0" Grid.Column="0"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_resources.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="Resources link"
+                                                       Text="Resources" FontSize="16" FontAttributes="Bold"
+                                                       />
+                                            </StackLayout>
+                                            <Label Text="See essential tools for leaders and cadets." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="{Binding PortalResourcesUri}"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+
+                                    <Frame Grid.Row="0" Grid.Column="1"
+                                           BorderColor="#003A69"
+                                           Padding="10"
+                                           HasShadow="False">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image
+                                                    WidthRequest="16"
+                                                    HeightRequest="16"
+                                                    Source="icon_about.png"
+                                                    />
+                                                <Label AutomationProperties.IsInAccessibleTree="true"
+                                                       AutomationProperties.Name="About link"
+                                                       Text="About" FontSize="16" FontAttributes="Bold" />
+                                            </StackLayout>
+                                            <Label Text="This app was built for the Volunteer Police Cadets by volunteers from Police Rewired. Find out more..." FontSize="14" />
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding TapLinkCommand}"
+                                                CommandParameter="https://policerewired.org/home/projects/vpc-connect"
+                                                />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </Grid>
+
+                            </StackLayout>
+                        </ContentView>
+
+                    </StackLayout><!-- page header and content -->
+                </ScrollView><!-- scrollable portion -->
+
+                <!-- state footer-->
+                <StackLayout Orientation="Horizontal" VerticalOptions="End"
+                             BackgroundColor="#cccccc"
+                             Padding="5">
+                    <Label FontSize="14" FontAttributes="Bold"
+                           Text="{Binding AppStateStr}"
+                           HorizontalOptions="FillAndExpand"
+                           LineBreakMode="TailTruncation"
+                           />
+                    <Label FontSize="14" FontAttributes="Bold"
+                           Text="TEST portal"
+                           TextColor="Red"
+                           IsVisible="{Binding ShowTestPortalIndicator}"
+                           HorizontalOptions="End" />
+                </StackLayout>
+
+            </StackLayout>
+        </AbsoluteLayout>
+
+    </p:BaseAppContentPage.Content>
+</p:BaseAppContentPage>

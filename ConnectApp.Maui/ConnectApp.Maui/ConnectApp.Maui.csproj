@@ -16,8 +16,8 @@
 		<ApplicationIdGuid>7f249401-4029-45fa-9eaa-c1863d825dce</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>2.0</ApplicationDisplayVersion>
+		<ApplicationVersion>20</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
@@ -28,10 +28,11 @@
 	  <CodesignKey>iPhone Developer</CodesignKey>
 	</PropertyGroup>
 
-	<!-- push notifications Android -->
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	  <WarningLevel>4</WarningLevel>
 	</PropertyGroup>
+
+	<!-- push notifications Android -->
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
 		<GoogleServicesJson Include="google-services.json" />
 	</ItemGroup>
@@ -39,6 +40,7 @@
 	<!-- push notifications iOS-->
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
 		<BundleResource Include="GoogleService-Info.plist" />
+		<GoogleServicesJson Include="GoogleService-Info.plist" />
 	</ItemGroup>
 
 	<!-- push notifications Android -->
@@ -71,6 +73,43 @@
 	  <None Remove="Plugin.Firebase" />
 	  <None Remove="GoogleService-Info.plist" />
 	  <None Remove="Services\" />
+	  <None Remove="AppLog\" />
+	  <None Remove="Api\" />
+	  <None Remove="Nito.AsyncEx" />
+	  <None Remove="RestSharp" />
+	  <None Remove="Api\DTO\" />
+	  <None Remove="Devices\" />
+	  <None Remove="Microsoft.Extensions.Logging.Debug" />
+	  <None Remove="Microsoft.Extensions.Logging.Console" />
+	  <None Remove="Text\" />
+	  <None Remove="Pages\HTML\" />
+	  <None Remove="Pages\Lists\" />
+	  <None Remove="Pages\Models\" />
+	  <None Remove="Pages\Templates\" />
+	  <None Remove="Extensions\" />
+	  <None Remove="Analytics\" />
+	  <None Remove="CsvHelper" />
+	  <None Remove="ConnectApp\" />
+	  <None Remove="Resources\Images\archive-icon-white.png" />
+	  <None Remove="Resources\Images\hamburger-white.png" />
+	  <None Remove="Resources\Images\hamburger.png" />
+	  <None Remove="Resources\Images\icon-about.png" />
+	  <None Remove="Resources\Images\icon-calendar.png" />
+	  <None Remove="Resources\Images\icon-conversations.png" />
+	  <None Remove="Resources\Images\icon-diary.png" />
+	  <None Remove="Resources\Images\icon-message-boards.png" />
+	  <None Remove="Resources\Images\icon-news.png" />
+	  <None Remove="Resources\Images\icon-resources.png" />
+	  <None Remove="Resources\Images\icon-safeguarding.png" />
+	  <None Remove="Resources\Images\icon-summary.png" />
+	  <None Remove="Resources\Images\notification-icon-1.png" />
+	  <None Remove="Resources\Images\notification-icon-2.png" />
+	  <None Remove="Resources\Images\vpc-logo-white.png" />
+	  <None Remove="Resources\Images\vpc-logo.png" />
+	  <None Remove="Resources\Images\vpc-shield-white.png" />
+	  <None Remove="Resources\Images\vpc-shield.png" />
+	  <None Remove="SQLitePCLRaw.core" />
+	  <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -78,22 +117,59 @@
 	  <Folder Include="Data\" />
 	  <Folder Include="Data\Entities\" />
 	  <Folder Include="Services\" />
+	  <Folder Include="AppLog\" />
+	  <Folder Include="Api\" />
+	  <Folder Include="Api\DTO\" />
+	  <Folder Include="Devices\" />
+	  <Folder Include="Text\" />
+	  <Folder Include="Pages\HTML\" />
+	  <Folder Include="Pages\Lists\" />
+	  <Folder Include="Pages\Models\" />
+	  <Folder Include="Pages\Templates\" />
+	  <Folder Include="Extensions\" />
+	  <Folder Include="Analytics\" />
+	  <Folder Include="ConnectApp\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\MainPage.xaml">
-	    <SubType>Designer</SubType>
+	  <MauiXaml Update="Pages\ArchivedNotificationsPage.xaml">
+	    <SubType></SubType>
 	  </MauiXaml>
-	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Home.xaml">
-	    <SubType>Designer</SubType>
+	  <MauiXaml Update="Pages\ConnectionPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\DebugPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\HomePage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\NotificationsPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SafeguardingPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\TwitterFeedsPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Templates\ArchivedNotificationViewCell.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Templates\NotificationCell.xaml">
+	    <SubType></SubType>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	  <PackageReference Include="Plugin.Firebase" Version="1.2.0" />
-	</ItemGroup>
-	<ItemGroup>
-	  <GoogleServicesJson Include="GoogleService-Info.plist" />
+	  <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
+	  <PackageReference Include="RestSharp" Version="108.0.2" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+	  <PackageReference Include="CsvHelper" Version="28.0.1" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
 	</ItemGroup>
 </Project>

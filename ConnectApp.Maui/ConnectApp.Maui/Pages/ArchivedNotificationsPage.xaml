@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<p:BaseAppContentPage x:TypeArguments="p:Models.ArchivedNotificationsPageViewModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ConnectApp.Maui.Pages.ArchivedNotificationsPage"
+    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
+    xmlns:templates="clr-namespace:ConnectApp.Maui.Pages.Templates"
+    Title="Archived Notifications">
+    <p:BaseAppContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <!-- notifications list -->
+            <ListView
+                IsVisible="{Binding ShowList}"
+                ItemsSource="{Binding ArchivedNotifications}"
+                HasUnevenRows="True"
+                ItemTapped="ListView_ItemTapped"
+                VerticalOptions="FillAndExpand"
+                AutomationId="NotificationsList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <templates:ArchivedNotificationViewCell />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- no notifications visible -->
+            <Frame IsVisible="{Binding ShowNoList}" Margin="20" Padding="10">
+                <Label Text="No archived notifications." />
+            </Frame>
+
+        </StackLayout>
+    </p:BaseAppContentPage.Content>
+</p:BaseAppContentPage>

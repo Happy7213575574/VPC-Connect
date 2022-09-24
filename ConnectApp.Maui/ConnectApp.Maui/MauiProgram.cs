@@ -4,6 +4,7 @@ using Plugin.Firebase.Shared;
 using Plugin.Firebase.CloudMessaging;
 using ConnectApp.Maui.Services;
 using Firebase;
+using Microsoft.Extensions.Logging;
 #if IOS
 using Plugin.Firebase.iOS;
 #else
@@ -20,6 +21,7 @@ public static class MauiProgram
             .CreateBuilder()
             .UseMauiApp<App>()
             .RegisterFonts()
+            .RegisterLogging()
             .RegisterServices()
             .RegisterFirebaseServices()
             .Build();
@@ -27,11 +29,22 @@ public static class MauiProgram
 
     private static MauiAppBuilder RegisterFonts(this MauiAppBuilder builder)
     {
-        return builder.ConfigureFonts(fonts =>
-             {
-                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-             });
+        builder.ConfigureFonts(fonts =>
+        {
+            fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+            fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+        });
+        return builder;
+    }
+
+    private static MauiAppBuilder RegisterLogging(this MauiAppBuilder builder)
+    {
+        builder.Services.AddLogging(logging =>
+        {
+            logging.AddDebug();
+            logging.AddConsole();
+        });
+        return builder;
     }
 
     private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)

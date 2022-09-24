@@ -3,7 +3,7 @@ namespace ConnectApp.Maui.Data
 {
     public static class DbConstants
     {
-        public const int Version = 3;
+        public const int Version = 4;
 
         public const string DatabaseFilename = "vpc_connect.db3";
 
@@ -17,7 +17,7 @@ namespace ConnectApp.Maui.Data
         {
             get
             {
-                var basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                var basePath = FileSystem.Current.AppDataDirectory;
                 return Path.Combine(basePath, DatabaseFilename);
             }
         }

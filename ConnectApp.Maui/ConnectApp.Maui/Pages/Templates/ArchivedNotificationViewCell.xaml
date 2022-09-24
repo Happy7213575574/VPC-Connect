@@ -1,0 +1,61 @@
+﻿<ViewCell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="ConnectApp.Maui.Pages.Templates.ArchivedNotificationViewCell"
+          xmlns:local="clr-namespace:ConnectApp.Maui.Extensions">
+    <ViewCell.View>
+        <StackLayout
+            BackgroundColor="White"
+            Orientation="Horizontal"
+            Padding="5">
+            <StackLayout Orientation="Vertical">
+                <Image x:Name="icon"
+                    Aspect="AspectFit"
+                    HeightRequest="50"
+                    Source="notification_icon_1.png"
+                    />
+                <Label
+                    Text="{Binding DisplayDate}"
+                    FontSize="10"
+                    WidthRequest="70"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    />
+            </StackLayout>
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Padding="5">
+                <Label
+                    Text="{Binding DisplayText}"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="#444444"
+                    />
+                <Label
+                    Text="{Binding DisplayContent}"
+                    FontSize="14"
+                    TextColor="#444444"
+                    />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="0,5,0,0">
+                <Frame
+                    HasShadow="False"
+                    BackgroundColor="#ffffff"
+                    BorderColor="#aaaaaa"
+                    Padding="2">
+                <Label
+                    Text="A"
+                    FontAttributes="Bold"
+                    FontSize="10"
+                    BackgroundColor="White"
+                    TextColor="#aaaaaa"
+                    VerticalOptions="Start"
+                    VerticalTextAlignment="Start"
+                    />
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+
+    </ViewCell.View>
+</ViewCell>

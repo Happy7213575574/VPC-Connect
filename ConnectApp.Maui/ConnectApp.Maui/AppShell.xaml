@@ -3,14 +3,14 @@
     x:Class="ConnectApp.Maui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ConnectApp.Maui">
+    xmlns:pages="clr-namespace:ConnectApp.Maui.Pages">
 
     <FlyoutItem Title="Home">
         <Tab>
             <ShellContent
                 Title="Home"
-                ContentTemplate="{DataTemplate local:Pages.Home}"
-                Route="home" />
+                ContentTemplate="{DataTemplate pages:HomePage}"
+                Route="homepage" />
         </Tab>
     </FlyoutItem>
 
@@ -18,8 +18,8 @@
         <Tab>
             <ShellContent
                 Title="Connection"
-                ContentTemplate="{DataTemplate local:Pages.Home}"
-                Route="connection" />
+                ContentTemplate="{DataTemplate pages:ConnectionPage}"
+                Route="connectionpage" />
         </Tab>
     </FlyoutItem>
 
@@ -27,8 +27,8 @@
         <Tab>
             <ShellContent
                 Title="Notifications"
-                ContentTemplate="{DataTemplate local:Pages.Home}"
-                Route="notifications" />
+                ContentTemplate="{DataTemplate pages:NotificationsPage}"
+                Route="notificationspage" />
         </Tab>
     </FlyoutItem>
 
@@ -36,8 +36,8 @@
         <Tab>
             <ShellContent
                 Title="News feeds"
-                ContentTemplate="{DataTemplate local:Pages.Home}"
-                Route="newsfeeds" />
+                ContentTemplate="{DataTemplate pages:TwitterFeedsPage}"
+                Route="twitterfeedspage" />
         </Tab>
     </FlyoutItem>
 
@@ -45,8 +45,8 @@
         <Tab>
             <ShellContent
                 Title="Safeguarding"
-                ContentTemplate="{DataTemplate local:Pages.Home}"
-                Route="safeguarding" />
+                ContentTemplate="{DataTemplate pages:SafeguardingPage}"
+                Route="safeguardingpage" />
         </Tab>
     </FlyoutItem>
 
@@ -54,8 +54,18 @@
         <Tab>
             <ShellContent
                 Title="Archive"
-                ContentTemplate="{DataTemplate local:Pages.Home}"
-                Route="archive" />
+                ContentTemplate="{DataTemplate pages:ArchivedNotificationsPage}"
+                Route="archivednotificationspage" />
         </Tab>
     </FlyoutItem>
+
+    <FlyoutItem Title="Debug">
+        <Tab>
+            <ShellContent
+                Title="Debug"
+                ContentTemplate="{DataTemplate pages:DebugPage}"
+                Route="debugpage" />
+        </Tab>
+    </FlyoutItem>
+
 </Shell>
