@@ -56,12 +56,12 @@
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
-		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiFont Include="Resources\Fonts\*" />
-
-		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<!-- Maui types -->
+		<MauiImage Include="Resources\Images\*.svg" />
+		<MauiImage Include="Resources\Images\*.png" />
+		<MauiFont Include="Resources\Fonts\*.ttf" />
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="Resources\Styles\*.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -88,30 +88,36 @@
 	  <None Remove="Extensions\" />
 	  <None Remove="Analytics\" />
 	  <None Remove="CsvHelper" />
-	  <None Remove="ConnectApp\" />
-	  <None Remove="Resources\Images\archive-icon-white.png" />
-	  <None Remove="Resources\Images\hamburger-white.png" />
+	  <None Remove="Resources\Images\archive_icon_white.png" />
+	  <None Remove="Resources\Images\hamburger_white.png" />
 	  <None Remove="Resources\Images\hamburger.png" />
-	  <None Remove="Resources\Images\icon-about.png" />
-	  <None Remove="Resources\Images\icon-calendar.png" />
-	  <None Remove="Resources\Images\icon-conversations.png" />
-	  <None Remove="Resources\Images\icon-diary.png" />
-	  <None Remove="Resources\Images\icon-message-boards.png" />
-	  <None Remove="Resources\Images\icon-news.png" />
-	  <None Remove="Resources\Images\icon-resources.png" />
-	  <None Remove="Resources\Images\icon-safeguarding.png" />
-	  <None Remove="Resources\Images\icon-summary.png" />
-	  <None Remove="Resources\Images\notification-icon-1.png" />
-	  <None Remove="Resources\Images\notification-icon-2.png" />
-	  <None Remove="Resources\Images\vpc-logo-white.png" />
-	  <None Remove="Resources\Images\vpc-logo.png" />
-	  <None Remove="Resources\Images\vpc-shield-white.png" />
-	  <None Remove="Resources\Images\vpc-shield.png" />
+	  <None Remove="Resources\Images\icon_about.png" />
+	  <None Remove="Resources\Images\icon_calendar.png" />
+	  <None Remove="Resources\Images\icon_conversations.png" />
+	  <None Remove="Resources\Images\icon_diary.png" />
+	  <None Remove="Resources\Images\icon_message_boards.png" />
+	  <None Remove="Resources\Images\icon_news.png" />
+	  <None Remove="Resources\Images\icon_resources.png" />
+	  <None Remove="Resources\Images\icon_safeguarding.png" />
+	  <None Remove="Resources\Images\icon_summary.png" />
+	  <None Remove="Resources\Images\notification_icon_a.png" />
+	  <None Remove="Resources\Images\notification_icon_b.png" />
+	  <None Remove="Resources\Images\vpc_logo_white.png" />
+	  <None Remove="Resources\Images\vpc_logo.png" />
+	  <None Remove="Resources\Images\vpc_shield_white.png" />
+	  <None Remove="Resources\Images\vpc_shield.png" />
 	  <None Remove="SQLitePCLRaw.core" />
 	  <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
 	  <None Remove="Resources\Raw\AllFeedPage.html" />
 	  <None Remove="Resources\Raw\MiniFeedPage.html" />
 	  <None Remove="Resources\Raw\NationalFeedPage.html" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\connection.svg" />
+	  <None Remove="Resources\Images\inbox.svg" />
+	  <None Remove="Resources\Images\news.svg" />
+	  <None Remove="Resources\Images\shield.svg" />
+	  <None Remove="Resources\Images\archive.svg" />
+	  <None Remove="Resources\Images\debug.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -129,37 +135,6 @@
 	  <Folder Include="Pages\Templates\" />
 	  <Folder Include="Extensions\" />
 	  <Folder Include="Analytics\" />
-	  <Folder Include="ConnectApp\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\ArchivedNotificationsPage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\ConnectionPage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\DebugPage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\HomePage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\NotificationsPage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SafeguardingPage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\TwitterFeedsPage.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\Templates\ArchivedNotificationViewCell.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\Templates\NotificationCell.xaml">
-	    <SubType></SubType>
-	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -173,9 +148,5 @@
 	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
 	</ItemGroup>
-	<ItemGroup>
-	  <MauiAsset Remove="Resources\Raw\AllFeedPage.html" />
-	  <MauiAsset Remove="Resources\Raw\MiniFeedPage.html" />
-	  <MauiAsset Remove="Resources\Raw\NationalFeedPage.html" />
-	</ItemGroup>
+	
 </Project>

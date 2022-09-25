@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:ConnectApp.Maui.Pages">
 
-    <FlyoutItem Title="Home">
+    <FlyoutItem Title="Home" Icon="home.png">
         <Tab>
             <ShellContent
                 Title="Home"
@@ -14,7 +14,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Connection">
+    <FlyoutItem Title="Connection" Icon="connection.png">
         <Tab>
             <ShellContent
                 Title="Connection"
@@ -23,7 +23,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Notifications">
+    <FlyoutItem Title="Notifications" Icon="inbox.png">
         <Tab>
             <ShellContent
                 Title="Notifications"
@@ -32,7 +32,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="News feeds" Icon="icon_news.png">
+    <FlyoutItem Title="News feeds" Icon="news.png">
         <Tab>
             <ShellContent
                 Title="News feeds"
@@ -41,7 +41,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Safeguarding">
+    <FlyoutItem Title="Safeguarding" Icon="shield.png">
         <Tab>
             <ShellContent
                 Title="Safeguarding"
@@ -50,7 +50,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Archive">
+    <FlyoutItem Title="Archive" Icon="archive.png">
         <Tab>
             <ShellContent
                 Title="Archive"
@@ -59,7 +59,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Debug">
+    <FlyoutItem Title="Debug" Icon="debug.png">
         <Tab>
             <ShellContent
                 Title="Debug"
@@ -70,11 +70,13 @@
 
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Grid ColumnDefinitions="0.2*,0.8*">
-                <Image Source="{Binding FlyoutIcon}"
-                       Margin="5"
-                       HeightRequest="45" />
-                <Label Grid.Column="1"
+            <Grid ColumnDefinitions="40,10,*" Margin="10,10,0,0">
+                <Image Grid.Column="0"
+                       Source="{Binding FlyoutIcon}"
+                       WidthRequest="40"
+                       HeightRequest="40"
+                       BackgroundColor="Transparent" />
+                <Label Grid.Column="2"
                        Text="{Binding Title}"
                        FontAttributes="Bold"
                        VerticalTextAlignment="Center" />
