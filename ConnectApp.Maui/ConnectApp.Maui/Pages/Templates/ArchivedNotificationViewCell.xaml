@@ -11,7 +11,7 @@
                 <Image x:Name="icon"
                     Aspect="AspectFit"
                     HeightRequest="50"
-                    Source="notification_icon_1.png"
+                    Source="notification_icon_a.png"
                     />
                 <Label
                     Text="{Binding DisplayDate}"
