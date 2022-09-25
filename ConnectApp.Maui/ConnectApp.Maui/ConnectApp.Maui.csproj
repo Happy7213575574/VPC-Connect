@@ -61,7 +61,7 @@
 		<MauiImage Include="Resources\Images\*.png" />
 		<MauiFont Include="Resources\Fonts\*.ttf" />
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-		<MauiAsset Include="Resources\Styles\*.xaml" />
+		<MauiAsset Include="Resources\Styles\*.xaml" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
 	<ItemGroup>
