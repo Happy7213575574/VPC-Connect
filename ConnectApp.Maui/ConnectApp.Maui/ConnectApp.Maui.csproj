@@ -118,6 +118,9 @@
 	  <None Remove="Resources\Images\shield.svg" />
 	  <None Remove="Resources\Images\archive.svg" />
 	  <None Remove="Resources\Images\debug.svg" />
+	  <None Remove="SQLitePCLRaw.provider.e_sqlite3" />
+	  <None Remove="SQLitePCLRaw.bundle_green" />
+	  <None Remove="SQLitePCLRaw.provider.sqlite3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -138,15 +141,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	  <PackageReference Include="Plugin.Firebase" Version="1.2.0" />
 	  <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
 	  <PackageReference Include="RestSharp" Version="108.0.2" />
 	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
 	  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
-	  <PackageReference Include="CsvHelper" Version="28.0.1" />
+	  <PackageReference Include="CsvHelper" Version="29.0.0" />
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
 	</ItemGroup>
 	
 </Project>
