@@ -121,6 +121,9 @@
 	  <None Remove="SQLitePCLRaw.provider.e_sqlite3" />
 	  <None Remove="SQLitePCLRaw.bundle_green" />
 	  <None Remove="SQLitePCLRaw.provider.sqlite3" />
+	  <None Remove="Pages\Controls\" />
+	  <None Remove="CommunityToolkit.Maui" />
+	  <None Remove="Pages\Resources\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -138,6 +141,8 @@
 	  <Folder Include="Pages\Templates\" />
 	  <Folder Include="Extensions\" />
 	  <Folder Include="Analytics\" />
+	  <Folder Include="Pages\Controls\" />
+	  <Folder Include="Pages\Resources\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -152,6 +157,24 @@
 	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
 	</ItemGroup>
 	
+	<ItemGroup>
+	  <MauiXaml Update="Pages\Controls\HeadingControl.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Controls\NiceFrame.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Controls\RegistrationNotificationsView.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Resources\ColourKey.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Resources\Alignments.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	</ItemGroup>
 </Project>

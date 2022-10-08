@@ -61,7 +61,15 @@ namespace ConnectApp.Maui.Pages
 
                 if (existing != null)
                 {
-                    Model.AllNotifications.Remove(existing);
+                    try
+                    {
+                        Model.AllNotifications.Remove(existing);
+                    }
+                    catch (Exception e)
+                    {
+                        // weird exception thrown when removing the last item
+                        log.Exception(e);
+                    }
                 }
             });
         }

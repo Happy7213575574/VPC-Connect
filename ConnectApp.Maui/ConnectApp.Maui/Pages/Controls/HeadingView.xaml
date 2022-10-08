@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConnectApp.Maui.Pages.Controls.HeadingView">
+    <Grid ColumnDefinitions="*,5*,*" RowDefinitions="Auto,Auto" Margin="0,0,0,10">
+        <Image
+            Grid.Row="0" Grid.Column="1"
+            Source="vpc_logo.png"
+            BackgroundColor="Transparent"
+            Aspect="AspectFit"
+            HorizontalOptions="Fill"
+            AutomationId="ImageBtn: MainLogo"
+            />
+        <StackLayout
+            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+            VerticalOptions="Start" Padding="10,0,10,0">
+            <Label FontSize="20" TextColor="#003A69" FontAttributes="Bold" Text="VPC Connect" HorizontalTextAlignment="Center" />
+            <Label FontSize="14" TextColor="#37ACD9" FontAttributes="Bold" Text="cadet communications centre" HorizontalTextAlignment="Center" />
+        </StackLayout>
+    </Grid>
+</ContentView>

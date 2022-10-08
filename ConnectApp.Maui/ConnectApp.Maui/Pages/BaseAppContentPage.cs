@@ -136,7 +136,15 @@ namespace ConnectApp.Maui.Pages
             {
                 Dispatcher.Dispatch(() =>
                 {
-                    Model.RecentNotifications.Remove(found);
+                    try
+                    {
+                        Model.RecentNotifications.Remove(found);
+                    }
+                    catch (Exception e)
+                    {
+                        // weird exception thrown when removing the last item
+                        log.Exception(e);
+                    }
                 });
             }
         }

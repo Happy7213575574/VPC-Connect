@@ -5,6 +5,7 @@ using Plugin.Firebase.CloudMessaging;
 using ConnectApp.Maui.Services;
 using Firebase;
 using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
 #if IOS
 using Plugin.Firebase.iOS;
 #else
@@ -20,6 +21,7 @@ public static class MauiProgram
         return MauiApp
             .CreateBuilder()
             .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
             .RegisterFonts()
             .RegisterLogging()
             .RegisterServices()
