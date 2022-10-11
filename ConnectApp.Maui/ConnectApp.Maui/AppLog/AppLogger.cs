@@ -45,7 +45,13 @@ namespace ConnectApp.Maui.AppLog
         {
             AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
             {
-                SystemLog(LogEntry.LogLevel.Warning, "First chance exception: " + eventArgs.Exception.Message);
+                SystemLog(
+                    LogEntry.LogLevel.Warning,
+                    "First chance exception: " + eventArgs.Exception.Message);
+                SystemLog(
+                    LogEntry.LogLevel.Debug,
+                        eventArgs.Exception.ToString());
+
                 Exception(eventArgs.Exception);
             };
         }

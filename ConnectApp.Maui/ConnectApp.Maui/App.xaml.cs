@@ -132,8 +132,8 @@ public partial class App : Application
         Db = new ConnectAppData();
         Log = new AppLogger(Db).For(this);
         Log.Debug("Db and log ready.", false);
-        //Log.RegisterForExceptions();
-        //Log.Debug("Registered for first chance exceptions.", false);
+        Log.RegisterForExceptions();
+        Log.Debug("Registered for first chance exceptions.", false);
 
         Log.Info("App creation.", false);
         Instance = this;
