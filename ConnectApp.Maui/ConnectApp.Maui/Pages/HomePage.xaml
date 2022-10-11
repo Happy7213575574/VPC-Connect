@@ -118,7 +118,7 @@
                                     HasUnevenRows="True"
                                     ItemTapped="ListView_ItemTapped"
                                     VerticalOptions="Start"
-                                    HeightRequest="150">
+                                    HeightRequest="250">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <t:NotificationCell />

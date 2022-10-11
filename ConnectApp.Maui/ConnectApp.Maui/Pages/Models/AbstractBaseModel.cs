@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using ConnectApp.Maui.Api;
+using ConnectApp.Maui.Data.Entities;
 using ConnectApp.Maui.Pages.Lists;
 using ConnectApp.Maui.Text;
 using static ConnectApp.Maui.App;

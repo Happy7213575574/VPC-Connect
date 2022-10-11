@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Input;
 using ConnectApp.Maui.Api;
 using ConnectApp.Maui.Data.Entities;
 using ConnectApp.Maui.Extensions;
@@ -8,9 +9,14 @@ namespace ConnectApp.Maui.Pages.Lists
 {
     public class NotificationListItem : INotifyPropertyChanged
     {
+        private App app;
+
         public NotificationListItem(NotificationRecord record)
         {
+            app = App.Current as App;
+
             Record = record;
+            ArchiveNotificationCommand = new Command(OnArchiveNotificationRequested);
         }
 
         private Uri CalculateUri(NotificationRecord record)
@@ -88,5 +94,31 @@ namespace ConnectApp.Maui.Pages.Lists
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public ICommand ArchiveNotificationCommand { get; private set; }
+
+        void OnArchiveNotificationRequested(object parameter)
+        {
+            var record = (NotificationRecord)parameter;
+
+            if (record != null && record.NotificationId.HasValue)
+            {
+                app.Log.Debug("Requesting deletion of NotificationId: " + record.NotificationId.Value, false);
+                app.RequestNotificationDeletion(record);
+            }
+            else
+            {
+                if (record == null)
+                {
+                    app.Log.Error("No record found to delete.", false);
+                }
+                if (record != null && (record.NotificationId == null || !record.NotificationId.HasValue))
+                {
+                    app.Log.Error("Record for deletion does not have a NotificationId.", false);
+                }
+            }
+        }
+
     }
 }

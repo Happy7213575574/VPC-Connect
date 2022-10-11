@@ -14,8 +14,8 @@
         <StackLayout
             Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
             VerticalOptions="Start" Padding="10,0,10,0">
-            <Label FontSize="20" TextColor="#003A69" FontAttributes="Bold" Text="VPC Connect" HorizontalTextAlignment="Center" />
-            <Label FontSize="14" TextColor="#37ACD9" FontAttributes="Bold" Text="cadet communications centre" HorizontalTextAlignment="Center" />
+            <Label FontSize="20" TextColor="{StaticResource FrameColour}" FontAttributes="Bold" Text="VPC Connect" HorizontalTextAlignment="Center" />
+            <Label FontSize="14" TextColor="{StaticResource HighlightColour}" FontAttributes="Bold" Text="cadet communications centre" HorizontalTextAlignment="Center" />
         </StackLayout>
     </Grid>
 </ContentView>

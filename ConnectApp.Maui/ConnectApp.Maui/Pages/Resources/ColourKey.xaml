@@ -5,6 +5,7 @@
 
     <Color x:Key="FrameColour">#003A69</Color>
     <Color x:Key="AltFrameColour">#3A693A</Color>
+    <Color x:Key="HighlightColour">#37ACD9</Color>
     <Color x:Key="PositiveNotificationColour">#44aa44</Color>
     <Color x:Key="NegativeNotificationColour">Red</Color>
 
