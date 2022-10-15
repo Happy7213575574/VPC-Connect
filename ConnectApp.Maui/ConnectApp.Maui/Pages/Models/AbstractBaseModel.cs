@@ -33,9 +33,11 @@ namespace ConnectApp.Maui.Pages.Models
 
         void OnLinkTapped(object parameter)
         {
-            string uri = (string)parameter;
+            string uri = parameter as string ?? (parameter as Uri)?.ToString();
             OnUriRequested?.Invoke(uri);
         }
+
+        public event Action<string> OnUriRequested;
 
         private AppActivity appState;
         public AppActivity AppState
@@ -115,7 +117,5 @@ namespace ConnectApp.Maui.Pages.Models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public event Action<string> OnUriRequested;
     }
 }

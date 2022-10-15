@@ -30,7 +30,7 @@ namespace ConnectApp.Maui.Pages
 
             Model.ArchivedNotifications =
                 new ObservableCollection<NotificationListItem>(
-                    notifications.Select(n => new NotificationListItem(n)));
+                    notifications.Select(n => new NotificationListItem(n, Model.TapLinkCommand)));
 
             app.OnNotificationsErased += App_OnNotificationsErased;
         }

@@ -30,7 +30,7 @@ namespace ConnectApp.Maui.Pages
 
             Model.AllNotifications =
                 new ObservableCollection<NotificationListItem>(
-                    notifications.Select(n => new NotificationListItem(n)));
+                    notifications.Select(n => new NotificationListItem(n, Model.TapLinkCommand)));
 
             app.OnNotificationReceived += App_OnNotificationReceived;
             app.OnNotificationsErased += App_OnNotificationsErased;
@@ -87,7 +87,7 @@ namespace ConnectApp.Maui.Pages
         {
             // Unlike RecentNotifications, AllNotifications "doesn't" have a "limit".
             // (Well, the limit is "very high".) We assume it's always safe to insert.
-            Model.AllNotifications.Insert(0, new NotificationListItem(notification));
+            Model.AllNotifications.Insert(0, new NotificationListItem(notification, Model.TapLinkCommand));
         }
 
         protected override void OnAppActivity(App.AppActivity state)

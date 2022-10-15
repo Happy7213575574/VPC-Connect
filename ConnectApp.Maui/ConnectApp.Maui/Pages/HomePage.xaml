@@ -112,19 +112,18 @@
                                         </Label.GestureRecognizers>
                                     </Label>
                                 </StackLayout>
-                                <ListView
+                                <CollectionView
                                     AutomationId="RecentNotificationsList"
                                     ItemsSource="{Binding RecentNotifications}"
-                                    HasUnevenRows="True"
-                                    ItemTapped="ListView_ItemTapped"
                                     VerticalOptions="Start"
                                     HeightRequest="250">
-                                    <ListView.ItemTemplate>
+                                    <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <t:NotificationCell />
+                                            <t:NotificationItemDataTemplate />
                                         </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
                             </StackLayout>
                         </Border>
 

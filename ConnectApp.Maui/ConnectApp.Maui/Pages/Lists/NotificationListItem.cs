@@ -4,6 +4,7 @@ using System.Windows.Input;
 using ConnectApp.Maui.Api;
 using ConnectApp.Maui.Data.Entities;
 using ConnectApp.Maui.Extensions;
+using ConnectApp.Maui.Pages.Models;
 
 namespace ConnectApp.Maui.Pages.Lists
 {
@@ -11,12 +12,13 @@ namespace ConnectApp.Maui.Pages.Lists
     {
         private App app;
 
-        public NotificationListItem(NotificationRecord record)
+        public NotificationListItem(NotificationRecord record, ICommand tapCommand)
         {
-            app = App.Current as App;
+            app = App.Instance;
 
             Record = record;
             ArchiveNotificationCommand = new Command(OnArchiveNotificationRequested);
+            TapCommand = tapCommand;
         }
 
         private Uri CalculateUri(NotificationRecord record)
@@ -95,6 +97,7 @@ namespace ConnectApp.Maui.Pages.Lists
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public ICommand TapCommand { get; private set; }
 
         public ICommand ArchiveNotificationCommand { get; private set; }
 

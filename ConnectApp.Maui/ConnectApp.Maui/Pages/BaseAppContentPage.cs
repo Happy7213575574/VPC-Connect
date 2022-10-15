@@ -45,7 +45,7 @@ namespace ConnectApp.Maui.Pages
             var recentNotifications = app.Db.GetNotificationRecords(MAX_NOTIFICATIONS_RECENT);
             Model.RecentNotifications =
                 new ObservableCollection<NotificationListItem>(
-                    recentNotifications.Select(n => new NotificationListItem(n)));
+                    recentNotifications.Select(n => new NotificationListItem(n, Model.TapLinkCommand)));
 
             // subscribe to model events
             Model.OnUriRequested += Model_OnUriRequested;
@@ -67,6 +67,7 @@ namespace ConnectApp.Maui.Pages
             base.OnDisappearing();
 
             // unsubscribe from model events
+            Model.RecentNotifications.Clear();
             Model.OnUriRequested -= Model_OnUriRequested;
 
             // unsubscribe from app events
@@ -109,7 +110,7 @@ namespace ConnectApp.Maui.Pages
                         Model.RecentNotifications.RemoveAt(Model.RecentNotifications.Count - 1);
                     }
                     // add the new item to the start of the list
-                    Model.RecentNotifications.Insert(0, new NotificationListItem(notification));
+                    Model.RecentNotifications.Insert(0, new NotificationListItem(notification, Model.TapLinkCommand));
                 }
                 else
                 {
@@ -184,6 +185,14 @@ namespace ConnectApp.Maui.Pages
         private async void Model_OnUriRequested(string uri)
         {
             await uris.OpenLinkAsync(uri);
+        }
+
+        private void Model_OnNotificationRequested(NotificationRecord obj)
+        {
+            // TODO: you are here
+
+
+
         }
 
 

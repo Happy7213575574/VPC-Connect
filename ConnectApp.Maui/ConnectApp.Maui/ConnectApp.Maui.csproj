@@ -176,5 +176,8 @@
 	  <MauiXaml Update="Pages\Resources\Alignments.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Templates\NotificationItemDataTemplate.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

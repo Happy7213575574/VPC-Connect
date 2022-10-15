@@ -4,30 +4,31 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ConnectApp.Maui.Pages.ArchivedNotificationsPage"
     xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
-    xmlns:templates="clr-namespace:ConnectApp.Maui.Pages.Templates"
+    xmlns:t="clr-namespace:ConnectApp.Maui.Pages.Templates"
+    xmlns:c="clr-namespace:ConnectApp.Maui.Pages.Controls"
     Title="Archived Notifications">
     <p:BaseAppContentPage.Content>
         <StackLayout Orientation="Vertical">
 
             <!-- notifications list -->
-            <ListView
+            <CollectionView
                 IsVisible="{Binding ShowList}"
+                AutomationId="RecentNotificationsList"
                 ItemsSource="{Binding ArchivedNotifications}"
-                HasUnevenRows="True"
-                ItemTapped="ListView_ItemTapped"
-                VerticalOptions="FillAndExpand"
-                AutomationId="NotificationsList">
-                <ListView.ItemTemplate>
+                VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <templates:ArchivedNotificationViewCell />
+                        <t:NotificationItemDataTemplate />
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <!-- no notifications visible -->
-            <Frame IsVisible="{Binding ShowNoList}" Margin="20" Padding="10">
-                <Label Text="No archived notifications." />
-            </Frame>
+            <c:FramedTile
+                IsVisible="{Binding ShowNoList}"
+                ContentText="No archived notifications."
+                ContentColour="{StaticResource FrameColour}"
+                />
 
         </StackLayout>
     </p:BaseAppContentPage.Content>
