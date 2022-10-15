@@ -34,7 +34,7 @@ namespace ConnectApp.Maui.Pages
 
             app.OnNotificationReceived += App_OnNotificationReceived;
             app.OnNotificationsErased += App_OnNotificationsErased;
-            app.OnNotificationDeleted += App_OnNotificationDeleted;
+            app.OnNotificationArchived += App_OnNotificationDeleted;
         }
 
         protected override void OnDisappearing()
@@ -43,7 +43,7 @@ namespace ConnectApp.Maui.Pages
             base.OnDisappearing();
             app.OnNotificationReceived -= App_OnNotificationReceived;
             app.OnNotificationsErased -= App_OnNotificationsErased;
-            app.OnNotificationDeleted -= App_OnNotificationDeleted;
+            app.OnNotificationArchived -= App_OnNotificationDeleted;
 
             Model.AllNotifications.Clear();
         }

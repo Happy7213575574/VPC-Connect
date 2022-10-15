@@ -55,7 +55,7 @@ namespace ConnectApp.Maui.Pages
             app.OnAppRegistrationStateChange += App_OnAppRegistrationStateChange;
             app.OnNotificationReceived += App_OnNotificationReceived_UpdateRecentNotifications;
             app.OnNotificationsErased += App_OnNotificationsErased_UpdateRecentNotifications;
-            app.OnNotificationDeleted += App_OnNotificationDeleted_UpdateRecentNotifications;
+            app.OnNotificationArchived += App_OnNotificationDeleted_UpdateRecentNotifications;
 
             // initiate an update based on the last known app state
             this.App_OnStateChange(app.LastActivity);
@@ -75,7 +75,7 @@ namespace ConnectApp.Maui.Pages
             app.OnAppRegistrationStateChange -= App_OnAppRegistrationStateChange;
             app.OnNotificationReceived -= App_OnNotificationReceived_UpdateRecentNotifications;
             app.OnNotificationsErased -= App_OnNotificationsErased_UpdateRecentNotifications;
-            app.OnNotificationDeleted -= App_OnNotificationDeleted_UpdateRecentNotifications;
+            app.OnNotificationArchived -= App_OnNotificationDeleted_UpdateRecentNotifications;
         }
 
         private void App_OnAppRegistrationStateChange(App.RegistrationStates state)

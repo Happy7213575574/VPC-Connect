@@ -123,7 +123,7 @@ public partial class App : Application
     internal event Action<AppActivity> OnAppActivity;
     internal event Action<RegistrationStates> OnAppRegistrationStateChange;
     internal event Action<NotificationRecord> OnNotificationReceived;
-    internal event Action<NotificationRecord> OnNotificationDeleted;
+    internal event Action<NotificationRecord> OnNotificationArchived;
     internal event Action<string> OnPushTokenChange;
     internal event Action OnNotificationsErased;
 
@@ -257,11 +257,11 @@ public partial class App : Application
 
     #region Requests
 
-    internal void RequestNotificationDeletion(NotificationRecord record)
+    internal void RequestNotificationArchive(NotificationRecord record)
     {
-        Log.Debug("RequestNotificationDeletion", false);
+        Log.Debug("RequestNotificationArchive", false);
         ArchiveNotification(record);
-        OnNotificationDeleted?.Invoke(record);
+        OnNotificationArchived?.Invoke(record);
     }
 
     #endregion

@@ -10,14 +10,10 @@ namespace ConnectApp.Maui.Pages.Lists
 {
     public class NotificationListItem : INotifyPropertyChanged
     {
-        private App app;
-
         public NotificationListItem(NotificationRecord record, ICommand tapCommand)
         {
-            app = App.Instance;
-
             Record = record;
-            ArchiveNotificationCommand = new Command(OnArchiveNotificationRequested);
+            ArchiveCommand = new Command(OnArchiveNotificationRequested);
             TapCommand = tapCommand;
         }
 
@@ -99,26 +95,26 @@ namespace ConnectApp.Maui.Pages.Lists
 
         public ICommand TapCommand { get; private set; }
 
-        public ICommand ArchiveNotificationCommand { get; private set; }
+        public ICommand ArchiveCommand { get; private set; }
 
         void OnArchiveNotificationRequested(object parameter)
         {
-            var record = (NotificationRecord)parameter;
+            var record = parameter as NotificationRecord;
 
             if (record != null && record.NotificationId.HasValue)
             {
-                app.Log.Debug("Requesting deletion of NotificationId: " + record.NotificationId.Value, false);
-                app.RequestNotificationDeletion(record);
+                App.Instance.Log.Debug("Requesting deletion of NotificationId: " + record.NotificationId.Value, false);
+                App.Instance.RequestNotificationArchive(record);
             }
             else
             {
                 if (record == null)
                 {
-                    app.Log.Error("No record found to delete.", false);
+                    App.Instance.Log.Error("No record found to delete.", false);
                 }
                 if (record != null && (record.NotificationId == null || !record.NotificationId.HasValue))
                 {
-                    app.Log.Error("Record for deletion does not have a NotificationId.", false);
+                    App.Instance.Log.Error("Record for deletion does not have a NotificationId.", false);
                 }
             }
         }

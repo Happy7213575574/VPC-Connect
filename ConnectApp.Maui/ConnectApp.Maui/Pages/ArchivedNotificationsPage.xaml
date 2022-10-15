@@ -18,7 +18,7 @@
                 VerticalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <t:NotificationItemDataTemplate />
+                        <t:ArchivedNotificationItemDataTemplate />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
