@@ -2,6 +2,8 @@
 using Microsoft.Maui.LifecycleEvents;
 using Plugin.Firebase.Auth;
 using CommunityToolkit.Maui;
+using Firebase;
+using Plugin.Firebase.Crashlytics;
 
 #if IOS
 using Plugin.Firebase.Core.Platforms.iOS;
@@ -35,11 +37,14 @@ public static class MauiProgram
 #if IOS
             events.AddiOS(iOS => iOS.FinishedLaunching((_,__) => {
                 CrossFirebase.Initialize();
+                CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
                 return false;
             }));
 #else
-            events.AddAndroid(android => android.OnCreate((activity, _) =>
-                CrossFirebase.Initialize(activity)));
+            events.AddAndroid(android => android.OnCreate((activity, _) => {
+                CrossFirebase.Initialize(activity);
+                CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
+            }));
 #endif
         });
 

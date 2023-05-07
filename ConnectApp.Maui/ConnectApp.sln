@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectApp_rev.Maui", "ConnectApp_rev.Maui\ConnectApp_rev.Maui.csproj", "{39C88F03-91BF-4406-9085-7187458177AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectApp.Maui", "ConnectApp.Maui\ConnectApp.Maui.csproj", "{BBD83A6C-5553-403B-889A-C83385ACD08B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPC Connect MAUI", "ConnectApp.Maui\VPC Connect MAUI.csproj", "{BBD83A6C-5553-403B-889A-C83385ACD08B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

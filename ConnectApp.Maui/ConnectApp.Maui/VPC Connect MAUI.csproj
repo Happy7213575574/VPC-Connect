@@ -46,6 +46,9 @@
 	  <CodesignProvision>Automatic</CodesignProvision>
 	  <CodesignKey>iPhone Distribution: Front-Line Tech Ltd (XGU7PQB893)</CodesignKey>
 	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <WarningLevel>4</WarningLevel>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -75,16 +78,53 @@
 		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.4" />
 		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.4" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
+		<PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="google-services.json" />
 	  <None Remove="GoogleService-Info.plist" />
+	  <None Remove="Api\" />
+	  <None Remove="AppLog\" />
+	  <None Remove="Data\" />
+	  <None Remove="Devices\" />
+	  <None Remove="Extensions\" />
+	  <None Remove="Pages\" />
+	  <None Remove="Services\" />
+	  <None Remove="Text\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <GoogleServicesJson Include="google-services.json" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="GoogleService-Info.plist" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Api\" />
+	  <Folder Include="AppLog\" />
+	  <Folder Include="Data\" />
+	  <Folder Include="Devices\" />
+	  <Folder Include="Extensions\" />
+	  <Folder Include="Pages\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Text\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Controls\RegistrationNotificationsView.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Resources\Alignments.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Resources\ColourKey.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Templates\ArchivedNotificationItemDataTemplate.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Templates\NotificationItemDataTemplate.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ConnectApp.Maui.Pages.Controls"
+             x:Class="ConnectApp.Maui.Pages.Controls.RegistrationNotificationsView"
+             x:Name="this">
+    <VerticalStackLayout
+        BindingContext="{x:Reference this}">
+
+        <controls:FramedTile
+            ContentIcon=""
+            ContentTitle="Registered for notifications."
+            ContentText=""
+            ContentColour="#44aa44"
+            IsVisible="{Binding ShowSuccess}"
+            />
+
+        <controls:FramedTile
+            ContentIcon=""
+            ContentTitle="Please register for notifications"
+            ContentText="You will need the username and password you use to sign in to the Volunteer Cadets portal."
+            ContentColour="#003A69"
+            ButtonText="Register"
+            TapCommand="{Binding TapCommand}"
+            TapParameter="page:ConnectionPage"
+            IsVisible="{Binding ShowInstruction}"
+            />
+
+    </VerticalStackLayout>
+</ContentView>
+

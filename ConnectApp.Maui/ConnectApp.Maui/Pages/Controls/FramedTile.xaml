@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="ConnectApp.Maui.Pages.Controls.FramedTile"
+             x:Name="this">
+    <Border
+        BindingContext="{x:Reference this}"
+        BackgroundColor="#ffffff"
+        Stroke="{Binding ContentColour}"
+        StrokeThickness="{StaticResource FrameThickness}"
+        StrokeShape="{StaticResource FrameShape}"
+        Padding="{StaticResource CellPadding}">
+
+        <StackLayout
+            Orientation="Vertical">
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    WidthRequest="16"
+                    HeightRequest="16"
+                    Margin="0,0,3,0"
+                    IsVisible="{Binding ShowIcon}"
+                    Source="{Binding ContentIcon}">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{StaticResource FrameColour}" />
+                    </Image.Behaviors>
+                </Image>
+                <Label
+                    IsVisible="{Binding ShowTitle}"
+                    Text="{Binding ContentTitle}"
+                    TextColor="{Binding ContentColour}"
+                    FontSize="16" FontAttributes="Bold" />
+            </StackLayout>
+            <Label
+                IsVisible="{Binding ShowText}"
+                Text="{Binding ContentText}"
+                FontSize="14" />
+            <!-- nasty hack: repeat the label because the grid seems to half-resize -->
+            <Label
+                IsVisible="{Binding RepeatTextHack}"
+                Text="{Binding ContentText}"
+                TextColor="Transparent"
+                FontSize="14" />
+            <Button
+                IsVisible="{Binding ShowButton}"
+                BackgroundColor="{Binding ContentColour}"
+                TextColor="#ffffff"
+                HorizontalOptions="Fill"
+                Command="{Binding TapCommand}"
+                CommandParameter="{Binding TapParameter}"
+                Margin="0,5,0,0"
+                Text="{Binding ButtonText}"
+                />
+
+        </StackLayout>
+
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer
+                Command="{Binding TapCommand}"
+                CommandParameter="{Binding TapParameter}"
+                />
+        </Border.GestureRecognizers>
+
+    </Border>
+</ContentView>
+
