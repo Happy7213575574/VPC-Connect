@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
 using Plugin.Firebase.Auth;
+using CommunityToolkit.Maui;
 
 #if IOS
 using Plugin.Firebase.Core.Platforms.iOS;
@@ -17,7 +18,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.RegisterFonts()
+            .UseMauiCommunityToolkit()
+            .RegisterFonts()
             .RegisterFirebaseServices();
 
 #if DEBUG

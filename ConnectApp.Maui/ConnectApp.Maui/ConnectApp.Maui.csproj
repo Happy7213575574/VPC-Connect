@@ -67,6 +67,14 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Plugin.Firebase" Version="2.0.3" />
+		<PackageReference Include="CsvHelper" Version="30.0.1" />
+		<PackageReference Include="RestSharp" Version="110.2.1-alpha.0.2" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.4" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
