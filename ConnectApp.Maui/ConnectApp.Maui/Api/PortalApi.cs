@@ -61,13 +61,6 @@ namespace ConnectApp.Maui.Api
             return false;
         }
 
-        [Obsolete("Never do this in production! Do as little as possible in testing.")]
-        private void AcceptAllCertsFrom(string domain)
-        {
-            log.Warning($"Accepting all certs from: {domain ?? "*"}", false); // TODO: remove log
-            ServicePointManager.ServerCertificateValidationCallback = CustomValidationCallback;
-        }
-
         public async Task<ServerResponse> SubmitPortalDeviceCheckAsync(string token, string uuid)
         {
             using (await _mutex.LockAsync())
