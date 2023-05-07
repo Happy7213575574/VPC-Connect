@@ -15,7 +15,7 @@ namespace ConnectApp.Maui.Api.DTO
         public HttpStatusCode Code { get; set; }
         public string ErrorMessage { get; set; }
         public Exception ErrorException { get; set; }
-        public Dictionary<string,object> Headers { get; set; }
+        public List<Tuple<string,object>> Headers { get; set; }
 
         public static ServerResponse From(Exception exception)
         {
@@ -27,40 +27,24 @@ namespace ConnectApp.Maui.Api.DTO
                 Code = 0,
                 ErrorMessage = exception.Message,
                 ErrorException = exception,
-                Headers = new Dictionary<string,object>()
+                Headers = new List<Tuple<string,object>>()
             };
 
         }
 
         public static ServerResponse From(RestResponse response)
         {
-            switch (response.ResponseStatus)
+            return new ServerResponse()
             {
-                case ResponseStatus.Completed:
-                    return new ServerResponse()
-                    {
-                        IsSuccess = response.IsSuccessful,
-                        StatusDescription = ServerResponses.Describe(response.StatusCode),
-                        RawContent = response.Content,
-                        Code = response.StatusCode,
-                        ErrorMessage = response.ErrorMessage,
-                        ErrorException = response.ErrorException,
-                        Headers = response.Headers.Where(p => p.Value != null).ToDictionary(p => p.Name, p => p.Value)
-                    };
-                default:
-                    return new ServerResponse()
-                    {
-                        IsSuccess = response.IsSuccessful,
-                        StatusDescription = ServerResponses.Describe(response.ResponseStatus),
-                        RawContent = response.Content,
-                        Code = response.StatusCode,
-                        ErrorMessage = response.ErrorMessage,
-                        ErrorException = response.ErrorException,
-                        Headers = response.Headers.Where(p => p.Value != null).ToDictionary(p => p.Name, p => p.Value)
-                    };
-
-            }
-
+                IsSuccess = response.IsSuccessful,
+                StatusDescription = ServerResponses.Describe(response.ResponseStatus),
+                RawContent = response.Content,
+                Code = response.StatusCode,
+                ErrorMessage = response.ErrorMessage,
+                ErrorException = response.ErrorException,
+                Headers = response.Headers?.Where(p => p.Value != null).Select(h => Tuple.Create(h.Name, h.Value)).ToList()
+                    ?? new List<Tuple<string, object>>()
+            };
         }
     }
 }

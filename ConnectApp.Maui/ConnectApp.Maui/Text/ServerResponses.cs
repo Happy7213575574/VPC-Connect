@@ -25,7 +25,7 @@ namespace ConnectApp.Maui.Text
                     return "Unexpected portal error.";
 
                 case (int)HttpStatusCode.NotFound:
-                    return "Portal endpoint error.";
+                    return "Not found.";
 
                 case int n when (n >= 200 && n < 300):
                     return "Success.";

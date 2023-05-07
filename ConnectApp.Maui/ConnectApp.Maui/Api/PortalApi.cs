@@ -1,5 +1,7 @@
 ﻿using System.Net;
 using System.Net.Security;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography.X509Certificates;
 using ConnectApp.Maui.Api.DTO;
 using ConnectApp.Maui.AppLog;
 
@@ -22,29 +24,48 @@ namespace ConnectApp.Maui.Api
             this.log = app != null ? app.Log.For(this) : new AppLogger(null, typeof(PortalApi).Name, false);
             options = new RestClientOptions(PortalUris.PortalApi_BaseUri);
             options.ThrowOnAnyError = false;
+            options.RemoteCertificateValidationCallback = CustomValidationCallback;
             if (PortalUris.OverrideTimeout != null) { options.MaxTimeout = PortalUris.OverrideTimeout.Value; }
             client = new RestClient(options);
             client.AddDefaultHeader("API-Access", PortalUris.PortalApi_AccessCode);
             client.AddDefaultHeader("Access-Control-Allow-Origin", "*");
+        }
 
-            // For situations when the stimulize (test) portal cert has expired ONLY:
-            // AcceptAllCertsFromStimulize();
+        private string debugAcceptDomain = SensitiveConstants.PortalApiTrustDomain;
+        private bool CustomValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicy)
+        {
+            log.Debug($"Incoming sslPolicy = {sslPolicy}", true);
+            if (sslPolicy == SslPolicyErrors.None)
+            {
+                log.Debug("Certificate accepted: SslPolicyErrors.None", true);
+                return true;
+            }
+
+            var incomingDomain = ((HttpRequestMessage)sender).RequestUri.Authority;
+            log.Debug($"Incoming domain:       {incomingDomain}", true);
+            log.Debug($"Incoming cert subject: {certificate.Subject}", true);
+            log.Debug($"Incoming cert issuer:  {certificate.Issuer}", true);
+            log.Debug($"Incoming cert hash:    {certificate.GetCertHashString()}", true);
+            log.Debug($"Incoming chain:        {chain.ChainElements.Count()} elements", true);
+
+            if (sslPolicy == SslPolicyErrors.RemoteCertificateChainErrors &&
+               (debugAcceptDomain == null || incomingDomain.Contains(debugAcceptDomain)))
+            {
+                log.Debug("Validating certifiate against known roots...", true);
+                var ok = CertificateValidator.ValidateCertificateAgainstKnownRoots(certificate);
+                log.Debug($"Certificate ok: {ok}", true);
+                return ok;
+            }
+
+            // something else is an issue
+            return false;
         }
 
         [Obsolete("Never do this in production! Do as little as possible in testing.")]
-        private void AcceptAllCertsFromStimulize()
+        private void AcceptAllCertsFrom(string domain)
         {
-            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicy) =>
-            {
-                if (sslPolicy == SslPolicyErrors.None)
-                    return true;
-
-                if (sslPolicy == SslPolicyErrors.RemoteCertificateChainErrors &&
-                   ((HttpWebRequest)sender).RequestUri.Authority.Contains("stimulize.co.uk"))
-                    return true;
-
-                return false;
-            };
+            log.Warning($"Accepting all certs from: {domain ?? "*"}", false); // TODO: remove log
+            ServicePointManager.ServerCertificateValidationCallback = CustomValidationCallback;
         }
 
         public async Task<ServerResponse> SubmitPortalDeviceCheckAsync(string token, string uuid)

@@ -81,7 +81,7 @@ public partial class App : Application
                 }
                 if (lastActivity.Result.Headers != null && lastActivity.Result.Headers.Count > 0)
                 {
-                    var headerStrings = value.Result.Headers.Keys.Select(k => " - " + k + ": " + value.Result.Headers[k]);
+                    var headerStrings = value.Result.Headers?.Select(t => " - " + t.Item1 + ": " + t.Item2);
                     var headers = string.Join("\n", headerStrings);
                     Log.Verbose("LastAppActivity.Result.Headers:\n" + headers, true);
                 }

@@ -21,7 +21,8 @@ namespace ConnectApp.Maui.Api.DTO
                 Code = response.StatusCode,
                 ErrorMessage = response.ErrorMessage,
                 ErrorException = response.ErrorException,
-                Headers = response.Headers.Where(p => p.Value != null).ToDictionary(p => p.Name, p => p.Value)
+                Headers = response.Headers?.Where(p => p.Value != null).Select(h => Tuple.Create(h.Name, h.Value)).ToList()
+                    ?? new List<Tuple<string, object>>()
             };
         }
     }
