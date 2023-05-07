@@ -61,6 +61,7 @@ public static class MauiProgram
 #if IOS
             events.AddiOS(iOS => iOS.FinishedLaunching((app, launchOptions) => {
                 CrossFirebase.Initialize(app, launchOptions, CreateCrossFirebaseSettings());
+                FirebaseCloudMessagingImplementation.Initialize();
                 return false;
             }));
 #else
@@ -68,7 +69,8 @@ public static class MauiProgram
                 CrossFirebase.Initialize(activity, state, CreateCrossFirebaseSettings())));
 #endif
         });
-        
+
+        // enable push notifications
         builder.Services.AddSingleton(_ => CrossFirebaseCloudMessaging.Current);
 
         return builder;
