@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectApp.Maui", "ConnectApp.Maui\ConnectApp.Maui.csproj", "{BBD83A6C-5553-403B-889A-C83385ACD08B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVP.Api.Tests", "MVP.Api.Tests\MVP.Api.Tests.csproj", "{022CB2E7-1D62-48BE-9370-C37AF9326408}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVP.Api.Tests", "MVP.Api.Tests\MVP.Api.Tests.csproj", "{22C10BDC-3B25-435F-8C47-AB91E18775C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{BBD83A6C-5553-403B-889A-C83385ACD08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBD83A6C-5553-403B-889A-C83385ACD08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBD83A6C-5553-403B-889A-C83385ACD08B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{022CB2E7-1D62-48BE-9370-C37AF9326408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{022CB2E7-1D62-48BE-9370-C37AF9326408}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{022CB2E7-1D62-48BE-9370-C37AF9326408}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{022CB2E7-1D62-48BE-9370-C37AF9326408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C10BDC-3B25-435F-8C47-AB91E18775C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C10BDC-3B25-435F-8C47-AB91E18775C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C10BDC-3B25-435F-8C47-AB91E18775C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C10BDC-3B25-435F-8C47-AB91E18775C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
