@@ -1,15 +1,16 @@
 
 
+@username = LewisCadetWestbury
+
 @name = token_exchange
-# @prompt username
 # @prompt password
 POST https://endpoint.vpc.police.uk/api/RegistrationToken
 API-Access: {{mvp_api_access}}
 Content-Type: application/json
 
 {
-  "UserName": "{{username}}",
-  "Password": "{{password}}"
+  "username": "{{username}}",
+  "password": "{{password}}"
 }
 
 # The reference syntax of a request variable is a bit more complex than other kinds of custom variables. The request variable reference syntax follows {{requestName.(response|request).(body|headers).(*|JSONPath|XPath|Header Name)}}. You have two reference part choices of the response or request: body and headers. For body part, you can use * to reference the full response body, and for JSON and XML responses, you can use JSONPath and XPath to extract specific property or attribute. For example, if a JSON response returns body {"id": "mock"}, you can set the JSONPath part to $.id to reference the id. For headers part, you can specify the header name to extract the header value. Additionally, the header name is case-insensitive.
