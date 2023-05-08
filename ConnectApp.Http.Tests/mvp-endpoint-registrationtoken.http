@@ -6,6 +6,7 @@
 # @prompt password
 POST https://endpoint.vpc.police.uk/api/RegistrationToken
 API-Access: {{mvp_api_access}}
+Access-Control-Allow-Origin: *
 Content-Type: application/json
 
 {
