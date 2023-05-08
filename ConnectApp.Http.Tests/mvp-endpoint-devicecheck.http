@@ -1,4 +1,7 @@
 @push_token = fWqqkTiJTRGIevteFV75u_:APA91bFoh_YyxitJCpK455vVeOqieGI1lPVSQeTho9KTdpShZ1lWhD8RudyghVBKK44UJzFa-5QzDR2uK0AWFbQRPflZu2MfFuyuxluhGDuW4WL5PvA_pZR_W5P4f_7imns7neW3w9wm
+@uuid = {{$guid}}
+
+###
 
 @name = device_check
 POST https://endpoint.vpc.police.uk/api/DeviceCheck
@@ -7,5 +10,5 @@ Content-Type: application/json
 
 {
   "RegistrationId": "{{push_token}}",
-  "UUID": "{{$guid}}"
+  "UUID": "{{uuid}}"
 }
