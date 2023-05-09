@@ -40,16 +40,26 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
-	  <CodesignProvision>Automatic</CodesignProvision>
+	  <CodesignProvision>VPC connect development profile 2023-05</CodesignProvision>
 	  <CodesignKey>iPhone Developer: Lewis Westbury (SR2N4JM2D8)</CodesignKey>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
-	  <CodesignProvision>Automatic</CodesignProvision>
+	  <CodesignProvision>VPC connect distribution profile 2023-05</CodesignProvision>
 	  <CodesignKey>iPhone Distribution: Front-Line Tech Ltd (XGU7PQB893)</CodesignKey>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	  <WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	  <DebugSymbols>true</DebugSymbols>
+	  <Optimize>false</Optimize>
+	  <WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningKeyStore>/Users/lewiswestbury/src/pr/keystores/vpc-connect-android.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningKeyAlias>vpc-connect-android</AndroidSigningKeyAlias>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
