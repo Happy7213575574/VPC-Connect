@@ -80,8 +80,8 @@ namespace ConnectApp.Maui.Api
             using (await _mutex.LockAsync())
             {
                 var request = new RestRequest(PortalUris.UserTokenEndpoint, Method.Post);
-                request.AddParameter("username", username);
-                request.AddParameter("password", password);
+                request.AddParameter("username", username.Trim().ToLower()); // TODO: confirm all usernames should be lowercase
+                request.AddParameter("password", password.Trim());
                 LogRequest(request);
                 var response = await client.ExecuteAsync(request);
                 LogResponse(response);
@@ -148,11 +148,6 @@ namespace ConnectApp.Maui.Api
             {
                 log.Verbose("RestRequest.Parameters:\n" + parameters, true);
             }
-            // request.Body removed from RestSharp
-            //if (request.Body != null && request.Body.Value != null && !string.IsNullOrWhiteSpace(request.Body.Value.ToString()))
-            //{
-            //    log.Verbose("RestRequest.Body: " + request.Body?.Value?.ToString(), true);
-            //}
         }
 
         private void LogResponse(RestResponse response)

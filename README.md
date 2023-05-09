@@ -11,7 +11,11 @@ Users may use it to:
 
 <img src="docs/images/2021-02-21-home-page.png" width="400px">
 
-VPC Connect is a cross-platform app built using .NET Core 3.1, and Xamarin - for Android and iOS. The code is written in C#. It uses Firebase Cloud Messaging (FCM) and Apple Push Notifications (APN) to deliver push notifications to Android and iOS devices.
+VPC Connect is a cross-platform app built for Android and iOS. The code is written in C#, and makes use of these frameworks and supporting technologies:
+
+* .NET 7.0 MAUI framework
+* Firebase Cloud Messaging (FCM)
+* Apple Push Notifications Service (APNS)
 
 For more information:
 
