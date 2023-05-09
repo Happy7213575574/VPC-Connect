@@ -25,8 +25,14 @@ namespace ConnectApp.Maui.Api
             options = new RestClientOptions(PortalUris.PortalApi_BaseUri);
             options.ThrowOnAnyError = false;
             options.RemoteCertificateValidationCallback = CustomValidationCallback;
+            ServicePointManager.ServerCertificateValidationCallback = CustomValidationCallback;
             if (PortalUris.OverrideTimeout != null) { options.MaxTimeout = PortalUris.OverrideTimeout.Value; }
+#if ANDROID
             client = new RestClient(options);
+            //client = new RestClient(new HttpClient(new Xamarin.Android.Net.AndroidMessageHandler()), options);
+#else
+            client = new RestClient(options);
+#endif
             client.AddDefaultHeader("API-Access", PortalUris.PortalApi_AccessCode);
             client.AddDefaultHeader("Access-Control-Allow-Origin", "*");
         }

@@ -4,6 +4,7 @@ using Plugin.Firebase.Auth;
 using CommunityToolkit.Maui;
 using Firebase;
 using Plugin.Firebase.Crashlytics;
+using Plugin.Firebase.CloudMessaging;
 
 #if IOS
 using Plugin.Firebase.Core.Platforms.iOS;
@@ -37,6 +38,7 @@ public static class MauiProgram
 #if IOS
             events.AddiOS(iOS => iOS.FinishedLaunching((_,__) => {
                 CrossFirebase.Initialize();
+                FirebaseCloudMessagingImplementation.Initialize();
                 CrossFirebaseCrashlytics.Current.SetCrashlyticsCollectionEnabled(true);
                 return false;
             }));

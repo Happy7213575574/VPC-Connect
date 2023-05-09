@@ -15,5 +15,6 @@ public partial class AppShell : Shell
 		await GoToAsync("//" + page.ToString().ToLower());
 	}
 
+	public string FooterText => "ABC";
 }
 

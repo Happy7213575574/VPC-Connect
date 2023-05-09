@@ -124,6 +124,7 @@
 	  <None Remove="Extensions\" />
 	  <None Remove="Text\" />
 	  <None Remove="Data\Entities\" />
+	  <None Remove="Resources\.DS_Store" />
 	</ItemGroup>
 	<ItemGroup>
 	  <GoogleServicesJson Include="google-services.json" />

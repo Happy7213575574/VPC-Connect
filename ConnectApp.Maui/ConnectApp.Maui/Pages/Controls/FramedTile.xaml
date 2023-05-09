@@ -37,11 +37,13 @@
                 Text="{Binding ContentText}"
                 FontSize="14" />
             <!-- nasty hack: repeat the label because the grid seems to half-resize -->
+            <!--
             <Label
                 IsVisible="{Binding RepeatTextHack}"
                 Text="{Binding ContentText}"
                 TextColor="Transparent"
                 FontSize="14" />
+            -->
             <Button
                 IsVisible="{Binding ShowButton}"
                 BackgroundColor="{Binding ContentColour}"

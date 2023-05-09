@@ -51,6 +51,9 @@ namespace ConnectApp.Maui.AppLog
                 SystemLog(
                     LogEntry.LogLevel.Debug,
                         eventArgs.Exception.ToString());
+                SystemLog(
+                    LogEntry.LogLevel.Debug,
+                        eventArgs.Exception.StackTrace);
 
                 Exception(eventArgs.Exception);
             };

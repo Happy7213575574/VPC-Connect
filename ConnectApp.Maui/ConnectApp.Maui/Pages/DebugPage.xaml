@@ -1,137 +1,134 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <p:BaseAppContentPage x:TypeArguments="p:Models.DebugPageModel"
+    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ConnectApp.Maui.Pages.DebugPage"
-    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
-    xmlns:templates="clr-namespace:ConnectApp.Pages.Templates"
-    xmlns:local="clr-namespace:ConnectApp.Maui.Extensions;assembly=ConnectApp"
     Title="{Binding DisplayTitle}">
-    <p:BaseAppContentPage.Content>
-        <ScrollView>
-            <StackLayout
-                Orientation="Vertical"
-                Padding="10">
 
-                <Frame
-                    HasShadow="False"
-                    BackgroundColor="White"
-                    BorderColor="Gray"
-                    Padding="5"
-                    Margin="0,0,5,0">
-                    <StackLayout
-                        Orientation="Vertical"
-                        Padding="10">
-                        <Label
-                            Text="Application"
-                            FontAttributes="Bold"
-                            />
-                        <Label
-                            AutomationId="AppSummary"
-                            Text="{Binding DisplayAppSummary}"
-                            />
-                        <Label
-                            AutomationId="Environment"
-                            Text="{Binding DisplayEnvironment}"
-                            />
-                        <Label
-                            AutomationId="PortalApiBaseUri"
-                            Text="{Binding DisplayPortalApiBaseUri}"
-                            />
-                        <Label
-                            AutomationId="PortalSignInUri"
-                            Text="{Binding DisplayPortalSignInUri}"
-                            />
-                    </StackLayout>
-                </Frame>
+    <ScrollView>
+        <StackLayout
+            Orientation="Vertical"
+            Padding="10">
 
-                <Frame
-                    HasShadow="False"
-                    BackgroundColor="White"
-                    BorderColor="Gray"
-                    Padding="5"
-                    Margin="0,0,5,0">
-                    <StackLayout
-                        Orientation="Vertical"
-                        Padding="10">
-                        <Label
-                            Text="Push token"
-                            FontAttributes="Bold"
-                            />
-                        <Label
-                            AutomationId="Token"
-                            Text="{Binding DisplayToken}"
-                            />
-                    </StackLayout>
-                </Frame>
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Application"
+                        FontAttributes="Bold"
+                        />
+                    <Label
+                        AutomationId="AppSummary"
+                        Text="{Binding DisplayAppSummary}"
+                        />
+                    <Label
+                        AutomationId="Environment"
+                        Text="{Binding DisplayEnvironment}"
+                        />
+                    <Label
+                        AutomationId="PortalApiBaseUri"
+                        Text="{Binding DisplayPortalApiBaseUri}"
+                        />
+                    <Label
+                        AutomationId="PortalSignInUri"
+                        Text="{Binding DisplayPortalSignInUri}"
+                        />
+                </StackLayout>
+            </Frame>
 
-                <Frame
-                    HasShadow="False"
-                    BackgroundColor="White"
-                    BorderColor="Gray"
-                    Padding="5"
-                    Margin="0,0,5,0">
-                    <StackLayout
-                        Orientation="Vertical"
-                        Padding="10">
-                        <Label
-                            Text="Device"
-                            FontAttributes="Bold"
-                            />
-                        <Label
-                            AutomationId="DeviceSummary"
-                            Text="{Binding DisplayDeviceSummary}"
-                            />
-                    </StackLayout>
-                </Frame>
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Push token"
+                        FontAttributes="Bold"
+                        />
+                    <Label
+                        AutomationId="Token"
+                        Text="{Binding DisplayToken}"
+                        />
+                </StackLayout>
+            </Frame>
 
-                <Frame
-                    HasShadow="False"
-                    BackgroundColor="White"
-                    BorderColor="Gray"
-                    Padding="5"
-                    Margin="0,0,5,0">
-                    <StackLayout
-                        Orientation="Vertical"
-                        Padding="10">
-                        <Label
-                            Text="Debug tools"
-                            FontAttributes="Bold"
-                            />
-                        <Button
-                            HorizontalOptions="End"
-                            Text="Export exception logs..."
-                            BackgroundColor="#404040"
-                            TextColor="#ffffff"
-                            AutomationProperties.IsInAccessibleTree="true"
-                            AutomationProperties.Name="Export button"
-                            AutomationProperties.HelpText="Use this option to share a copy of the application logs."
-                            Clicked="Button_ExportClicked"
-                            />
-                        <Button
-                            HorizontalOptions="End"
-                            Text="Add test notification"
-                            BackgroundColor="#404040"
-                            TextColor="#ffffff"
-                            AutomationProperties.IsInAccessibleTree="true"
-                            AutomationProperties.Name="Test notification button"
-                            AutomationProperties.HelpText="Use this option to create a test notification."
-                            Clicked="Button_TestNotifiationClicked"
-                            />
-                        <Button
-                            HorizontalOptions="End"
-                            Text="Simulate crash"
-                            BackgroundColor="#404040"
-                            TextColor="#ffffff"
-                            AutomationProperties.IsInAccessibleTree="true"
-                            AutomationProperties.Name="Simulate crash button"
-                            AutomationProperties.HelpText="Use this option to simulate a crash of the application."
-                            Clicked="Button_SimulateCrashClicked"
-                            />
-                    </StackLayout>
-                </Frame>
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Device"
+                        FontAttributes="Bold"
+                        />
+                    <Label
+                        AutomationId="DeviceSummary"
+                        Text="{Binding DisplayDeviceSummary}"
+                        />
+                </StackLayout>
+            </Frame>
 
-            </StackLayout>
-        </ScrollView>
-    </p:BaseAppContentPage.Content>
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Debug tools"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,5"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Export exception logs..."
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Export button"
+                        AutomationProperties.HelpText="Use this option to share a copy of the application logs."
+                        Clicked="Button_ExportClicked"
+                        Margin="0,0,0,5"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Add test notification"
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Test notification button"
+                        AutomationProperties.HelpText="Use this option to create a test notification."
+                        Clicked="Button_TestNotifiationClicked"
+                        Margin="0,0,0,5"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Simulate crash"
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Simulate crash button"
+                        AutomationProperties.HelpText="Use this option to simulate a crash of the application."
+                        Clicked="Button_SimulateCrashClicked"
+                        />
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+
 </p:BaseAppContentPage>

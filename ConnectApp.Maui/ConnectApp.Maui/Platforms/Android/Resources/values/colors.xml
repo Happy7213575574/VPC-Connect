@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#512BD4</color>
-    <color name="colorPrimaryDark">#2B0B98</color>
-    <color name="colorAccent">#2B0B98</color>
+    <color name="colorPrimary">#003A69</color>
+    <color name="colorPrimaryDark">#003A69</color>
+    <color name="colorAccent">#37ACD9</color>
+
+    <style name="ConnectAppTheme" parent="@style/Maui.SplashTheme">
+        <item name="android:statusBarColor">#003A69</item>
+    </style>
 </resources>
 
