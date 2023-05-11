@@ -130,31 +130,13 @@ namespace ConnectApp.Maui.Pages.Models
         }
 
         public string ReturnHomeButtonText
-        {
-            get
-            {
-                switch (Device.RuntimePlatform)
-                {
-                    case Device.iOS:
-                        return "    Return Home...    ";
-                    default:
-                        return "Return Home...";
-                }
-            }
-        }
+            => DeviceInfo.Platform == DevicePlatform.iOS
+                ? "    Return Home...    "
+                : "Return Home...";
 
         public string SignOutButtonText
-        {
-            get
-            {
-                switch (Device.RuntimePlatform)
-                {
-                    case Device.iOS:
-                        return "    Sign Out    ";
-                    default:
-                        return "Sign Out";
-                }
-            }
-        }
+            => DeviceInfo.Platform == DevicePlatform.iOS
+                ? "    Sign Out    "
+                : "Sign Out";
     }
 }

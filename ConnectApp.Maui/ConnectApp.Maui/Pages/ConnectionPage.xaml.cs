@@ -226,7 +226,7 @@ namespace ConnectApp.Maui.Pages
             else
             {
                 log.Debug("Form valid.", false);
-                if (PortalApi.UseUserToken)
+                if (app.Api.UseUserToken)
                 {
                     await app.GetUserTokenAndRegisterAsync(Model.EntryUsername, Model.EntryPassword, true);
                 }

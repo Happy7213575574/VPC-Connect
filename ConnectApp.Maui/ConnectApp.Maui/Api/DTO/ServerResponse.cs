@@ -17,7 +17,7 @@ namespace ConnectApp.Maui.Api.DTO
         public Exception ErrorException { get; set; }
         public List<Tuple<string,object>> Headers { get; set; }
 
-        public static ServerResponse From(Exception exception)
+        public static ServerResponse From(Exception exception, string reason = null)
         {
             return new ServerResponse()
             {
@@ -25,11 +25,25 @@ namespace ConnectApp.Maui.Api.DTO
                 StatusDescription = ServerResponses.Describe(exception),
                 RawContent = exception.Message,
                 Code = 0,
-                ErrorMessage = exception.Message,
+                ErrorMessage = reason ?? exception.Message,
                 ErrorException = exception,
                 Headers = new List<Tuple<string,object>>()
             };
+        }
 
+        public static async Task<ServerResponse> FromAsync(HttpResponseMessage response)
+        {
+            return new ServerResponse()
+            {
+                IsSuccess = response.IsSuccessStatusCode,
+                StatusDescription = ServerResponses.Describe(response.StatusCode),
+                RawContent = await response.Content.ReadAsStringAsync(),
+                Code = response.StatusCode,
+                ErrorMessage = response.ReasonPhrase,
+                ErrorException = null,
+                Headers = response.Headers?.SelectMany(h => h.Value.Select(v => Tuple.Create(h.Key, (object)v))).ToList()
+                    ?? new List<Tuple<string, object>>()
+            };
         }
 
         public static ServerResponse From(RestResponse response)

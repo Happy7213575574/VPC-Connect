@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:ConnectApp.Maui.Pages">
+    <!-- x:DataType="pages:Models.AppShellModel" -->
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
@@ -12,18 +13,11 @@
                 <Image Aspect="AspectFit"
                        Source="vpc_logo_white.png"
                        Opacity="1.0"
-                        Margin="20" />
+                       Margin="20"
+                       />
             </Grid>            
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-
-    <Shell.FlyoutFooterTemplate>
-        <DataTemplate>
-            <Grid BackgroundColor="LightGrey">
-                <Label Text="{Binding FooterText}" Margin="10" />
-            </Grid>            
-        </DataTemplate>
-    </Shell.FlyoutFooterTemplate>
 
     <FlyoutItem Title="Home" Icon="home.png">
         <Tab>
@@ -79,7 +73,9 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Debug" Icon="debug.png">
+    <!-- debug only -->
+    <!--
+    <FlyoutItem Title="Debug" Icon="debug.png" IsVisible="{Binding DebugBuild}">
         <Tab>
             <ShellContent
                 Title="Debug"
@@ -87,6 +83,7 @@
                 Route="debugpage" />
         </Tab>
     </FlyoutItem>
+    -->
 
     <Shell.ItemTemplate>
         <DataTemplate>

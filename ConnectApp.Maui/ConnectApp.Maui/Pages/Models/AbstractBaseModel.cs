@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using ConnectApp.Maui.Api;
-using ConnectApp.Maui.Data.Entities;
 using ConnectApp.Maui.Pages.Lists;
 using ConnectApp.Maui.Text;
 using static ConnectApp.Maui.App;
@@ -64,6 +63,18 @@ namespace ConnectApp.Maui.Pages.Models
         {
             get { return debugLabel; }
             set { debugLabel = value; Notify(nameof(DebugLabel)); }
+        }
+
+        public bool DebugBuild
+        {
+            get
+            {
+#if DEBUG
+                return true;
+#else
+                return false;
+#endif
+            }
         }
 
         private bool debugVisible;

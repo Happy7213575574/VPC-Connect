@@ -31,7 +31,6 @@ namespace ConnectApp.Maui.Api
         public static readonly string PrivacyPolicyUri = "https://vpc.police.uk/privacy-policy/";
 
         private static readonly int _1m = 1 * 60 * 1000; // milliseconds
-        private static readonly int _5m = 5 * 60 * 1000; // milliseconds
 
         public static readonly int? OverrideTimeout = _1m; // ms
     }
