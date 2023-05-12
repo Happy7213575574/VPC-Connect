@@ -80,7 +80,7 @@ namespace ConnectApp.Maui.Api
             using (await _mutex.LockAsync())
             {
                 var request = new RestRequest(PortalUris.UserTokenEndpoint, Method.Post);
-                request.AddParameter("username", username.Trim().ToLower()); // TODO: confirm all usernames should be lowercase
+                request.AddParameter("username", username.Trim().ToLower());
                 request.AddParameter("password", password.Trim());
                 LogRequest(client, request);
                 var response = await client.ExecuteAsync(request);

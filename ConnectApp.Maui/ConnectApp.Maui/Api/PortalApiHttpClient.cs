@@ -72,7 +72,7 @@ namespace ConnectApp.Maui.Api
             {
                 var uri = ConstructUri(PortalUris.DeviceCheckEndpoint);
                 var json = JsonContent(new Dictionary<string, string>() { { "RegistrationId", token }, { "UUID", uuid } });
-                HttpResponseMessage response = await httpclient.PostAsync(uri, json); // NullReferenceException here
+                HttpResponseMessage response = await httpclient.PostAsync(uri, json);
                 LogRequest(response.RequestMessage);
                 var serverResponse = await ServerResponse.FromAsync(response);
                 LogResponse(serverResponse);
