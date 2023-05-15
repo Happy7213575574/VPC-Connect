@@ -158,31 +158,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="GoogleService-Info.plist" />
-	  <BundleResource Include="Resources\Images\archive_icon_white.png" />
-	  <BundleResource Include="Resources\Images\archive.svg" />
-	  <BundleResource Include="Resources\Images\connection.svg" />
-	  <BundleResource Include="Resources\Images\debug.svg" />
-	  <BundleResource Include="Resources\Images\hamburger_white.png" />
-	  <BundleResource Include="Resources\Images\hamburger.png" />
-	  <BundleResource Include="Resources\Images\home.svg" />
-	  <BundleResource Include="Resources\Images\icon_about.png" />
-	  <BundleResource Include="Resources\Images\icon_calendar.png" />
-	  <BundleResource Include="Resources\Images\icon_conversations.png" />
-	  <BundleResource Include="Resources\Images\icon_diary.png" />
-	  <BundleResource Include="Resources\Images\icon_message_boards.png" />
-	  <BundleResource Include="Resources\Images\icon_news.png" />
-	  <BundleResource Include="Resources\Images\icon_resources.png" />
-	  <BundleResource Include="Resources\Images\icon_safeguarding.png" />
-	  <BundleResource Include="Resources\Images\icon_summary.png" />
-	  <BundleResource Include="Resources\Images\inbox.svg" />
-	  <BundleResource Include="Resources\Images\news.svg" />
-	  <BundleResource Include="Resources\Images\notification_icon_a.png" />
-	  <BundleResource Include="Resources\Images\notification_icon_b.png" />
-	  <BundleResource Include="Resources\Images\shield.svg" />
-	  <BundleResource Include="Resources\Images\vpc_logo_white.png" />
-	  <BundleResource Include="Resources\Images\vpc_logo.png" />
-	  <BundleResource Include="Resources\Images\vpc_shield_white.png" />
-	  <BundleResource Include="Resources\Images\vpc_shield.png" />
 	  <BundleResource Include="Resources\Raw\NationalFeedPage.html" />
 	  <BundleResource Include="Resources\Raw\MiniFeedPage.html" />
 	  <BundleResource Include="Resources\Raw\AllFeedPage.html" />

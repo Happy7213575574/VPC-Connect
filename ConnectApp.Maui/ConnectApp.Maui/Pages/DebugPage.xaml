@@ -89,19 +89,31 @@
                     Orientation="Vertical"
                     Padding="10">
                     <Label
-                        Text="Debug tools"
+                        Text="Support tools"
                         FontAttributes="Bold"
                         Margin="0,0,0,5"
                         />
                     <Button
                         HorizontalOptions="Fill"
-                        Text="Export exception logs..."
+                        Text="Export app logs..."
                         BackgroundColor="#404040"
                         TextColor="#ffffff"
                         AutomationProperties.IsInAccessibleTree="true"
                         AutomationProperties.Name="Export button"
                         AutomationProperties.HelpText="Use this option to share a copy of the application logs."
                         Clicked="Button_ExportClicked"
+                        Margin="0,0,0,5"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Feedback form..."
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Export button"
+                        AutomationProperties.HelpText="Use this option to open a form to report an issue."
+                        Command="{Binding TapLinkCommand}"
+                        CommandParameter="https://docs.google.com/forms/d/e/1FAIpQLSell9R3bNQVRDjvE6OTiijjHnMyoPRqPr9_rPd-6BL1uzXjUQ/viewform"
                         Margin="0,0,0,5"
                         />
                     <Button

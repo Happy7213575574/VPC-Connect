@@ -48,7 +48,8 @@ namespace ConnectApp.Maui.Extensions
                 new Uri(PortalUris.PortalWeb_BaseUri).Host.ToLower(),
                 new Uri(PortalUris.PortalWeb_LoginUri).Host.ToLower(),
                 new Uri("https://policerewired.org").Host.ToLower(),
-                new Uri("https://www.google.com").Host.ToLower()
+                new Uri("https://www.google.com").Host.ToLower(),
+                new Uri("https://docs.google.com").Host.ToLower(),
             };
             return permittedHosts.Contains(uri.Host.ToLower());
         }

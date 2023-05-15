@@ -73,7 +73,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Debug" Icon="debug.png">
+    <FlyoutItem Title="Support" Icon="support.png">
         <Tab>
             <ShellContent
                 Title="Debug"
