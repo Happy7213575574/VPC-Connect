@@ -6,15 +6,14 @@ namespace ConnectApp.Maui.Api
 
 #if TESTPORTAL
         public static readonly string PortalApi_BaseUri = "https://vpc-app-endpoint.stimulize.co.uk/api/";
-        public static readonly string PortalApi_AccessCode = SensitiveConstants.PortalApiAccessCode;
         public static readonly string PortalWeb_BaseUri = "https://vpc-app-portal.stimulize.co.uk";
         public static readonly string PortalWeb_LoginUri = "https://vpc-app-sso.stimulize.co.uk";
 #else
         public static readonly string PortalApi_BaseUri = "https://endpoint.vpc.police.uk/api";
-        public static readonly string PortalApi_AccessCode = SensitiveConstants.PortalApiAccessCode;
         public static readonly string PortalWeb_BaseUri = "https://portal.vpc.police.uk";
         public static readonly string PortalWeb_LoginUri = "https://sso.vpc.police.uk";
 #endif
+
         public static readonly string PortalWeb_DeepLinkToEventUri = PortalWeb_BaseUri + "/Event/Details/";
         public static readonly string PortalWeb_DiaryUri = PortalWeb_BaseUri + "/EventDiary/Index";
         public static readonly string PortalWeb_CalendarUri = PortalWeb_BaseUri + "/Event/Calendar";

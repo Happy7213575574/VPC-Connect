@@ -18,8 +18,6 @@ namespace ConnectApp.Maui.Api
             this.log = app != null ? app.Log.For(this) : new AppLogger(null, typeof(PortalApiResharper).Name, false);
         }
 
-        public bool UseUserToken => true;
-
         public abstract Task<ServerResponse> SubmitDeviceCheckAsync(string token, string uuid);
         public abstract Task<UserTokenServerResponse> GetUserTokenAsync(string username, string password);
         public abstract Task<ServerResponse> SubmitUserTokenRegistrationAsync(string userToken, string pushToken, string deviceUuid, string deviceDescription);
@@ -27,7 +25,7 @@ namespace ConnectApp.Maui.Api
 
         protected void LogRequest(RestClient client, RestRequest request)
         {
-            log.Debug("RestClient.BuildUri: " + client.BuildUri(request).ToString(), false);
+            log.Debug("RestClient.BuildUri(request): " + client.BuildUri(request).ToString(), false);
             log.Verbose("RestRequest.Method: " + request.Method, false);
 
             var paramsDict = request.Parameters.Where(p => p.Value != null).ToDictionary(p => p.Name, p => p.Value);
@@ -41,21 +39,22 @@ namespace ConnectApp.Maui.Api
 
         protected void LogRequest(HttpRequestMessage request)
         {
-            log.Debug("request.RequestUri: " + request.RequestUri, false);
-            log.Verbose("request.Method: " + request.Method, false);
-
-            var headerStrings = request.Content.Headers.SelectMany(h => h.Value.Select(v => $" - {h.Key}: {v}"));
+            log.Info($"{request.Method} request to: {request.RequestUri}", false); // TODO: was debug
+            var requestHeaderStrings = request.Headers.SelectMany(h => h.Value.Select(v => $" - {h.Key}: {v}"));
+            var contentHeaderStrings = request.Content.Headers.SelectMany(h => h.Value.Select(v => $" - {h.Key}: {v}"));
+            var headerStrings = new List<string>();
+            headerStrings.AddRange(requestHeaderStrings);
+            headerStrings.AddRange(contentHeaderStrings);
             if (headerStrings.Count() > 0)
             {
                 var headers = string.Join("\n", headerStrings);
-                log.Verbose("request.Headers:\n" + headers, true);
+                log.Info("request Headers:\n" + headers, true); // TODO: was verbose
             }
         }
 
         protected void LogResponse(ServerResponse response)
         {
-            log.Debug("response.Code: " + response.Code, false);
-            log.Debug("response.StatusDescription: " + response.StatusDescription.ToString(), false);
+            log.Debug($"{response.Code} response ({response.StatusDescription})", false);
             if (!string.IsNullOrWhiteSpace(response.RawContent))
             {
                 log.Verbose("response.RawContent: " + response.RawContent, true);

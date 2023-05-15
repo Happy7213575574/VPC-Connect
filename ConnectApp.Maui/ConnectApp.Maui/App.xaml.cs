@@ -168,8 +168,8 @@ public partial class App : Application
         Log.Debug("Init logic...", false);
         LastActivity = new AppActivity() { State = AppEvents.Initialising };
         Device = new ConnectDevice();
-        // Api = new PortalApiHttpClient(this);
-        Api = new PortalApiResharper(this);
+        Api = new PortalApiHttpClient(this);
+        //Api = new PortalApiResharper(this);
         Config = InitConfiguration();
         Log.Verbose("InitConfiguration with PushToken: " + Config.PushToken ?? "(null)", true);
         LatestPushToken = Config.PushToken;
@@ -505,35 +505,6 @@ public partial class App : Application
 
         return response;
     }
-
-    [Obsolete("This method of registration is deprecated.")]
-    internal async Task<ServerResponse> RegisterUsernamePasswordAsync(string username, string password, bool userInitiated)
-    {
-        Log.Error("Portal registration deprecated method (username, password) no longer supported.", false);
-        throw new NotImplementedException("This method of registration is deprecated.");
-
-        //LastActivity = new AppActivity() { State = AppEvents.SubmitRegistrationInitiated };
-        //var response = await Api.SubmitUsernamePasswordRegistrationAsync(
-        //    username,
-        //    password,
-        //    Config.PushToken,
-        //    ConnectDevice.UUID,
-        //    ConnectDevice.DeviceDescription);
-
-        //LastActivity = new AppActivity() { State = AppEvents.SubmitRegistrationResult, Result = response };
-        //if (response.IsSuccess)
-        //{
-        //    if (userInitiated) { EraseOutstandingPPI(); }
-        //    RegistrationState = RegistrationStates.Registered;
-        //}
-        //else
-        //{
-        //    RegistrationState = RegistrationStates.NotRegistered;
-        //}
-
-        //return response;
-    }
-
 
     internal async Task<ServerResponse> DeregisterAsync()
     {

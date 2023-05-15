@@ -8,10 +8,6 @@
 
 		<OutputType>Exe</OutputType>
 
-		<!-- attempted release fix, no effect -->
-		<!-- from: https://github.com/xamarin/xamarin-android/issues/7876#issuecomment-1528087178 -->
-		<AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>
-
 		<RootNamespace>ConnectApp.Maui</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
@@ -47,24 +43,41 @@
 	  <CodesignProvision>VPC connect development profile 2023-05</CodesignProvision>
 	  <CodesignKey>iPhone Developer: Lewis Westbury (SR2N4JM2D8)</CodesignKey>
 	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	  <CodesignProvision>VPC connect distribution profile 2023-05</CodesignProvision>
 	  <CodesignKey>iPhone Distribution: Front-Line Tech Ltd (XGU7PQB893)</CodesignKey>
 	</PropertyGroup>
+
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	  <WarningLevel>4</WarningLevel>
 	</PropertyGroup>
+
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 	  <DebugSymbols>true</DebugSymbols>
 	  <Optimize>false</Optimize>
 	  <WarningLevel>4</WarningLevel>
 	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
-	</PropertyGroup>
+		<!-- Issue: Android builds in Release mode have failed to launch after their splash screen -->
+		<!-- attempted fix #1 - no effect -->
+		<!-- from: https://github.com/xamarin/xamarin-android/issues/7876#issuecomment-1528087178 -->
+		<!--<AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>-->
+		<!-- attempted fix #2 - positive effect -->
+		<!-- from: https://stackoverflow.com/questions/75832206/net-maui-app-crashes-when-installed-from-apk-but-works-well-with-debugger#comment133768204_75832206 -->
+		<RunAOTCompilation>False</RunAOTCompilation>
+		<PublishTrimmed>False</PublishTrimmed>
+		<!-- attempted fix #3 - no effect -->
+		<!-- from: https://github.com/dotnet/maui/issues/12826#issuecomment-1403943771 -->
+		<EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    </PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
 	  <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
 	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />

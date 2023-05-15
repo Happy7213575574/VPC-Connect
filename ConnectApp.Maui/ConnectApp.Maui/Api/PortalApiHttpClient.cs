@@ -1,12 +1,8 @@
-﻿using System.Net;
-using System.Net.Security;
+﻿using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using ConnectApp.Maui.Api.DTO;
-using ConnectApp.Maui.AppLog;
 using Newtonsoft.Json;
-using Nito.AsyncEx;
-using RestSharp;
 
 namespace ConnectApp.Maui.Api
 {
@@ -19,9 +15,7 @@ namespace ConnectApp.Maui.Api
             var handler = new HttpClientHandler();
             handler.ClientCertificateOptions = ClientCertificateOption.Manual;
             handler.ServerCertificateCustomValidationCallback = CustomValidationCallback;
-            var httpclient = new HttpClient(handler);
-            httpclient.DefaultRequestHeaders.Add("API-Access", PortalUris.PortalApi_AccessCode);
-            httpclient.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
+            httpclient = new HttpClient(handler);
             // ServicePointManager.ServerCertificateValidationCallback += CustomValidationCallback;
             log.Debug("HttpClient ready.", false);
         }
@@ -44,7 +38,7 @@ namespace ConnectApp.Maui.Api
             log.Debug($"Incoming chain:        {chain.ChainElements.Count()} elements", true);
 
             if (sslPolicy == SslPolicyErrors.RemoteCertificateChainErrors &&
-               (debugAcceptDomain == null || incomingDomain.Contains(debugAcceptDomain)))
+               (debugAcceptDomain == null || incomingDomain.ToLower().Contains(debugAcceptDomain.ToLower())))
             {
                 log.Debug("Validating certifiate against known roots...", true);
                 var ok = CertificateValidator.ValidateCertificateAgainstKnownRoots(certificate);
@@ -64,6 +58,30 @@ namespace ConnectApp.Maui.Api
         private StringContent JsonContent(IDictionary<string, string> values)
             => new StringContent(JsonConvert.SerializeObject(values), Encoding.UTF8, "application/json");
 
+        private HttpRequestMessage PostMessage(Uri uri, StringContent content)
+        {
+            //content.Headers.Add("API-Access", PortalUris.PortalApi_AccessCode);
+            //content.Headers.Add("Access-Control-Allow-Origin", "*");
+
+            var msg = new HttpRequestMessage()
+            {
+                RequestUri = uri,
+                Method = HttpMethod.Post,
+                Content = content,
+                Headers =
+                {
+                    { "API-Access", SensitiveConstants.PortalApiAccessCode },
+                    { "Access-Control-Allow-Origin", "*" }
+                }
+            };
+
+            log.Info($"Access code = {SensitiveConstants.PortalApiAccessCode}", false); // TODO: remove
+
+            LogRequest(msg);
+
+            return msg;
+        }
+
         public override async Task<ServerResponse> SubmitDeviceCheckAsync(string token, string uuid)
         {
             if (string.IsNullOrWhiteSpace(token)) { return ServerResponse.From(null, "Token not present - no check conducted."); }
@@ -72,8 +90,10 @@ namespace ConnectApp.Maui.Api
             {
                 var uri = ConstructUri(PortalUris.DeviceCheckEndpoint);
                 var json = JsonContent(new Dictionary<string, string>() { { "RegistrationId", token }, { "UUID", uuid } });
-                HttpResponseMessage response = await httpclient.PostAsync(uri, json);
-                LogRequest(response.RequestMessage);
+                var message = PostMessage(uri, json);
+                //httpclient.SetHeaders();
+                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
+                HttpResponseMessage response = await httpclient.SendAsync(message);
                 var serverResponse = await ServerResponse.FromAsync(response);
                 LogResponse(serverResponse);
                 return serverResponse;
@@ -83,6 +103,7 @@ namespace ConnectApp.Maui.Api
         public override async Task<UserTokenServerResponse> GetUserTokenAsync(string username, string password)
         {
             log.Verbose("GetUserTokenAsync", false);
+            log.Info($"GetUserTokenAsync username: {username}, password: {password}", false); // TODO: REMOVE THIS
             using (await _mutex.LockAsync())
             {
                 var uri = ConstructUri(PortalUris.UserTokenEndpoint);
@@ -91,7 +112,10 @@ namespace ConnectApp.Maui.Api
                     { "username", username.Trim().ToLower() },
                     { "password", password.Trim() }
                 });
-                var response = await httpclient.PostAsync(uri, json);
+                var message = PostMessage(uri, json);
+                //httpclient.SetHeaders();
+                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
+                HttpResponseMessage response = await httpclient.SendAsync(message);
                 LogRequest(response.RequestMessage);
                 var serverResponse = await UserTokenServerResponse.FromAsync(response);
                 LogResponse(serverResponse);
@@ -113,7 +137,10 @@ namespace ConnectApp.Maui.Api
                     { "RegistrationId", pushToken },
                     { "UserToken", userToken }
                 });
-                var response = await httpclient.PostAsync(uri, json);
+                var message = PostMessage(uri, json);
+                //httpclient.SetHeaders();
+                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
+                HttpResponseMessage response = await httpclient.SendAsync(message);
                 LogRequest(response.RequestMessage);
                 var serverResponse = await UserTokenServerResponse.FromAsync(response);
                 LogResponse(serverResponse);
@@ -132,7 +159,10 @@ namespace ConnectApp.Maui.Api
                     { "RegistrationId", token },
                     { "UUID", uuid }
                 });
-                var response = await httpclient.PostAsync(uri, json);
+                var message = PostMessage(uri, json);
+                //httpclient.SetHeaders();
+                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
+                HttpResponseMessage response = await httpclient.SendAsync(message);
                 LogRequest(response.RequestMessage);
                 var serverResponse = await UserTokenServerResponse.FromAsync(response);
                 LogResponse(serverResponse);

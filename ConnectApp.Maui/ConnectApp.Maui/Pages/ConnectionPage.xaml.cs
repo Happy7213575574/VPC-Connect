@@ -226,15 +226,7 @@ namespace ConnectApp.Maui.Pages
             else
             {
                 log.Debug("Form valid.", false);
-                if (app.Api.UseUserToken)
-                {
-                    await app.GetUserTokenAndRegisterAsync(Model.EntryUsername, Model.EntryPassword, true);
-                }
-                else
-                {
-                    log.Warning("Registering with username and password. This method of registration is deprecated.", false);
-                    await app.RegisterUsernamePasswordAsync(Model.EntryUsername, Model.EntryPassword, true);
-                }
+                await app.GetUserTokenAndRegisterAsync(Model.EntryUsername, Model.EntryPassword, true);
             }
         }
 

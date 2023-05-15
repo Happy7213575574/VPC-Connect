@@ -6,11 +6,6 @@ namespace ConnectApp.Maui.Api
 	public interface IPortalApi
 	{
         /// <summary>
-        /// If true, use the user token for API calls (recommended), otherwise use username/password combo (not recommended).
-        /// </summary>
-        bool UseUserToken { get; }
-
-        /// <summary>
         /// Checks to see if the device is currently registered
         /// </summary>
         /// <param name="token"></param>

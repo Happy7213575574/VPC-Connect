@@ -15,15 +15,25 @@ namespace ConnectApp.Maui.AppLog
 #if DEBUG
         private bool mayLogSensitive = true;
 #else
-        private bool mayLogSensitive = false;
+        private bool mayLogSensitive = true; // TODO: UNDO this - no sensitive logs allowed in Release
 #endif
+
+        private static Dictionary<LogEntry.LogLevel, char> charFor = new Dictionary<LogEntry.LogLevel, char>()
+        {
+            { LogEntry.LogLevel.Verbose, 'V' },
+            { LogEntry.LogLevel.Debug, 'D' },
+            { LogEntry.LogLevel.Info, 'I' },
+            { LogEntry.LogLevel.Warning, 'W' },
+            { LogEntry.LogLevel.Error, 'E' },
+            { LogEntry.LogLevel.Exception, 'X' },
+        };
 
         public AppLogger(ConnectAppData db, string subject = null, bool onDevice = true)
         {
             this.db = db;
             this.subject = subject ?? "(static)";
-            this.useSystemLog = onDevice;
             this.onDevice = onDevice;
+            this.useSystemLog = onDevice;
         }
 
         public AppLogger For(object subject)
@@ -45,16 +55,6 @@ namespace ConnectApp.Maui.AppLog
         {
             AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
             {
-                SystemLog(
-                    LogEntry.LogLevel.Warning,
-                    "First chance exception: " + eventArgs.Exception.Message);
-                SystemLog(
-                    LogEntry.LogLevel.Debug,
-                        eventArgs.Exception.ToString());
-                SystemLog(
-                    LogEntry.LogLevel.Debug,
-                        eventArgs.Exception.StackTrace);
-
                 Exception(eventArgs.Exception);
             };
         }
@@ -64,7 +64,7 @@ namespace ConnectApp.Maui.AppLog
         public void Info(string m, bool s, Exception e = null) { Log(LogEntry.LogLevel.Info, m, s, e); }
         public void Warning(string m, bool s, Exception e = null) { Log(LogEntry.LogLevel.Warning, m, s, e); }
         public void Error(string m, bool s, Exception e = null) { Log(LogEntry.LogLevel.Error, m, s, e); }
-        public void Exception(Exception e) { Log(LogEntry.LogLevel.Exception, e.Message, false, e); }
+        public void Exception(Exception e) { Log(LogEntry.LogLevel.Exception, $"{e.GetType().Name}: {e.Message}", false, e); }
 
         public string Version { get { return VersionTracking.CurrentVersion; } }
         public string Build { get { return VersionTracking.CurrentBuild; } }
@@ -114,35 +114,8 @@ namespace ConnectApp.Maui.AppLog
         {
             if (useSystemLog)
             {
-                switch (level)
-                {
-                    case LogEntry.LogLevel.Debug:
-                        Console.WriteLine(subject + ": " + message);
-                        break;
-                    case LogEntry.LogLevel.Verbose:
-                        Console.WriteLine(subject + ": " + message);
-                        break;
-                    case LogEntry.LogLevel.Info:
-                        Console.WriteLine(subject + ": " + message);
-                        break;
-                    case LogEntry.LogLevel.Warning:
-                        Console.WriteLine(subject + ": " + message, exception);
-                        break;
-                    case LogEntry.LogLevel.Error:
-                        Console.WriteLine(subject + ": " + message, exception);
-                        break;
-                    case LogEntry.LogLevel.Exception:
-                        Console.WriteLine(subject + ": " + message, exception);
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine($"{level}: {message}");
-                if (exception != null)
-                {
-                    Console.WriteLine($"  {exception.GetType().Name}, {exception.Message}");
-                }
+                var exceptionStr = exception == null ? "" : $"; {exception}";
+                Console.WriteLine($"[{charFor[level]}] {subject}: {message}{exceptionStr}");
             }
         }
 

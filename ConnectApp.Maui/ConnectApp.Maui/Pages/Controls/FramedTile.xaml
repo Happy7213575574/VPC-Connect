@@ -37,6 +37,7 @@
                 Text="{Binding ContentText}"
                 FontSize="14" />
             <!-- nasty hack: repeat the label because the grid seems to half-resize -->
+            <!-- TODO: remove this, no longer seems required -->
             <!--
             <Label
                 IsVisible="{Binding RepeatTextHack}"

@@ -10,6 +10,7 @@ using RestSharp;
 
 namespace ConnectApp.Maui.Api
 {
+    [Obsolete("This implementation is deprecated. RestSharp struggled with incomplete certificate chains. Use PortalApiHttpClient instead.")]
     public class PortalApiResharper : BaseApi, IPortalApi
     {
         private RestClientOptions options;
@@ -22,7 +23,7 @@ namespace ConnectApp.Maui.Api
             options.RemoteCertificateValidationCallback += CustomValidationCallback;
             if (PortalUris.OverrideTimeout != null) { options.MaxTimeout = PortalUris.OverrideTimeout.Value; }
             client = new RestClient(options);
-            client.AddDefaultHeader("API-Access", PortalUris.PortalApi_AccessCode);
+            client.AddDefaultHeader("API-Access", SensitiveConstants.PortalApiAccessCode);
             client.AddDefaultHeader("Access-Control-Allow-Origin", "*");
             // ServicePointManager.ServerCertificateValidationCallback += CustomValidationCallback;
             log.Debug("RestClient ready.", false);
@@ -107,26 +108,6 @@ namespace ConnectApp.Maui.Api
                 return serverResponse;
             }
         }
-
-        //[Obsolete("This method of registration is deprecated.")]
-        //internal async Task<ServerResponse> SubmitUsernamePasswordRegistrationAsync(string username, string password, string pushToken, string deviceUuid, string deviceDescription)
-        //{
-        //    log.Verbose("SubmitUsernamePasswordRegistrationAsync", false);
-        //    using (await _mutex.LockAsync())
-        //    {
-        //        var request = new RestRequest(PortalUris.RegistrationEndpoint, Method.Post);
-        //        request.AddParameter("DeviceType", deviceDescription);
-        //        request.AddParameter("UUID", deviceUuid);
-        //        request.AddParameter("RegistrationId", pushToken);
-        //        request.AddParameter("UserName", username);
-        //        request.AddParameter("Password", password);
-        //        LogRequest(client, request);
-        //        var response = await client.ExecuteAsync(request);
-        //        var serverResponse = ServerResponse.From(response);
-        //        LogResponse(serverResponse);
-        //        return serverResponse;
-        //    }
-        //}
 
         public override async Task<ServerResponse> SubmitPortalDeregistrationAsync(string token, string uuid)
         {
