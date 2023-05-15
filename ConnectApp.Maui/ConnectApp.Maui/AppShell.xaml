@@ -73,9 +73,7 @@
         </Tab>
     </FlyoutItem>
 
-    <!-- debug only -->
-    <!--
-    <FlyoutItem Title="Debug" Icon="debug.png" IsVisible="{Binding DebugBuild}">
+    <FlyoutItem Title="Debug" Icon="debug.png">
         <Tab>
             <ShellContent
                 Title="Debug"
@@ -83,7 +81,6 @@
                 Route="debugpage" />
         </Tab>
     </FlyoutItem>
-    -->
 
     <Shell.ItemTemplate>
         <DataTemplate>

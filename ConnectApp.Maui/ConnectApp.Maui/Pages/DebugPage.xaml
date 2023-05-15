@@ -114,6 +114,7 @@
                         AutomationProperties.HelpText="Use this option to create a test notification."
                         Clicked="Button_TestNotifiationClicked"
                         Margin="0,0,0,5"
+                        IsVisible="{Binding DebugBuild}"
                         />
                     <Button
                         HorizontalOptions="Fill"
@@ -124,6 +125,7 @@
                         AutomationProperties.Name="Simulate crash button"
                         AutomationProperties.HelpText="Use this option to simulate a crash of the application."
                         Clicked="Button_SimulateCrashClicked"
+                        IsVisible="{Binding DebugBuild}"
                         />
                 </StackLayout>
             </Frame>

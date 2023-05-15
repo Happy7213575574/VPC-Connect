@@ -23,8 +23,16 @@ namespace ConnectApp.Maui.Pages.Models
 
         private string token;
         public string DisplayToken {
-            get { return token; }
-            set {
+            get
+            {
+#if DEBUG
+                return token;
+#else
+                return string.IsNullOrWhiteSpace(token) ? "(null)" : "present";
+#endif
+            }
+            set
+            {
                 token = value; Notify(nameof(DisplayToken));
             }
         }
