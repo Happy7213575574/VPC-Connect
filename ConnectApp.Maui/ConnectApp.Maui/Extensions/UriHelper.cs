@@ -31,9 +31,16 @@ namespace ConnectApp.Maui.Extensions
 
                 if (link.ToLower().StartsWith("mailto:"))
                 {
-                    var recipients = new List<string>();
-                    recipients.Add(link.Substring("mailto:".Length));
-                    await SendEmailAsync(recipients);
+                    var recipients = new List<string>
+                    {
+                        link.Substring("mailto:".Length)
+                    };
+                    var ok = await SendEmailAsync(recipients);
+                    if (!ok)
+                    {
+                        view.log.Warning($"Unable to launch email.", false);
+                        await view.DisplayAlert("Unexpected error", "Unable to launch email.", "OK");
+                    }
                 }
                 else if (link.ToLower().StartsWith("https://"))
                 {
@@ -56,7 +63,12 @@ namespace ConnectApp.Maui.Extensions
                 }
                 else if (link.ToLower().StartsWith("tel:"))
                 {
-                    Dial(link.Substring("tel:".Length));
+                    var ok = Dial(link.Substring("tel:".Length));
+                    if (!ok)
+                    {
+                        view.log.Warning($"Unable to trigger dialler for: {link}", false);
+                        await view.DisplayAlert("Unexpected error", "Unable to launch dialler.", "OK");
+                    }
                 }
                 else if (link.ToLower().StartsWith("page:"))
                 {
