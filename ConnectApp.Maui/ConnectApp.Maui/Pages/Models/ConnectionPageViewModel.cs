@@ -83,7 +83,6 @@ namespace ConnectApp.Maui.Pages.Models
             set { formVisible = value; Notify(nameof(FormVisible)); }
         }
 
-        // TODO: you need to tidy up how this is set / consumed
         private string formPortalResponseMessage;
         public string FormPortalResponseMessage
         {

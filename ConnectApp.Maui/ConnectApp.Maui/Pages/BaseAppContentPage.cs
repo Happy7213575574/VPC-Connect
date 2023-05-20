@@ -187,14 +187,5 @@ namespace ConnectApp.Maui.Pages
             await uris.OpenLinkAsync(uri);
         }
 
-        private void Model_OnNotificationRequested(NotificationRecord obj)
-        {
-            // TODO: you are here
-
-
-
-        }
-
-
     }
 }

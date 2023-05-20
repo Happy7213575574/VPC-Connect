@@ -60,9 +60,6 @@ namespace ConnectApp.Maui.Api
 
         private HttpRequestMessage PostMessage(Uri uri, StringContent content)
         {
-            //content.Headers.Add("API-Access", PortalUris.PortalApi_AccessCode);
-            //content.Headers.Add("Access-Control-Allow-Origin", "*");
-
             var msg = new HttpRequestMessage()
             {
                 RequestUri = uri,
@@ -74,11 +71,7 @@ namespace ConnectApp.Maui.Api
                     { "Access-Control-Allow-Origin", "*" }
                 }
             };
-
-            log.Info($"Access code = {SensitiveConstants.PortalApiAccessCode}", false); // TODO: remove
-
             LogRequest(msg);
-
             return msg;
         }
 
@@ -91,8 +84,6 @@ namespace ConnectApp.Maui.Api
                 var uri = ConstructUri(PortalUris.DeviceCheckEndpoint);
                 var json = JsonContent(new Dictionary<string, string>() { { "RegistrationId", token }, { "UUID", uuid } });
                 var message = PostMessage(uri, json);
-                //httpclient.SetHeaders();
-                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
                 HttpResponseMessage response = await httpclient.SendAsync(message);
                 var serverResponse = await ServerResponse.FromAsync(response);
                 LogResponse(serverResponse);
@@ -103,7 +94,6 @@ namespace ConnectApp.Maui.Api
         public override async Task<UserTokenServerResponse> GetUserTokenAsync(string username, string password)
         {
             log.Verbose("GetUserTokenAsync", false);
-            log.Info($"GetUserTokenAsync username: {username}, password: {password}", false); // TODO: REMOVE THIS
             using (await _mutex.LockAsync())
             {
                 var uri = ConstructUri(PortalUris.UserTokenEndpoint);
@@ -113,8 +103,6 @@ namespace ConnectApp.Maui.Api
                     { "password", password.Trim() }
                 });
                 var message = PostMessage(uri, json);
-                //httpclient.SetHeaders();
-                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
                 HttpResponseMessage response = await httpclient.SendAsync(message);
                 LogRequest(response.RequestMessage);
                 var serverResponse = await UserTokenServerResponse.FromAsync(response);
@@ -138,8 +126,6 @@ namespace ConnectApp.Maui.Api
                     { "UserToken", userToken }
                 });
                 var message = PostMessage(uri, json);
-                //httpclient.SetHeaders();
-                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
                 HttpResponseMessage response = await httpclient.SendAsync(message);
                 LogRequest(response.RequestMessage);
                 var serverResponse = await UserTokenServerResponse.FromAsync(response);
@@ -160,8 +146,6 @@ namespace ConnectApp.Maui.Api
                     { "UUID", uuid }
                 });
                 var message = PostMessage(uri, json);
-                //httpclient.SetHeaders();
-                //HttpResponseMessage response = await httpclient.PostAsync(uri, json);
                 HttpResponseMessage response = await httpclient.SendAsync(message);
                 LogRequest(response.RequestMessage);
                 var serverResponse = await UserTokenServerResponse.FromAsync(response);

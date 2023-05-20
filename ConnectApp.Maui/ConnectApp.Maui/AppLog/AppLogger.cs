@@ -15,7 +15,7 @@ namespace ConnectApp.Maui.AppLog
 #if DEBUG
         private bool mayLogSensitive = true;
 #else
-        private bool mayLogSensitive = true; // TODO: UNDO this - no sensitive logs allowed in Release
+        private bool mayLogSensitive = false;
 #endif
 
         private static Dictionary<LogEntry.LogLevel, char> charFor = new Dictionary<LogEntry.LogLevel, char>()

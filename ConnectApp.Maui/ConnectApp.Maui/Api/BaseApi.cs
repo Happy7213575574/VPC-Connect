@@ -39,7 +39,7 @@ namespace ConnectApp.Maui.Api
 
         protected void LogRequest(HttpRequestMessage request)
         {
-            log.Info($"{request.Method} request to: {request.RequestUri}", false); // TODO: was debug
+            log.Debug($"{request.Method} request to: {request.RequestUri}", false);
             var requestHeaderStrings = request.Headers.SelectMany(h => h.Value.Select(v => $" - {h.Key}: {v}"));
             var contentHeaderStrings = request.Content.Headers.SelectMany(h => h.Value.Select(v => $" - {h.Key}: {v}"));
             var headerStrings = new List<string>();
@@ -48,7 +48,7 @@ namespace ConnectApp.Maui.Api
             if (headerStrings.Count() > 0)
             {
                 var headers = string.Join("\n", headerStrings);
-                log.Info("request Headers:\n" + headers, true); // TODO: was verbose
+                log.Verbose("request Headers:\n" + headers, true);
             }
         }
 
