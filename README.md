@@ -1,6 +1,10 @@
 # VPC Connect
 
-**VPC Connect is currently undergoing a rewrite into .NET MAUI. See: [Issue #2](https://github.com/PoliceRewired/vpc-connect/issues/2)**
+## Update
+
+**2023-05-21.** The rewrite of this app to use the .NET MAUI framework has recently completed. See: [Issue #2](https://github.com/PoliceRewired/vpc-connect/issues/2)
+
+## Overview
 
 This app is a communications tool for users of the Marshall Volunteer Portal (MVP), a service provided by the Volunteer Police Cadets (VPC).
 
