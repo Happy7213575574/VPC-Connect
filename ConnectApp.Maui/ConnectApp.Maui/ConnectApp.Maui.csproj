@@ -52,27 +52,35 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-	  <WarningLevel>4</WarningLevel>
+		<DebugSymbols>true</DebugSymbols>
+		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	  <DebugSymbols>true</DebugSymbols>
+	  <DebugSymbols>false</DebugSymbols>
 	  <Optimize>false</Optimize>
 	  <WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
 		<!-- Issue: Android builds in Release mode have failed to launch after their splash screen -->
+
 		<!-- attempted fix #1 - no effect -->
 		<!-- from: https://github.com/xamarin/xamarin-android/issues/7876#issuecomment-1528087178 -->
 		<!--<AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>-->
+
 		<!-- attempted fix #2 - positive effect -->
 		<!-- from: https://stackoverflow.com/questions/75832206/net-maui-app-crashes-when-installed-from-apk-but-works-well-with-debugger#comment133768204_75832206 -->
+		<!--
 		<RunAOTCompilation>False</RunAOTCompilation>
 		<PublishTrimmed>False</PublishTrimmed>
+		-->
+
 		<!-- attempted fix #3 - no effect -->
 		<!-- from: https://github.com/dotnet/maui/issues/12826#issuecomment-1403943771 -->
-		<EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+		<!--
+		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+		-->
     </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
