@@ -30,7 +30,7 @@ Risks:
 Mitigations:
 
 * The token is limited in scope - and cannot be used for general access to the user's account.
-* The token can be cancelled if found to be compromised.
+* The token can be revoked if found to be compromised.
 
 ### App secrets
 
@@ -70,4 +70,5 @@ Further, the content of the logs is carefully managed. PII is not recorded in th
 
 This app should be made safe to open-source and share with the civic tech community.
 
-Values for `API-Key` and credentials for test users are stored in a class called `SensitiveConstants` - which is not included in the repository.
+Values for `API-Key` and credentials for test users are stored in a class called `SensitiveConstants` - which is excluded from the repository by inclusion in the `.gitignore` file.
+

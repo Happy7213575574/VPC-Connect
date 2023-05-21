@@ -16,10 +16,13 @@ namespace ConnectApp.Maui.Api
             handler.ClientCertificateOptions = ClientCertificateOption.Manual;
             handler.ServerCertificateCustomValidationCallback = CustomValidationCallback;
             httpclient = new HttpClient(handler);
-            // ServicePointManager.ServerCertificateValidationCallback += CustomValidationCallback;
             log.Debug("HttpClient ready.", false);
         }
 
+        /// <summary>
+        /// TODO: This CustomValidationCallback is no longer required.
+        /// It was used to validate the certificate chain during testing.
+        /// </summary>
         private string debugAcceptDomain = SensitiveConstants.PortalApiTrustDomain;
         private bool CustomValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicy)
         {

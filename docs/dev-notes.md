@@ -18,40 +18,37 @@ The Android app signing keystore and password, and the required iOS development 
 
 As mentioned in the [API notes](api.md), the portal API requires an access key to accompany all requests. This is not included in the repository.
 
-Provide class `SensitiveConstants` in `ConnectApp/Communication/SensitiveConstants.cs`
+Provide class `SensitiveConstants` in `ConnectApp/Communication/SensitiveConstants.cs` - this can be provided to you by an established developer.
 
 ```csharp
 namespace ConnectApp.Communication
 {
     public class SensitiveConstants
     {
-#if TESTPORTAL
-        public static readonly string PortalApiAccessCode = "<Portal API access code>";
-        public static string Tests_Username = "<username for testing>";
-        public static string Tests_Password = "<password for testing>";
-        public static string Tests_FullName = "<full name for testing>";
-        public static string Tests_SignedInUrl = PortalUris.PortalWeb_BaseUri;
-#else
-        public static readonly string PortalApiAccessCode = "<Portal API access code>";
-        public static string Tests_Username = "<username for testing>";
-        public static string Tests_Password = "<password for testing>";
-        public static string Tests_FullName = "<full name for testing>";
-        public static string Tests_SignedInUrl = PortalUris.PortalWeb_BaseUri;
-#endif
+        public static readonly string PortalApiAccessCode = ""; // TODO: provide the API-Access header value
+        public static string PortalApiTrustDomain = "endpoint.vpc.police.uk";
+        public static string[] PortalApiRootCertificates = new []; // optional: string array of the root certificates for the endpoint
     }
 }
 ```
 
-### Android/iOS projects
+* `PortalApiAccessCode` - the `API-Access` header value
+* `PortalApiTrustDomain` - the portal API domain (from which certificates can be evaluated)
+* `PortalApiRootCertificates` - a string array of the public certificate authority certificate chain for the portal API domain
 
-You shouldn't need to touch much in the Android or iOS native apps - they are effectively wrappers for the ConnectApp project, which defines the UI and does the work of completing registration and handling push notifications.
+### Android/iOS specifics
 
-Key resources in the native apps:
+Maui provides a single project with multiple targets.
 
-* `ConnectApp.Android/google-services.json` - downloaded from FCM, and must have a build type of: `GoogleServicesJson`
-* `ConnectApp.iOS/GoogleService-Info.plist` - downloaded from FCM, and must have a build type of: `BundleResource`
+You shouldn't need to touch much in the Android or iOS specifics.
 
-Key modifications in the native apps are marked out by comments starting with: `// FCM:`
+Key native resources:
+
+* `ConnectApp.Maui/google-services.json` - downloaded from FCM, and must have a build type of: `GoogleServicesJson`
+* `ConnectApp.Maui/GoogleService-Info.plist` - downloaded from FCM, and must have a build type of: `BundleResource`
+* `ConnectApp.Maui/Platforms/Android` directory - native Android components.
+  * The Android `MainActivity` has been modified to support Firebase push notifications.
+* `ConnectApp.Maui/Platforms/iOS` directory - native iOS components.
 
 ## Startup
 
@@ -68,40 +65,40 @@ When viewing the Connection page:
 
 On completion of the form, the app then:
 
-* Exchanges username and password for a user token, with: `Communication/PortalApi.GetUserTokenAsync`
-* Registers, passing its push token, user token, and device details to: `Communication/PortalApi.SubmitPortalRegistrationAsync`
+* Exchanges username and password for a user token, with: `ConnectApp.Maui/API/PortalApiHttpClient.GetUserTokenAsync`
+* Registers, passing its push token, user token, and device details to: `ConnectApp.Maui/API/PortalApiHttpClient.SubmitPortalRegistrationAsync`
 * If the registration is accepted, the UI switches to state `PortalRegisterComplete`.
-* If not, it switches to state `PortalRegisterFail` - showing the form again for the user to try again.
+* If not, it switches to state `PortalRegisterFail` - showing the form for the user to try again.
 
 ## UI
 
-* UI classes and xaml are available in `ConnectApp/Pages`
+* UI classes and xaml are available in `ConnectApp.Maui/Pages`
 * Pages extend `BaseAppContentPage`.
-* Some enums are translated to human readable text using classes in `ConnectApp/Text`.
+* Some enums are translated to human readable text using classes in `ConnectApp.Maui/Text`.
 
 ## Database
 
 The app is supported by a SQLite database, and classes to manage it are found in:
 
-* `ConnectApp/Database` - database management classes
-* `ConnectApp/Entities` - classes that map to database tables
+* `ConnectApp.Maui/Data` - database management classes
+* `ConnectApp.Maui/Data/Entities` - classes that map to database tables
 
-The database is defined in `ConnectApp/Database/ConnectDb.cs`.
+The database is defined in `ConnectApp.Maui/Data/ConnectAppData.cs`.
 
-If any of the entities or the database definition changes, increment `ConnectApp/Database/DbConstants.Version`. This will cause the database to be rebuilt the next time the app is opened.
+If any of the entities or the database definition changes, increment `ConnectApp.Maui/Data/DbConstants.Version`. This will cause the database to be rebuilt the next time the app is opened.
 
 ## API
 
 See also: [API notes](api.md)
 
-Communication with the portal API is handled by classes in `ConnectApp/Communication` and `ConnectApp/DTO`.
+Communication with the portal API is handled by classes in `ConnectApp.Maui/Api` and `ConnectApp.Maui/Api/DTO`.
 
 * `PortalUris.cs` contains details of the various portal endpoints. These are switched based on the current build environment.
 * `PortalApi.cs` contains a number of methods able to call the portal endpoints and return the response.
 
 ## Logging
 
-All logging is managed by the `AppLogger` class in `ConnectApp/AppLog`.
+All logging is managed by the `AppLogger` class in `ConnectApp.Maui/AppLog`.
 
 When logging, call one of the public methods:
 
@@ -112,7 +109,7 @@ When logging, call one of the public methods:
 * `Error(string message, bool sensitive, Exception exception)`
 * `Exception(Exception exception)`
 
-For regular logs, you must set the `sensitive` parameter to indicate whether the log could contain sensitive information (such as push tokens, user tokens, or other credentials).
+You must set the `sensitive` boolean parameter to indicate whether the log could contain sensitive information (such as push tokens, user tokens, or other credentials).
 
 Sensitive information will not be passed to the system log (viewable through adb logs) in production builds, but is available in debug builds.
 

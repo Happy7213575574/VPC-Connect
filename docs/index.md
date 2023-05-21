@@ -26,12 +26,10 @@ For more information:
 * [Build instructions](build.md)
 * [Debugging information](debugging.md)
 * [Developer notes](dev-notes.md)
-* [Icons](icons.md)
 * [Infrastructure detail](infrastructure.md)
 * [Known issues](known-issues.md)
 * [Security and risks](security.md)
 * [Tools](tools.md)
-* [Unit and integration testing](unit-tests.md)
 
 ### Push notifications
 

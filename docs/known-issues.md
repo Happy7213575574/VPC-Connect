@@ -2,7 +2,15 @@
 
 ## Open
 
-No known issues at current time.
+### Android icon and splash screen scaling
+
+At current time, the Android icon image is significantly larger than the icon itself, and cropped to fit.
+
+Similarly, the splash screen is rendered wider than the display width and cropped.
+
+### Visual Studio cannot build in `Release` mode
+
+This issue relates to a bug in Visual Studio. Microsoft have indicated an intention to fix this in future releases.
 
 ## Resolved
 

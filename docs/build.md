@@ -2,56 +2,90 @@
 
 ## Build
 
-The project is built with Visual Studio, with mobile development features enabled (Xamarin).
+The project is built with Visual Studio or `dotnet build`.
 
-The build requires access to XCode for the iOS app. This can be either installed on the local machine, or provided through an XCode server.
+The build requires access to XCode for the iOS app. This can either be installed on the local machine, or provided through an XCode server.
 
-### Android
+A known issue prevents Visual Studio from working with `Release` builds. (See below for workarounds.)
 
-In VS, with the **Android** project selected, in **Release** mode, and _any device:_
+## Visual Studio debug builds
 
-* Build with: `Build` / `Build Solution`
-* Archive with: `Build` / `Archive for Publishing`
+Debug builds work as expected.
 
-### iOS
+* Select `Debug` mode from the menu button at the top left of the Visual Studio window.
+* Select the target device, eg. `Debug` `Pixel 5 - API 33 (API 33)`
+* Press the play button: `▶`
 
-In VS, with the **iOS** project selected, in **Release** mode, and a **Generic Device:**
+NB. If you do not have an Android device configured for the emulator, use the Android SDK Device Manager through the **Tools** menu to create one.
 
-* Build with: `Build` / `Build Solution`
-* Archive with: `Build` / `Archive for Publishing`
+Similarly, select an iOS device from those available to launch the iOS simulator.
 
-## Test distribution
+## Visual Studio release builds
 
-![Distribution](images/distribution.png)
+### Known issue
 
-* The Android app is built, signed for release, and distributed through the Microsoft App Center.
-* The iOS app is built against the appropriate distribution profile, and then uploaded to TestFlight using the Transporter application.
+**2023-05-21.** At current time, Visual Studio struggles to deploy `Release` builds to Android emulators or iOS simulators. A bug in Visual Studio causes it to halt and require _old_ Xamarin.Forms Android build tools. Microsoft have expressed an intention to fix this in future builds.
 
-### Android
+### Workaround
 
-* Sign and distribute the archive.
-* Save the apk, and then upload to the MS App Center.
-* Manage at: [MS App Center - VPC-Connect-production](https://appcenter.ms/users/policerewired/apps/VPC-Connect-production)
-* From there, distribute to the testing team.
+The workaround is to use the scripts available in the `ConnectApp.Maui` directory:
 
-### iOS
+| Script | Notes |
+|-|-|
+| `clean-debug.sh` | Cleans the `Debug` build. |
+| `clean-release.sh` | Cleans the `Release` build. |
+| `build-release-android.sh` | Cleans, then builds the **Android** `Release` build. |
+| `build-release-ios.sh` | Cleans, then builds the **iOS** `Release` build. |
+| `launch-debug-android.sh` | Cleans, builds the **Android** `Debug` build, then launches it*. |
+| `launch-debug-ios.sh` | Cleans, builds the **iOS** `Debug` build, then launches it on the **iPhone 14 Pro Max** simulator. |
+| `launch-release-android.sh` | Cleans, builds the **Android** `Release` build, then launches it*. |
+| `launch-release-ios.sh` | Cleans, builds the **iOS** `Release` build, then launches it on the **iPhone 14 Pro Max** simulator. |
 
-* **Build and sign** the archive.
-  * For **App store**.
-  * **Export** (save to disk), rather than upload to app store.
-* Upload to App Store Connect, using the [Transporter](https://apps.apple.com/us/app/transporter/id1450874784) app.
-* App status will show **Processing**, and then **Ready to Submit**
-* Click the build (eg. `1.6`) - to show the **Test Details**, provide some info about how to test.
-* Add a Group to the Build, using the `(+)` button, and add the **VPC Connect tester (production)** group.
-  * Ensure that the text is correct.
-  * Ensure that **Automatically notify testers** is checked.
-  * Press **Submit for Review**.
-* App status will show **Waiting for Review** - this happens Apple-side and it takes 1-2 days for them to process.
+_* Launches on an Android device connected in debug mode, or an Android emulator - whichever is visible to `adb`._
 
-### Release distribution
+## Publishing
 
-* iOS: The app is distributed via the App Store.
-* Android: The app is distributed via the Play Store.
+### Archive for publishing
+
+* First, build the appropriate version of the application with either script:
+
+  ```zsh
+  ./build-release-android.sh
+  ./build-release-ios.sh
+  ```
+
+* In Visual Studio, ensure that `Release` mode is selected.
+* For an Android build, ensure that an Android target is selected.
+* For an iOS build, ensure that **Generic Device** is selected.
+* Archive with: **Build** / **Archive for Publishing**
+
+### Sign and distribute
+
+* Open the archive view with: **Build** / **View Archives**
+* Select the new archive, and choose: **Sign and Distribute...**
+* Follow the prompts to sign and distribute the application.
+
+_You have the option of distributing to the Play Store, or App Store, directly using their APIs (untested), or signing, saving to disk and then uploading through their own tools._
+
+#### Uploading to the Play Store (Android)
+
+Having signed and saved your `.aab` (Android App Bundle), you can now create a release in the Play Store.
+
+Recommended:
+
+* Create an internal testing release.
+* Distribute to colleagues for testing.
+* When ready, _promote_ this release to Production.
+
+#### Uploading to the App Store
+
+Having signed and saved your `.ipa` (iOS Package for the App Store), you can now upload it to the App Store.
+
+Recommended:
+
+* Use the Mac OS [Transporter](https://apps.apple.com/us/app/transporter/id1450874784?mt=12) app provided by Apple.
+
+### Distribution
 
 | OS | Control panel | Live listing |
 |-|-|-|

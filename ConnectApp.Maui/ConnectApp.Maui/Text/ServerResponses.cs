@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using RestSharp;
 
 namespace ConnectApp.Maui.Text
 {
@@ -41,25 +40,6 @@ namespace ConnectApp.Maui.Text
 
                 default:
                     return "Unrecognised server response: " + code;
-            }
-        }
-
-        public static string Describe(ResponseStatus status)
-        {
-            switch (status)
-            {
-                case ResponseStatus.None:
-                    return "No response from server.";
-                case ResponseStatus.Error:
-                    return "Error communicating with server.";
-                case ResponseStatus.TimedOut:
-                    return "Server took too long to respond.";
-                case ResponseStatus.Aborted:
-                    return "Server aborted connection.";
-                case ResponseStatus.Completed:
-                    return "Server response received.";
-                default:
-                    return "Server response status unrecognised.";
             }
         }
 

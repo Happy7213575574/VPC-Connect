@@ -4,12 +4,12 @@ There are a number of different ways to manually test aspects of the app.
 
 ## Debug information
 
-You can see the current state of the app's configuration (including the device's FPNS/APNS push token if it has one) by opening the debug view.
+You can see the current state of the app's configuration (including the device's FPNS/APNS push token if it has one) by opening the **Support** view.
 
-* Tap the VPC logo on the connection page 20 times.
-* This will take you to the debug view.
+* When running a `Debug` build, you will be able to see the app's push token.
+* When running a `Release` build, you will see an indicator showing whether the push token is present or not.
 
-The debug view has some useful information about the device:
+This view has some useful information about the device:
 
 | Debug info | Notes |
 |-|-|
@@ -17,18 +17,19 @@ The debug view has some useful information about the device:
 | App build | Version number of the build - should increment between releases. |
 | Build | Values: `RELEASE` / `DEBUG` |
 | Portal | Values: `LIVE` / `TEST` |
-| Push token | If this box is blank, the phone did not manage to register itself with FPNS or APNS. |
+| Push token | Indicates if the FPNS / APNS registration succeeded. |
 | Device | Some useful information about your device and the version of Android or iOS. |
 
 There are also some tools to help debug issues:
 
 | Tool | Notes |
 |-|-|
-| Export exception logs... | This will allow a user to share the logs from their app with us. |
-| Add test notification | This will create a fake notification in the app - to help debug the user interface. |
-| Simulate crash | This will trigger an exception - to help confirm that these are captured, and simulate the user experience when something goes wrong. |
+| **Export app logs...** | This will allow a user to share the logs from their app by email. |
+| **Feedback form...** | A form users can fill out to report issues or make suggestions. (Opens in browser.) |
+| **Add test notification** | Creates a test notification record - to help exercise the user interface. |
+| **Simulate crash** | Triggers an exception in the application - to simulate the user experience when something goes wrong. |
 
-If you want to analyse the exception logs from a particular issue that a user experienced, it's a good idea to ask the user for the time that the issue occurred. The logs can be a little verbose at times.
+If you want to analyse the exception logs from a particular issue that a user experienced, it's a good idea to ask the user for the time that the issue occurred. The logs can be a little verbose.
 
 NB. `RELEASE` builds of the app do not capture verbose information or personally identifiable information in the logs.
 
