@@ -7,7 +7,7 @@
     xmlns:controls="clr-namespace:ConnectApp.Maui.Pages.Controls"
     xmlns:t="clr-namespace:ConnectApp.Maui.Pages.Templates"
     xmlns:local="clr-namespace:ConnectApp.Maui.Extensions;assembly=ConnectApp.Maui"
-    Title="VPC Connect">
+    Title="{Binding DisplayVpcConnectTitle}">
 
     <AbsoluteLayout>
         <StackLayout

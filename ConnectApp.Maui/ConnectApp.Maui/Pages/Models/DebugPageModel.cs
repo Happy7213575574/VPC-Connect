@@ -14,8 +14,6 @@ namespace ConnectApp.Maui.Pages.Models
             DisplayToken = app.LatestPushToken;
         }
 
-        public string DisplayTitle { get { return "VPC Connect " + Version; } }
-
         public string Build { get { return VersionTracking.CurrentBuild; } }
 
         public string DeviceDescription { get { return ConnectDevice.DeviceDescription; } }

@@ -119,6 +119,8 @@ namespace ConnectApp.Maui.Pages.Models
         public string DisplayVersion { get { return "Version " + Version; } }
         public string Version { get { return VersionTracking.CurrentVersion; } }
 
+        public string DisplayVpcConnectTitle { get { return "VPC Connect " + Version; } }
+
         protected void Notify(params string[] names)
         {
             foreach (var name in names)

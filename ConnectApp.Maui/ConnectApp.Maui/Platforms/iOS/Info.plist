@@ -23,7 +23,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/appicon.appiconset</string>
+	<string>Assets.xcassets/appiconshield.appiconset</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<string>No</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -36,5 +36,7 @@
 	<string>2.0</string>
 	<key>CFBundleVersion</key>
 	<string>20</string>
+	<key>CFBundleDisplayName</key>
+	<string>VPC Connect 2.0</string>
 </dict>
 </plist>
