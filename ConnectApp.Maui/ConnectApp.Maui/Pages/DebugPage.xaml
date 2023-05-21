@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<p:BaseAppContentPage x:TypeArguments="p:Models.DebugPageModel"
+    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ConnectApp.Maui.Pages.DebugPage"
+    Title="{Binding DisplayVpcConnectTitle}">
+
+    <ScrollView>
+        <StackLayout
+            Orientation="Vertical"
+            Padding="10">
+
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Application"
+                        FontAttributes="Bold"
+                        />
+                    <Label
+                        AutomationId="AppSummary"
+                        Text="{Binding DisplayAppSummary}"
+                        />
+                    <Label
+                        AutomationId="Environment"
+                        Text="{Binding DisplayEnvironment}"
+                        />
+                    <Label
+                        AutomationId="PortalApiBaseUri"
+                        Text="{Binding DisplayPortalApiBaseUri}"
+                        />
+                    <Label
+                        AutomationId="PortalSignInUri"
+                        Text="{Binding DisplayPortalSignInUri}"
+                        />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Push token"
+                        FontAttributes="Bold"
+                        />
+                    <Label
+                        AutomationId="Token"
+                        Text="{Binding DisplayToken}"
+                        />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Device"
+                        FontAttributes="Bold"
+                        />
+                    <Label
+                        AutomationId="DeviceSummary"
+                        Text="{Binding DisplayDeviceSummary}"
+                        />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                HasShadow="True"
+                BackgroundColor="White"
+                Margin="0,0,0,5"
+                Padding="5">
+                <StackLayout
+                    Orientation="Vertical"
+                    Padding="10">
+                    <Label
+                        Text="Support tools"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,5"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Export app logs..."
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Export button"
+                        AutomationProperties.HelpText="Use this option to share a copy of the application logs."
+                        Clicked="Button_ExportClicked"
+                        Margin="0,0,0,5"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Feedback form..."
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Export button"
+                        AutomationProperties.HelpText="Use this option to open a form to report an issue."
+                        Command="{Binding TapLinkCommand}"
+                        CommandParameter="https://docs.google.com/forms/d/e/1FAIpQLSell9R3bNQVRDjvE6OTiijjHnMyoPRqPr9_rPd-6BL1uzXjUQ/viewform"
+                        Margin="0,0,0,5"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Add test notification"
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Test notification button"
+                        AutomationProperties.HelpText="Use this option to create a test notification."
+                        Clicked="Button_TestNotifiationClicked"
+                        Margin="0,0,0,5"
+                        IsVisible="{Binding DebugBuild}"
+                        />
+                    <Button
+                        HorizontalOptions="Fill"
+                        Text="Simulate crash"
+                        BackgroundColor="#404040"
+                        TextColor="#ffffff"
+                        AutomationProperties.IsInAccessibleTree="true"
+                        AutomationProperties.Name="Simulate crash button"
+                        AutomationProperties.HelpText="Use this option to simulate a crash of the application."
+                        Clicked="Button_SimulateCrashClicked"
+                        IsVisible="{Binding DebugBuild}"
+                        />
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+
+</p:BaseAppContentPage>

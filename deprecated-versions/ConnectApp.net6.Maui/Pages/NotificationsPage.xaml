@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<p:BaseAppContentPage x:TypeArguments="p:Models.NotificationsPageViewModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ConnectApp.Maui.Pages.NotificationsPage"
+    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
+    xmlns:c="clr-namespace:ConnectApp.Maui.Pages.Controls"
+    xmlns:t="clr-namespace:ConnectApp.Maui.Pages.Templates"
+    Title="VPC Notifications">
+    <p:BaseAppContentPage.Content>
+        <StackLayout Orientation="Vertical">
+
+            <!-- notifications list -->
+            <CollectionView
+                IsVisible="{Binding ShowList}"
+                AutomationId="RecentNotificationsList"
+                ItemsSource="{Binding AllNotifications}"
+                VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <t:NotificationItemDataTemplate />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- no notifications visible -->
+            <c:FramedTile
+                IsVisible="{Binding ShowNoList}"
+                ContentText="No notifications received yet."
+                ContentColour="{StaticResource FrameColour}"
+                />
+
+        </StackLayout>
+    </p:BaseAppContentPage.Content>
+</p:BaseAppContentPage>

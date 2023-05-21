@@ -1,0 +1,5 @@
+GET https://endpoint.vpc.police.uk
+###
+
+GET https://endpoint.vpc.police.uk/swagger/ui/index
+###

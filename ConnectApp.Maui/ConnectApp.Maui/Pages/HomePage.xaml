@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<p:BaseAppContentPage x:TypeArguments="p:Models.HomePageModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ConnectApp.Maui.Pages.HomePage"
+    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
+    xmlns:controls="clr-namespace:ConnectApp.Maui.Pages.Controls"
+    xmlns:t="clr-namespace:ConnectApp.Maui.Pages.Templates"
+    xmlns:local="clr-namespace:ConnectApp.Maui.Extensions;assembly=ConnectApp.Maui"
+    Title="{Binding DisplayVpcConnectTitle}">
+
+    <AbsoluteLayout>
+        <StackLayout
+            Orientation="Vertical"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5,0.5,1.0,1.0"
+            VerticalOptions="FillAndExpand">
+
+            <!-- top portion - scroll view with content -->
+            <ScrollView VerticalOptions="FillAndExpand" AutomationId="HomeScrollView">
+                <Grid
+                    Margin="{StaticResource CellPadding}"
+                    RowSpacing="{StaticResource CellSpacing}"
+                    ColumnSpacing="{StaticResource CellSpacing}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" /><!-- logo/header -->
+                        <RowDefinition Height="Auto" /><!-- registration notifications -->
+                        <RowDefinition Height="Auto" /><!-- news | safeguarding -->
+                        <RowDefinition Height="Auto" /><!-- recent notifications -->
+                        <RowDefinition Height="Auto" /><!-- visit the portal -->
+                        <RowDefinition Height="Auto" /><!-- diary | calendar -->
+                        <RowDefinition Height="Auto" /><!-- conversations | message boards -->
+                        <RowDefinition Height="Auto" /><!-- resources | about -->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- heading -->
+
+                    <controls:HeadingView
+                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                        />
+
+                    <!-- registration notification -->
+
+                    <controls:RegistrationNotificationsView
+                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        TapCommand="{Binding TapLinkCommand}"
+                        ShowSuccess="{Binding ShowRegistrationSuccess}"
+                        ShowInstruction="{Binding ShowRegistrationInstruction}"
+                        />
+
+                    <!-- news | safeguarding -->
+
+                    <controls:FramedTile
+                        Grid.Row="2" Grid.Column="0"
+                        ContentIcon="icon_news.png"
+                        ContentTitle="News"
+                        ContentText="Catch up on the latest news from the National VPC, your local cadet group, or the Mini Police."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="page:TwitterFeedsPage"
+                        />
+
+                    <controls:FramedTile
+                        Grid.Row="2" Grid.Column="1"
+                        ContentIcon="icon_safeguarding.png"
+                        ContentTitle="Safeguarding"
+                        ContentText="Read our safeguarding statement, or contact the National Safeguarding Manager directly."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="page:SafeguardingPage"
+                        />
+
+                    <!-- recent notifications -->
+
+                    <Border
+                        Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                        BackgroundColor="#ffffff"
+                        Stroke="{StaticResource FrameColour}"
+                        StrokeThickness="{StaticResource FrameThickness}"
+                        StrokeShape="{StaticResource FrameShape}"
+                        Padding="{StaticResource CellPadding}"
+                        IsVisible="{Binding RecentNotificationsVisible}">
+
+                        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                    Text="Recent notifications"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Start"
+                                    />
+                                <Label
+                                    AutomationProperties.IsInAccessibleTree="true"
+                                    AutomationProperties.Name="All notifications link"
+                                    AutomationProperties.HelpText="Click for all notifications"
+                                    Text="See all..."
+                                    TextColor="#37ACD9"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="EndAndExpand"
+                                    HorizontalTextAlignment="End">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="page:NotificationsPage"
+                                            />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <CollectionView
+                                AutomationId="RecentNotificationsList"
+                                ItemsSource="{Binding RecentNotifications}"
+                                VerticalOptions="Start"
+                                HeightRequest="250">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <t:NotificationItemDataTemplate />
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+                    </Border>
+
+                    <!-- portal -->
+
+                    <controls:FramedTile
+                        Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                        ContentIcon="icon_summary.png"
+                        ContentTitle="Visit the portal"
+                        ContentText="See your personal summary on the portal."
+                        ContentColour="{StaticResource AltFrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="{Binding PortalSummaryUri}"
+                        />
+
+                    <!-- diary | calendar -->
+
+                    <controls:FramedTile
+                        Grid.Row="5" Grid.Column="0"
+                        ContentIcon="icon_diary.png"
+                        ContentTitle="Diary"
+                        ContentText="See your diary on the portal."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="{Binding PortalSummaryUri}"
+                        />
+
+                    <controls:FramedTile
+                        Grid.Row="5" Grid.Column="1"
+                        ContentIcon="icon_calendar.png"
+                        ContentTitle="Calendar"
+                        ContentText="See your calendar on the portal."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="{Binding PortalSummaryUri}"
+                        />
+
+                    <!-- conversations | message boards -->
+
+                    <controls:FramedTile
+                        Grid.Row="6" Grid.Column="0"
+                        ContentIcon="icon_conversations.png"
+                        ContentTitle="Conversations"
+                        ContentText="See your conversations on the portal."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="{Binding PortalConversationsUri}"
+                        />
+
+                    <controls:FramedTile
+                        Grid.Row="6" Grid.Column="1"
+                        ContentIcon="icon_message_boards.png"
+                        ContentTitle="Message boards"
+                        ContentText="See the message boards son the portal."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="{Binding PortalMessageBoardsUri}"
+                        />
+
+                    <!-- resources | about -->
+
+                    <controls:FramedTile
+                        Grid.Row="7" Grid.Column="0"
+                        ContentIcon="icon_resources.png"
+                        ContentTitle="Resources"
+                        ContentText="See essential tools for leaders and cadets."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="{Binding PortalResourcesUri}"
+                        />
+
+                    <controls:FramedTile
+                        Grid.Row="7" Grid.Column="1"
+                        ContentIcon="icon_about.png"
+                        ContentTitle="About"
+                        ContentText="This app was built for the Volunteer Police Cadets by volunteers from Police Rewired. Find out more..."
+                        ContentColour="{StaticResource FrameColour}"
+                        TapCommand="{Binding TapLinkCommand}"
+                        TapParameter="https://policerewired.org/home/projects/vpc-connect"
+                        />
+
+                </Grid>
+            </ScrollView>
+
+            <!-- state footer-->
+            <Border VerticalOptions="End" Padding="5" BackgroundColor="#cccccc">
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="14" FontAttributes="Bold"
+                        Text="{Binding AppStateStr}"
+                        HorizontalOptions="FillAndExpand"
+                        LineBreakMode="TailTruncation"
+                        />
+                    <Label
+                        FontSize="14" FontAttributes="Bold"
+                        Text="TEST portal"
+                        TextColor="Red"
+                        IsVisible="{Binding ShowTestPortalIndicator}"
+                        HorizontalOptions="End" />
+                </StackLayout>
+
+            </Border>
+
+        </StackLayout>
+    </AbsoluteLayout>
+
+</p:BaseAppContentPage>

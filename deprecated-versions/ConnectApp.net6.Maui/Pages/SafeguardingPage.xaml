@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<p:BaseAppContentPage x:TypeArguments="p:Models.SafeguardingPageModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ConnectApp.Maui.Pages.SafeguardingPage"
+    xmlns:p="clr-namespace:ConnectApp.Maui.Pages"
+    xmlns:local="clr-namespace:ConnectApp.Maui.Extensions;assembly=ConnectApp"
+    Title="Safeguarding">
+    <p:BaseAppContentPage.Content>
+        <AbsoluteLayout>
+
+            <!-- main layout -->
+            <StackLayout
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0.5,0.5,1.0,1.0"
+                VerticalOptions="FillAndExpand">
+
+                <!-- header -->
+                <StackLayout VerticalOptions="Start" Padding="10,40,10,0">
+                    <Label FontSize="20" TextColor="#003A69" FontAttributes="Bold" Text="Safeguarding" HorizontalTextAlignment="Center" />
+                    <Label FontSize="14" TextColor="#37ACD9" FontAttributes="Bold" Text="Volunteer Police Cadets" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <ScrollView VerticalOptions="FillAndExpand" Padding="15,10">
+                    <!-- grid items 3, 4 -->
+                    <Grid
+                        Margin="0,5,0,0"
+                        ColumnSpacing="12"
+                        RowSpacing="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame Grid.Row="0" Grid.Column="0"
+                                BorderColor="#003A69"
+                                Padding="10"
+                                HasShadow="False">
+                            <StackLayout>
+                                <Label Text="Report an issue" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="The National Safeguarding Manager is available to offer advice at:" FontSize="14" />
+                                <Label Text="vpc.safeguarding@vpc.police.uk"
+                                       TextColor="#37ACD9" FontAttributes="Bold" FontSize="14">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="mailto:vpc.safeguarding@vpc.police.uk"
+                                             />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="0" Grid.Column="1"
+                                BorderColor="#003A69"
+                                Padding="10"
+                                HasShadow="False">
+                            <StackLayout>
+                                <Label Text="NSPCC" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="The NSPCC helpline is available at:" FontSize="14" />
+                                <Label Text="0800 800 5000"
+                                       TextColor="#37ACD9" FontAttributes="Bold" FontSize="14">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="tel:08008005000"
+                                             />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label Text="help@nspcc.org.uk"
+                                       TextColor="#37ACD9" FontAttributes="Bold" FontSize="14">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="mailto:help@nspcc.org.uk"
+                                             />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Grid.Column="0"
+                            BorderColor="#003A69"
+                            Padding="10"
+                            HasShadow="False">
+                            <StackLayout>
+                                <Label Text="IOPC" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="The Independent Office for Police Conduct is available at:" FontSize="14" />
+                                <Label Text="0300 020 0096"
+                                       TextColor="#37ACD9" FontAttributes="Bold" FontSize="14">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="tel:03000200096"
+                                             />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label Text="cadets@policeconduct.gov.uk"
+                                       TextColor="#37ACD9" FontAttributes="Bold" FontSize="14">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="mailto:cadets@policeconduct.gov.uk"
+                                             />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Grid.Column="1"
+                            BorderColor="#003A69"
+                            Padding="10"
+                            HasShadow="False">
+                            <StackLayout>
+                                <Label Text="Statement" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="The full statement and safeguarding policy from the Volunteer Police Cadets is available online." FontSize="14" />
+                                <Label Text="Read the statement..."
+                                       TextColor="#37ACD9" FontAttributes="Bold" FontSize="14">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding TapLinkCommand}"
+                                            CommandParameter="https://vpc.police.uk/about-us/safeguarding-statement/"
+                                             />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+
+                    </Grid>
+                </ScrollView>
+
+
+            </StackLayout><!-- /main layout -->
+
+        </AbsoluteLayout>
+    </p:BaseAppContentPage.Content>
+</p:BaseAppContentPage>

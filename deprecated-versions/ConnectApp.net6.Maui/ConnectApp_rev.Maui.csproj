@@ -1,0 +1,187 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>ConnectApp.Maui</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>VPC Connect</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>org.vpc.connect</ApplicationId>
+		<ApplicationIdGuid>7f249401-4029-45fa-9eaa-c1863d825dce</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>2.0</ApplicationDisplayVersion>
+		<ApplicationVersion>20</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
+	  <EnableCodeSigning>false</EnableCodeSigning>
+	  <CodesignKey>iPhone Developer</CodesignKey>
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+	<!-- push notifications Android -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+		<GoogleServicesJson Include="google-services.json" />
+	</ItemGroup>
+
+	<!-- push notifications iOS-->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
+		<BundleResource Include="GoogleService-Info.plist" />
+		<GoogleServicesJson Include="GoogleService-Info.plist" />
+	</ItemGroup>
+
+	<!-- push notifications Android -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.7.10" ExcludeAssets="build;buildTransitive" />
+	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.7.10" ExcludeAssets="build;buildTransitive" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Maui types -->
+		<MauiImage Include="Resources\Images\*.svg" />
+		<MauiImage Include="Resources\Images\*.png" />
+		<MauiFont Include="Resources\Fonts\*.ttf" />
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="Resources\Styles\*.xaml" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Pages\" />
+	  <None Remove="Data\" />
+	  <None Remove="sqlite-net" />
+	  <None Remove="sqlite-net-pcl" />
+	  <None Remove="Data\Entities\" />
+	  <None Remove="Plugin.Firebase" />
+	  <None Remove="GoogleService-Info.plist" />
+	  <None Remove="Services\" />
+	  <None Remove="AppLog\" />
+	  <None Remove="Api\" />
+	  <None Remove="Nito.AsyncEx" />
+	  <None Remove="RestSharp" />
+	  <None Remove="Api\DTO\" />
+	  <None Remove="Devices\" />
+	  <None Remove="Microsoft.Extensions.Logging.Debug" />
+	  <None Remove="Microsoft.Extensions.Logging.Console" />
+	  <None Remove="Text\" />
+	  <None Remove="Pages\Lists\" />
+	  <None Remove="Pages\Models\" />
+	  <None Remove="Pages\Templates\" />
+	  <None Remove="Extensions\" />
+	  <None Remove="Analytics\" />
+	  <None Remove="CsvHelper" />
+	  <None Remove="Resources\Images\archive_icon_white.png" />
+	  <None Remove="Resources\Images\hamburger_white.png" />
+	  <None Remove="Resources\Images\hamburger.png" />
+	  <None Remove="Resources\Images\icon_about.png" />
+	  <None Remove="Resources\Images\icon_calendar.png" />
+	  <None Remove="Resources\Images\icon_conversations.png" />
+	  <None Remove="Resources\Images\icon_diary.png" />
+	  <None Remove="Resources\Images\icon_message_boards.png" />
+	  <None Remove="Resources\Images\icon_news.png" />
+	  <None Remove="Resources\Images\icon_resources.png" />
+	  <None Remove="Resources\Images\icon_safeguarding.png" />
+	  <None Remove="Resources\Images\icon_summary.png" />
+	  <None Remove="Resources\Images\notification_icon_a.png" />
+	  <None Remove="Resources\Images\notification_icon_b.png" />
+	  <None Remove="Resources\Images\vpc_logo_white.png" />
+	  <None Remove="Resources\Images\vpc_logo.png" />
+	  <None Remove="Resources\Images\vpc_shield_white.png" />
+	  <None Remove="Resources\Images\vpc_shield.png" />
+	  <None Remove="SQLitePCLRaw.core" />
+	  <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
+	  <None Remove="Resources\Raw\AllFeedPage.html" />
+	  <None Remove="Resources\Raw\MiniFeedPage.html" />
+	  <None Remove="Resources\Raw\NationalFeedPage.html" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\connection.svg" />
+	  <None Remove="Resources\Images\inbox.svg" />
+	  <None Remove="Resources\Images\news.svg" />
+	  <None Remove="Resources\Images\shield.svg" />
+	  <None Remove="Resources\Images\archive.svg" />
+	  <None Remove="Resources\Images\debug.svg" />
+	  <None Remove="SQLitePCLRaw.provider.e_sqlite3" />
+	  <None Remove="SQLitePCLRaw.bundle_green" />
+	  <None Remove="SQLitePCLRaw.provider.sqlite3" />
+	  <None Remove="Pages\Controls\" />
+	  <None Remove="CommunityToolkit.Maui" />
+	  <None Remove="Pages\Resources\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Pages\" />
+	  <Folder Include="Data\" />
+	  <Folder Include="Data\Entities\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="AppLog\" />
+	  <Folder Include="Api\" />
+	  <Folder Include="Api\DTO\" />
+	  <Folder Include="Devices\" />
+	  <Folder Include="Text\" />
+	  <Folder Include="Pages\Lists\" />
+	  <Folder Include="Pages\Models\" />
+	  <Folder Include="Pages\Templates\" />
+	  <Folder Include="Extensions\" />
+	  <Folder Include="Analytics\" />
+	  <Folder Include="Pages\Controls\" />
+	  <Folder Include="Pages\Resources\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Plugin.Firebase" Version="1.2.0" />
+	  <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
+	  <PackageReference Include="RestSharp" Version="108.0.2" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+	  <PackageReference Include="CsvHelper" Version="29.0.0" />
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <MauiXaml Update="Pages\Controls\HeadingControl.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Controls\NiceFrame.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Controls\RegistrationNotificationsView.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Resources\ColourKey.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Resources\Alignments.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Templates\NotificationItemDataTemplate.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Templates\ArchivedNotificationItemDataTemplate.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	</ItemGroup>
+</Project>

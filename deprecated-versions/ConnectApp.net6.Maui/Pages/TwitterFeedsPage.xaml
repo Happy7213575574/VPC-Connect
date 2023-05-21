@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ConnectApp.Maui.Pages.TwitterFeedsPage"
+    xmlns:local="clr-namespace:ConnectApp.Maui.Extensions"
+    Title="VPC news feed">
+
+    <WebView
+        Navigating="WebView_NavigatingAsync"
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand">
+        <WebView.Source>
+            <HtmlWebViewSource>
+                <HtmlWebViewSource.Html>
+                    <![CDATA[
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VPC Connect twitter feed</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+    <a class="twitter-timeline" href="https://twitter.com/NationalVPC?ref_src=twsrc%5Etfw">Please wait...</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>
+                    ]]>
+                </HtmlWebViewSource.Html>
+            </HtmlWebViewSource>
+        </WebView.Source>
+    </WebView>
+
+</ContentPage>

@@ -1,0 +1,211 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+
+		<OutputType>Exe</OutputType>
+
+		<RootNamespace>ConnectApp.Maui</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>VPC Connect MAUI</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>org.vpc.connect</ApplicationId>
+		<ApplicationIdGuid>25734956-5b6b-4980-b64f-98cb0b3b6932</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<ReleaseVersion>2.0</ReleaseVersion>
+	</PropertyGroup>
+
+	<!-- added for Firebase support -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.7.20.1" ExcludeAssets="build;buildTransitive" />
+	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.7.20.1" ExcludeAssets="build;buildTransitive" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	  <CodesignProvision>VPC connect development profile 2023-05</CodesignProvision>
+	  <CodesignKey>iPhone Developer: Lewis Westbury (SR2N4JM2D8)</CodesignKey>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	  <CodesignProvision>VPC connect distribution profile 2023-05</CodesignProvision>
+	  <CodesignKey>iPhone Distribution: Front-Line Tech Ltd (XGU7PQB893)</CodesignKey>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	  <DebugSymbols>false</DebugSymbols>
+	  <Optimize>false</Optimize>
+	  <WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+		<!-- Issue: Android builds in Release mode have failed to launch after their splash screen -->
+
+		<!-- attempted fix #1 - no effect -->
+		<!-- from: https://github.com/xamarin/xamarin-android/issues/7876#issuecomment-1528087178 -->
+		<!--<AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>-->
+
+		<!-- attempted fix #2 - positive effect -->
+		<!-- from: https://stackoverflow.com/questions/75832206/net-maui-app-crashes-when-installed-from-apk-but-works-well-with-debugger#comment133768204_75832206 -->
+		<!--
+		<RunAOTCompilation>False</RunAOTCompilation>
+		<PublishTrimmed>False</PublishTrimmed>
+		-->
+
+		<!-- attempted fix #3 - no effect -->
+		<!-- from: https://github.com/dotnet/maui/issues/12826#issuecomment-1403943771 -->
+		<!--
+		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+		-->
+    </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+	  <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<!-- BaseSize="256,256" -->
+		<MauiIcon Include="Resources\AppIcon\appiconshield.png" Color="#FFFFFF" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\vpcconnectsplash.png" Color="#FFFFFF" BaseSize="500,500" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Plugin.Firebase" Version="2.0.3" />
+		<PackageReference Include="CsvHelper" Version="30.0.1" />
+		<PackageReference Include="RestSharp" Version="110.2.1-alpha.0.2" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.4" />
+		<PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.4" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
+		<PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="google-services.json" />
+	  <None Remove="GoogleService-Info.plist" />
+	  <None Remove="AppLog\" />
+	  <None Remove="Data\" />
+	  <None Remove="Devices\" />
+	  <None Remove="Pages\" />
+	  <None Remove="Services\" />
+	  <None Remove="Resources\Images\archive_icon_white.png" />
+	  <None Remove="Resources\Images\archive.svg" />
+	  <None Remove="Resources\Images\connection.svg" />
+	  <None Remove="Resources\Images\debug.svg" />
+	  <None Remove="Resources\Images\hamburger_white.png" />
+	  <None Remove="Resources\Images\hamburger.png" />
+	  <None Remove="Resources\Images\home.svg" />
+	  <None Remove="Resources\Images\icon_about.png" />
+	  <None Remove="Resources\Images\icon_calendar.png" />
+	  <None Remove="Resources\Images\icon_conversations.png" />
+	  <None Remove="Resources\Images\icon_diary.png" />
+	  <None Remove="Resources\Images\icon_message_boards.png" />
+	  <None Remove="Resources\Images\icon_news.png" />
+	  <None Remove="Resources\Images\icon_resources.png" />
+	  <None Remove="Resources\Images\icon_safeguarding.png" />
+	  <None Remove="Resources\Images\icon_summary.png" />
+	  <None Remove="Resources\Images\inbox.svg" />
+	  <None Remove="Resources\Images\news.svg" />
+	  <None Remove="Resources\Images\notification_icon_a.png" />
+	  <None Remove="Resources\Images\notification_icon_b.png" />
+	  <None Remove="Resources\Images\shield.svg" />
+	  <None Remove="Resources\Images\vpc_logo_white.png" />
+	  <None Remove="Resources\Images\vpc_logo.png" />
+	  <None Remove="Resources\Images\vpc_shield_white.png" />
+	  <None Remove="Resources\Images\vpc_shield.png" />
+	  <None Remove="Resources\Raw\NationalFeedPage.html" />
+	  <None Remove="Resources\Raw\MiniFeedPage.html" />
+	  <None Remove="Resources\Raw\AllFeedPage.html" />
+	  <None Remove="Api\" />
+	  <None Remove="Extensions\" />
+	  <None Remove="Text\" />
+	  <None Remove="Data\Entities\" />
+	  <None Remove="Resources\.DS_Store" />
+	</ItemGroup>
+	<ItemGroup>
+	  <GoogleServicesJson Include="google-services.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="GoogleService-Info.plist" />
+	  <BundleResource Include="Resources\Raw\NationalFeedPage.html" />
+	  <BundleResource Include="Resources\Raw\MiniFeedPage.html" />
+	  <BundleResource Include="Resources\Raw\AllFeedPage.html" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="AppLog\" />
+	  <Folder Include="Data\" />
+	  <Folder Include="Devices\" />
+	  <Folder Include="Pages\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Api\" />
+	  <Folder Include="Extensions\" />
+	  <Folder Include="Text\" />
+	  <Folder Include="Data\Entities\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Controls\RegistrationNotificationsView.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Resources\Alignments.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Resources\ColourKey.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Templates\ArchivedNotificationItemDataTemplate.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="Pages\Templates\NotificationItemDataTemplate.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\NationalFeedPage.html">
+	    <LogicalName>NationalFeedPage.html</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\MiniFeedPage.html">
+	    <LogicalName>MiniFeedPage.html</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\AllFeedPage.html">
+	    <LogicalName>AllFeedPage.html</LogicalName>
+	  </MauiAsset>
+	</ItemGroup>
+</Project>

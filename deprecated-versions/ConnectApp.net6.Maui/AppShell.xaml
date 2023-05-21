@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ConnectApp.Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:ConnectApp.Maui.Pages">
+
+    <FlyoutItem Title="Home" Icon="home.png">
+        <Tab>
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate pages:HomePage}"
+                Route="homepage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Connection" Icon="connection.png">
+        <Tab>
+            <ShellContent
+                Title="Connection"
+                ContentTemplate="{DataTemplate pages:ConnectionPage}"
+                Route="connectionpage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Notifications" Icon="inbox.png">
+        <Tab>
+            <ShellContent
+                Title="Notifications"
+                ContentTemplate="{DataTemplate pages:NotificationsPage}"
+                Route="notificationspage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="News feeds" Icon="news.png">
+        <Tab>
+            <ShellContent
+                Title="News feeds"
+                ContentTemplate="{DataTemplate pages:TwitterFeedsPage}"
+                Route="twitterfeedspage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Safeguarding" Icon="shield.png">
+        <Tab>
+            <ShellContent
+                Title="Safeguarding"
+                ContentTemplate="{DataTemplate pages:SafeguardingPage}"
+                Route="safeguardingpage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Archive" Icon="archive.png">
+        <Tab>
+            <ShellContent
+                Title="Archive"
+                ContentTemplate="{DataTemplate pages:ArchivedNotificationsPage}"
+                Route="archivednotificationspage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Debug" Icon="debug.png">
+        <Tab>
+            <ShellContent
+                Title="Debug"
+                ContentTemplate="{DataTemplate pages:DebugPage}"
+                Route="debugpage" />
+        </Tab>
+    </FlyoutItem>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="40,10,*" Margin="10,10,0,0">
+                <Image Grid.Column="0"
+                       Source="{Binding FlyoutIcon}"
+                       WidthRequest="40"
+                       HeightRequest="40"
+                       BackgroundColor="Transparent" />
+                <Label Grid.Column="2"
+                       Text="{Binding Title}"
+                       FontAttributes="Bold"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+</Shell>

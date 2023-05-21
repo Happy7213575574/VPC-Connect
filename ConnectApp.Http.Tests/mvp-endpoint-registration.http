@@ -1,0 +1,51 @@
+@push_token = fWqqkTiJTRGIevteFV75u_:APA91bFoh_YyxitJCpK455vVeOqieGI1lPVSQeTho9KTdpShZ1lWhD8RudyghVBKK44UJzFa-5QzDR2uK0AWFbQRPflZu2MfFuyuxluhGDuW4WL5PvA_pZR_W5P4f_7imns7neW3w9wm
+@uuid = {{$guid}}
+
+###
+
+# NB. username must be provided in lowercase
+@username = lewiscadetwestbury
+
+# @name token_exchange
+# @prompt password
+POST https://endpoint.vpc.police.uk/api/RegistrationToken
+API-Access: {{mvp_api_access}}
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+###
+
+@registration_token = {{token_exchange.response.body.*}}
+
+# @name device_registration
+POST https://endpoint.vpc.police.uk/api/Registration
+API-Access: {{mvp_api_access}}
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+
+{
+  "DeviceType": "Android:some:other:details",
+  "UUID": "{{uuid}}",
+  "RegistrationId": "{{push_token}}",
+  "UserToken": {{registration_token}}
+}
+
+###
+
+@accepted_uuid = {{device_registration.response.body.$.UUID}}
+@accepted_push_token = {{device_registration.response.body.$.RegistrationId}}
+
+# @name device_check
+POST https://endpoint.vpc.police.uk/api/DeviceCheck
+API-Access: {{mvp_api_access}}
+Content-Type: application/json
+
+{
+  "RegistrationId": "{{accepted_push_token}}",
+  "UUID": "{{accepted_uuid}}"
+}

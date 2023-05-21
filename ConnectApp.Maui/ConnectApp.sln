@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectApp.Maui", "ConnectApp.Maui\ConnectApp.Maui.csproj", "{BBD83A6C-5553-403B-889A-C83385ACD08B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBD83A6C-5553-403B-889A-C83385ACD08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD83A6C-5553-403B-889A-C83385ACD08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD83A6C-5553-403B-889A-C83385ACD08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD83A6C-5553-403B-889A-C83385ACD08B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		description = Rebuilt with the MAUI framework
+		version = 2.0
+	EndGlobalSection
+EndGlobal
