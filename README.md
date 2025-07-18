@@ -1,5 +1,8 @@
 # VPC Connect
 
+This is forked code
+** Use branch updating to help move from .NET MANUI 7 TO .NET MANUI 9
+
 ## Update
 
 **2023-05-21.** The rewrite of this app to use the .NET MAUI framework has recently completed. See: [Issue #2](https://github.com/PoliceRewired/vpc-connect/issues/2)
