@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net9.0-android;net9.0-ios</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 
@@ -34,18 +34,18 @@
 	</PropertyGroup>
 
 	<!-- added for Firebase support -->
-	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
 	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk7" Version="1.7.20.1" ExcludeAssets="build;buildTransitive" />
 	  <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.7.20.1" ExcludeAssets="build;buildTransitive" />
 	</ItemGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	  <CodesignProvision>VPC connect development profile 2023-05</CodesignProvision>
 	  <CodesignKey>iPhone Developer: Lewis Westbury (SR2N4JM2D8)</CodesignKey>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	  <CodesignProvision>VPC connect distribution profile 2023-05</CodesignProvision>
 	  <CodesignKey>iPhone Distribution: Front-Line Tech Ltd (XGU7PQB893)</CodesignKey>
@@ -62,7 +62,7 @@
 	  <WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
 		<!-- Issue: Android builds in Release mode have failed to launch after their splash screen -->
 
 		<!-- attempted fix #1 - no effect -->
@@ -83,7 +83,7 @@
 		-->
     </PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
 	  <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
 	</PropertyGroup>
 
