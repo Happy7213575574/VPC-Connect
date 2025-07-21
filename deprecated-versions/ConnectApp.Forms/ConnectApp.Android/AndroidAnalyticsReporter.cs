@@ -4,7 +4,9 @@ using Android.OS;
 using ConnectApp.Analytics;
 using ConnectApp.Droid;
 using Firebase.Analytics;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(AndroidAnalyticsReporter))]
 namespace ConnectApp.Droid

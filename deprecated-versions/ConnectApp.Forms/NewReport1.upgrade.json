@@ -1,0 +1,872 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "",
+    "targetDisplayName": ".NET 9.0"
+  },
+  "analysisStartTime": "2025-07-21T19:34:09.3651087Z",
+  "analysisEndTime": "2025-07-21T19:34:20.816637Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 4,
+      "issues": 7,
+      "incidents": 32,
+      "effort": 32
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 22,
+        "Optional": 1,
+        "Potential": 9,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 19,
+        "Api": 7,
+        "Project": 6
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+      "startingProject": true,
+      "issues": 5,
+      "storyPoints": 12,
+      "ruleInstances": [
+        {
+          "incidentId": "f369edf1-cebd-46a5-8f0e-5fae09967044",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Forms 5.0.0.2291",
+            "properties": {
+              "PackageId": "Xamarin.Forms",
+              "PackageVersion": "5.0.0.2291",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "8b46b9d0-643c-45fd-a728-662124e217b0",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Essentials 1.7.1",
+            "properties": {
+              "PackageId": "Xamarin.Essentials",
+              "PackageVersion": "1.7.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "e0f3fb4c-262e-49bc-9adf-160eec4a1501",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.GooglePlayServices.Basement, 117.6.0.2\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.GooglePlayServices.Basement, 117.6.0.2\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.GooglePlayServices.Basement, 117.6.0.2\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.GooglePlayServices.Basement, 117.6.0.2\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.GooglePlayServices.Basement 117.6.0.2",
+            "properties": {
+              "PackageId": "Xamarin.GooglePlayServices.Basement",
+              "PackageVersion": "117.6.0.2",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "6cd9f65d-ffa4-48d2-b2ad-e09739e4ee7a",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.AndroidX.Lifecycle.LiveData, 2.3.1.3\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.AndroidX.Lifecycle.LiveData, 2.3.1.3\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.AndroidX.Lifecycle.LiveData, 2.3.1.3\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.AndroidX.Lifecycle.LiveData, 2.3.1.3\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.AndroidX.Lifecycle.LiveData 2.3.1.3",
+            "properties": {
+              "PackageId": "Xamarin.AndroidX.Lifecycle.LiveData",
+              "PackageVersion": "2.3.1.3",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "6ea2d94e-f903-4309-b337-6f12f21ec848",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.AndroidX.Browser, 1.3.0.8\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.AndroidX.Browser, 1.3.0.8\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.AndroidX.Browser, 1.3.0.8\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.AndroidX.Browser, 1.3.0.8\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.AndroidX.Browser 1.3.0.8",
+            "properties": {
+              "PackageId": "Xamarin.AndroidX.Browser",
+              "PackageVersion": "1.3.0.8",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "84da88b4-0335-467a-a73f-b6b339088c85",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Google.Android.Material, 1.4.0.4\n\nRecommendation:\n\nXamarin.Google.Android.Material 1.11.0.1",
+              "protected": "Xamarin.Google.Android.Material, 1.4.0.4\n\nRecommendation:\n\nXamarin.Google.Android.Material 1.11.0.1"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.Google.Android.Material, 1.4.0.4\n\nRecommendation:\n\nXamarin.Google.Android.Material 1.11.0.1",
+            "protectedSnippet": "Xamarin.Google.Android.Material, 1.4.0.4\n\nRecommendation:\n\nXamarin.Google.Android.Material 1.11.0.1",
+            "label": "Xamarin.Google.Android.Material 1.4.0.4",
+            "properties": {
+              "PackageId": "Xamarin.Google.Android.Material",
+              "PackageVersion": "1.4.0.4",
+              "PackageNewVersion": "1.11.0.1",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "e77f02ad-ad47-474f-8474-6888d778c638",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.AndroidX.Legacy.Support.V4, 1.0.0.10\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.AndroidX.Legacy.Support.V4, 1.0.0.10\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.AndroidX.Legacy.Support.V4, 1.0.0.10\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.AndroidX.Legacy.Support.V4, 1.0.0.10\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.AndroidX.Legacy.Support.V4 1.0.0.10",
+            "properties": {
+              "PackageId": "Xamarin.AndroidX.Legacy.Support.V4",
+              "PackageVersion": "1.0.0.10",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "3fabd717-60e6-4852-a527-a5b51c103002",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Firebase.Core, 119.0.1.1\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.Firebase.Core, 119.0.1.1\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.Firebase.Core, 119.0.1.1\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.Firebase.Core, 119.0.1.1\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.Firebase.Core 119.0.1.1",
+            "properties": {
+              "PackageId": "Xamarin.Firebase.Core",
+              "PackageVersion": "119.0.1.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "1a2c8d5f-9496-4f87-9cbe-301c71a4a495",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Firebase.Analytics, 119.0.1.1\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.Firebase.Analytics, 119.0.1.1\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.Firebase.Analytics, 119.0.1.1\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.Firebase.Analytics, 119.0.1.1\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.Firebase.Analytics 119.0.1.1",
+            "properties": {
+              "PackageId": "Xamarin.Firebase.Analytics",
+              "PackageVersion": "119.0.1.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "c0b8c1fc-d4ac-49ef-9271-106f97341097",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Firebase.Crashlytics, 118.2.1.1\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.Firebase.Crashlytics, 118.2.1.1\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Xamarin.Firebase.Crashlytics, 118.2.1.1\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.Firebase.Crashlytics, 118.2.1.1\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.Firebase.Crashlytics 118.2.1.1",
+            "properties": {
+              "PackageId": "Xamarin.Firebase.Crashlytics",
+              "PackageVersion": "118.2.1.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "af7b1cc4-f691-4c1d-b6f2-d1a837e4f91f",
+          "ruleId": "Project.0001",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj"
+          }
+        },
+        {
+          "incidentId": "b74bc87a-1a32-4c08-afe9-b5c5478074bd",
+          "ruleId": "Project.0002",
+          "projectPath": "ConnectApp.Android\\ConnectApp.Android.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: MonoAndroid,Version=v11.0\nRecommended target framework: net9.0-android",
+              "protected": "Current target framework: MonoAndroid,Version=v11.0\nRecommended target framework: net9.0-android"
+            },
+            "kind": "File",
+            "path": "ConnectApp.Android\\ConnectApp.Android.csproj",
+            "snippet": "Current target framework: MonoAndroid,Version=v11.0\nRecommended target framework: net9.0-android",
+            "protectedSnippet": "Current target framework: MonoAndroid,Version=v11.0\nRecommended target framework: net9.0-android"
+          }
+        }
+      ]
+    },
+    {
+      "path": "ConnectApp.AppTests\\ConnectApp.AppTests.csproj",
+      "startingProject": true,
+      "issues": 2,
+      "storyPoints": 2,
+      "ruleInstances": [
+        {
+          "incidentId": "5d500d36-ab34-4c89-949f-740153f5424a",
+          "ruleId": "Project.0001",
+          "projectPath": "ConnectApp.AppTests\\ConnectApp.AppTests.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ConnectApp.AppTests\\ConnectApp.AppTests.csproj"
+          }
+        },
+        {
+          "incidentId": "5ab2f939-4b68-4373-8de2-310d10206772",
+          "ruleId": "Project.0002",
+          "projectPath": "ConnectApp.AppTests\\ConnectApp.AppTests.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net9.0",
+              "protected": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net9.0"
+            },
+            "kind": "File",
+            "path": "ConnectApp.AppTests\\ConnectApp.AppTests.csproj",
+            "snippet": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net9.0",
+            "protectedSnippet": "Current target framework: .NETFramework,Version=v4.7.2\nRecommended target framework: net9.0"
+          }
+        }
+      ]
+    },
+    {
+      "path": "ConnectApp\\ConnectApp.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 11,
+      "ruleInstances": [
+        {
+          "incidentId": "4c9967be-0fea-455b-9fd1-5d989d0676d0",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\ConnectApp.csproj",
+            "snippet": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Forms 5.0.0.2291",
+            "properties": {
+              "PackageId": "Xamarin.Forms",
+              "PackageVersion": "5.0.0.2291",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "a1f26b14-d04b-4eb8-bbeb-e8208eeeb4d6",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\ConnectApp.csproj",
+            "snippet": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Essentials 1.7.1",
+            "properties": {
+              "PackageId": "Xamarin.Essentials",
+              "PackageVersion": "1.7.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "72074f61-2fcc-4c9a-8474-9aa4741a36af",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nNewtonsoft.Json 13.0.3",
+              "protected": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nNewtonsoft.Json 13.0.3"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\ConnectApp.csproj",
+            "snippet": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nNewtonsoft.Json 13.0.3",
+            "protectedSnippet": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nNewtonsoft.Json 13.0.3",
+            "label": "Newtonsoft.Json 13.0.1",
+            "properties": {
+              "PackageId": "Newtonsoft.Json",
+              "PackageVersion": "13.0.1",
+              "PackageNewVersion": "13.0.3",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "7f6dfbad-9de7-46f9-9b13-7c39e7b95352",
+          "ruleId": "NuGet.0004",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "RestSharp, 107.3.0\n\nRecommendation:\n\nRestSharp, 112.1.0",
+              "protected": "RestSharp, 107.3.0\n\nRecommendation:\n\nRestSharp, 112.1.0"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\ConnectApp.csproj",
+            "snippet": "RestSharp, 107.3.0\n\nRecommendation:\n\nRestSharp, 112.1.0",
+            "protectedSnippet": "RestSharp, 107.3.0\n\nRecommendation:\n\nRestSharp, 112.1.0",
+            "label": "RestSharp 107.3.0",
+            "properties": {
+              "PackageId": "RestSharp",
+              "PackageVersion": "107.3.0",
+              "PackageNewVersion": "112.1.0",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "a01a4626-1081-4831-ba4e-304045060afa",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+              "protected": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object,Newtonsoft.Json.Formatting)"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\App.xaml.cs",
+            "snippet": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object,Newtonsoft.Json.Formatting)",
+            "label": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object,Newtonsoft.Json.Formatting)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.serializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 336,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "86e1cc6c-8a5c-43a9-b55f-e4e24f8fd8ed",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+              "protected": "T:Newtonsoft.Json.JsonConvert"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\App.xaml.cs",
+            "snippet": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 336,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "84b5b9dc-c739-4106-8fb8-ceaf6b74d5c1",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+              "protected": "F:Newtonsoft.Json.Formatting.Indented"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\App.xaml.cs",
+            "snippet": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+            "protectedSnippet": "F:Newtonsoft.Json.Formatting.Indented",
+            "label": "F:Newtonsoft.Json.Formatting.Indented",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.formatting.indented",
+                "isCustom": false
+              }
+            ],
+            "line": 336,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "4404f760-5407-498a-bc04-17cbe30b409c",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+              "protected": "T:Newtonsoft.Json.Formatting"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\App.xaml.cs",
+            "snippet": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+            "protectedSnippet": "T:Newtonsoft.Json.Formatting",
+            "label": "T:Newtonsoft.Json.Formatting",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.formatting",
+                "isCustom": false
+              }
+            ],
+            "line": 336,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "cd6dc154-b09f-4b41-a890-25efb4263bfc",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+              "protected": "T:Newtonsoft.Json.Formatting"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\App.xaml.cs",
+            "snippet": "Log.Verbose(JsonConvert.SerializeObject(dictionary, Formatting.Indented), true);",
+            "protectedSnippet": "T:Newtonsoft.Json.Formatting",
+            "label": "T:Newtonsoft.Json.Formatting",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.formatting",
+                "isCustom": false
+              }
+            ],
+            "line": 336,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "9b603ab8-f2ac-4b12-937d-c0c448435b1c",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "notification.AsJson = JsonConvert.SerializeObject(dictionary);",
+              "protected": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\App.xaml.cs",
+            "snippet": "notification.AsJson = JsonConvert.SerializeObject(dictionary);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "label": "M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.serializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 342,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "0bf93c91-f652-4c5a-b8e4-fe670c22ea33",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConnectApp\\ConnectApp.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "notification.AsJson = JsonConvert.SerializeObject(dictionary);",
+              "protected": "T:Newtonsoft.Json.JsonConvert"
+            },
+            "kind": "File",
+            "path": "ConnectApp\\App.xaml.cs",
+            "snippet": "notification.AsJson = JsonConvert.SerializeObject(dictionary);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 342,
+            "column": 20
+          }
+        }
+      ]
+    },
+    {
+      "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 7,
+      "ruleInstances": [
+        {
+          "incidentId": "f81b548c-062d-47a0-be67-6f445ba5f3a2",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+            "snippet": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Forms, 5.0.0.2291\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Forms 5.0.0.2291",
+            "properties": {
+              "PackageId": "Xamarin.Forms",
+              "PackageVersion": "5.0.0.2291",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "44f60f5b-eb00-4bf0-8e32-b5b2efc64434",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.TestCloud.Agent, 0.23.1\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.TestCloud.Agent, 0.23.1\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+            "snippet": "Xamarin.TestCloud.Agent, 0.23.1\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.TestCloud.Agent, 0.23.1\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.TestCloud.Agent 0.23.1",
+            "properties": {
+              "PackageId": "Xamarin.TestCloud.Agent",
+              "PackageVersion": "0.23.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "8378c08a-0674-456f-b18f-89ad59fa0cf6",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+            "snippet": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Essentials, 1.7.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Essentials 1.7.1",
+            "properties": {
+              "PackageId": "Xamarin.Essentials",
+              "PackageVersion": "1.7.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "21a059a4-2c5a-457b-a601-1b6b04506091",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Firebase.iOS.Analytics, 6.4.1\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.Firebase.iOS.Analytics, 6.4.1\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+            "snippet": "Xamarin.Firebase.iOS.Analytics, 6.4.1\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.Firebase.iOS.Analytics, 6.4.1\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.Firebase.iOS.Analytics 6.4.1",
+            "properties": {
+              "PackageId": "Xamarin.Firebase.iOS.Analytics",
+              "PackageVersion": "6.4.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "3f4ab604-1d86-4e6f-a8d3-b55f0601fcbe",
+          "ruleId": "NuGet.0001",
+          "projectPath": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Xamarin.Firebase.iOS.Crashlytics, 4.0.0-beta.7\n\nRecommendation:\n\nNo supported version found",
+              "protected": "Xamarin.Firebase.iOS.Crashlytics, 4.0.0-beta.7\n\nRecommendation:\n\nNo supported version found"
+            },
+            "kind": "File",
+            "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+            "snippet": "Xamarin.Firebase.iOS.Crashlytics, 4.0.0-beta.7\n\nRecommendation:\n\nNo supported version found",
+            "protectedSnippet": "Xamarin.Firebase.iOS.Crashlytics, 4.0.0-beta.7\n\nRecommendation:\n\nNo supported version found",
+            "label": "Xamarin.Firebase.iOS.Crashlytics 4.0.0-beta.7",
+            "properties": {
+              "PackageId": "Xamarin.Firebase.iOS.Crashlytics",
+              "PackageVersion": "4.0.0-beta.7",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "e4917744-18dc-43ab-8e9e-255999e96037",
+          "ruleId": "Project.0001",
+          "projectPath": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj"
+          }
+        },
+        {
+          "incidentId": "6c5bbd8e-2997-4131-adca-bf6a8031d505",
+          "ruleId": "Project.0002",
+          "projectPath": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: Xamarin.iOS,Version=v1.0\nRecommended target framework: net9.0-ios",
+              "protected": "Current target framework: Xamarin.iOS,Version=v1.0\nRecommended target framework: net9.0-ios"
+            },
+            "kind": "File",
+            "path": "ConnectApp.iOS\\ConnectApp.iOS.csproj",
+            "snippet": "Current target framework: Xamarin.iOS,Version=v1.0\nRecommended target framework: net9.0-ios",
+            "protectedSnippet": "Current target framework: Xamarin.iOS,Version=v1.0\nRecommended target framework: net9.0-ios"
+          }
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "NuGet.0003": {
+      "id": "NuGet.0003",
+      "description": "NuGet package functionality is included with framework reference.\n\nPackage needs to be removed.",
+      "label": "NuGet package functionality is included with framework reference",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262609",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0004": {
+      "id": "NuGet.0004",
+      "description": "NuGet package contains security vulnerabilities.\n\nPackage needs to be upgraded to a newer version that addresses known security vulnerabilities.",
+      "label": "NuGet package contains security vulnerability",
+      "severity": "Optional",
+      "effort": 1
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "description": "Some API that lived in older versions of .NET frameworks were moved to standalone NuGet packages that could be added to projects explicitly.",
+      "label": "API available in NuGet package",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0001": {
+      "id": "NuGet.0001",
+      "description": "NuGet package is incompatible with selected target framework.\n\nPackage needs to be upgraded to a version supporting selected project target framework. If there no new package versions supporting new target framework, different package needs to be used and all code needs to be upgraded to new API.",
+      "label": "NuGet package is incompatible",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262529",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0001": {
+      "id": "Project.0001",
+      "description": "Project file needs to be converted to SDK-style. Modern .NET framework projects require a change in the project file format and use SDK corresponding to project flavor and functionality.",
+      "label": "Project file needs to be converted to SDK-style",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

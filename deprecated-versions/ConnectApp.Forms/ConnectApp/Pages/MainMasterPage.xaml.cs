@@ -2,9 +2,11 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ConnectApp.Pages.Lists;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ConnectApp.Pages
 {

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using ConnectApp.Analytics;
 using ConnectApp.iOS;
 using Foundation;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(IOSAnalyticsReporter))]
 namespace ConnectApp.iOS

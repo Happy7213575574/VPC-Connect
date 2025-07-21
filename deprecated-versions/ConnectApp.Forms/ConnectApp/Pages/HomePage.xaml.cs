@@ -45,7 +45,7 @@ namespace ConnectApp.Pages
             app.SwitchToPage(PageTypes.ConnectionPage);
         }
 
-        new void ListView_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        new void ListView_ItemTapped(object sender, Microsoft.Maui.Controls.ItemTappedEventArgs e)
         {
             app.Log.Debug("ListView item tapped from HomePage", false);
             base.ListView_ItemTapped(sender, e).SafeFireAndForget(true);

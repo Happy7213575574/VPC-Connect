@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Essentials;
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.Storage;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ConnectApp.Devices
 {

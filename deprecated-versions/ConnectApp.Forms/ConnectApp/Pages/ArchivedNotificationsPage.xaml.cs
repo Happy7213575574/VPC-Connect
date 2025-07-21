@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using ConnectApp.Extensions;
 using ConnectApp.Pages.Lists;
 using ConnectApp.Pages.Models;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ConnectApp.Pages
 {
@@ -73,7 +75,7 @@ namespace ConnectApp.Pages
             // NOP
         }
 
-        new void ListView_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        new void ListView_ItemTapped(object sender, Microsoft.Maui.Controls.ItemTappedEventArgs e)
         {
             app.Log.Debug("ListView item tapped from ArchivedNotificationsPage", false);
             base.ListView_ItemTapped(sender, e).SafeFireAndForget(true);

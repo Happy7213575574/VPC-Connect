@@ -3,7 +3,7 @@ using ConnectApp.Database;
 using ConnectApp.Devices;
 using ConnectApp.Entities;
 using Plugin.Logging;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ConnectApp.AppLog
 {

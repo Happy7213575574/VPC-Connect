@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using ConnectApp.Database;
 using CsvHelper;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.Storage;
 
 namespace ConnectApp.AppLog
 {

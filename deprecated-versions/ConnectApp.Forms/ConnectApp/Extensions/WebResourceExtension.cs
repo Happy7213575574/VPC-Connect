@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ConnectApp.Extensions
 {

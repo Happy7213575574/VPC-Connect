@@ -13,8 +13,10 @@ using ConnectApp.Extensions;
 using ConnectApp.Pages;
 using Newtonsoft.Json;
 using Plugin.FirebasePushNotification;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ConnectApp
 {

@@ -1,5 +1,4 @@
 ﻿using System;
-using Xamarin.Essentials;
 
 namespace ConnectApp.Pages.Models
 {

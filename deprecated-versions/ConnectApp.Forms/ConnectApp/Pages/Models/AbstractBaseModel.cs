@@ -5,9 +5,11 @@ using System.Windows.Input;
 using ConnectApp.Communication;
 using ConnectApp.Pages.Lists;
 using ConnectApp.Text;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using static ConnectApp.App;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ConnectApp.Pages.Models
 {

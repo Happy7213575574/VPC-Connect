@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using ConnectApp.Analytics;
 using ConnectApp.Droid;
 using Firebase.Crashlytics;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(AndroidCrashlyticsReporter))]
 namespace ConnectApp.Droid

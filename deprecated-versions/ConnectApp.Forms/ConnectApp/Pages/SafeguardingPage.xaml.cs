@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ConnectApp.Pages.Models;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ConnectApp.Pages
 {

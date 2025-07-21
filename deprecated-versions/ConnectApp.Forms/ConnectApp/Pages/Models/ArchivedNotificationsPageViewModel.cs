@@ -2,7 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using ConnectApp.Pages.Lists;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ConnectApp.Pages.Models
 {

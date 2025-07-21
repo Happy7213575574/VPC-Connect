@@ -9,8 +9,9 @@ using ConnectApp.Extensions;
 using ConnectApp.Pages.Lists;
 using ConnectApp.Pages.Models;
 using Newtonsoft.Json;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace ConnectApp.Pages
 {

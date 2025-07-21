@@ -1,7 +1,7 @@
 ﻿using System;
 using ConnectApp.Communication;
 using ConnectApp.Devices;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ConnectApp.Pages.Models
 {

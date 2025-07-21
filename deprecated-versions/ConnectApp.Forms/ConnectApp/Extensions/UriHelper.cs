@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ConnectApp.Pages;
 using ConnectApp.Pages.Models;
-using Xamarin.Essentials;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace ConnectApp.Extensions
 {

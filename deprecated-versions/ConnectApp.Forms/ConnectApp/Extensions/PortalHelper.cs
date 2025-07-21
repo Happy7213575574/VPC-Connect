@@ -4,8 +4,11 @@ using System.Threading.Tasks;
 using System.Web;
 using ConnectApp.AppLog;
 using ConnectApp.Communication;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.ApplicationModel;
 
 namespace ConnectApp.Extensions
 {
@@ -61,8 +64,8 @@ namespace ConnectApp.Extensions
             {
                 LaunchMode = BrowserLaunchMode.SystemPreferred,
                 TitleMode = BrowserTitleMode.Show,
-                PreferredToolbarColor = Color.AliceBlue,
-                PreferredControlColor = Color.Violet
+                PreferredToolbarColor = Colors.AliceBlue,
+                PreferredControlColor = Colors.Violet
             });
         }
 
