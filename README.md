@@ -48,9 +48,6 @@ The source code is maintained by volunteers through [Police Rewired](https://pol
 If you would like to contribute to the project:
 
 * Have a think about what you'd like to do. There are plenty of ways to improve this project or others.
-* Reach out to volunteers at [Police Rewired](https://policerewired.org) and let us know what you'd like to do.
-  * Discord ([invite](https://bit.ly/PoliceRewired-join-discord)), or
-  * Email [team@policerewired.org](mailto:team@policerewired.org)
 
 All code must be reviewed by at least one repository owner before it can be merged into the `main` branch - and then used in future releases.
 
