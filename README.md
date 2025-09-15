@@ -1,7 +1,7 @@
 # VPC Connect
 
 This is forked code
-** Use branch updating to help move from .NET MANUI 7 TO .NET MANUI 9
+** Use branch updating to help move from .NET Manui 7 to .NET Manui 9
 
 ## Update
 
